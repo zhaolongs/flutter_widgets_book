@@ -10,7 +10,7 @@ import 'package:flutter/services.dart';
 
 
 /**
- *  限制输入框内输入文本的内容
+ *  输入框边框样式
  */
 class TextFieldDecPage extends StatefulWidget {
   @override
@@ -18,8 +18,8 @@ class TextFieldDecPage extends StatefulWidget {
 }
 
 
-///6 /lib/code3/main_data83.dart
-/// 限制输入的内容
+///6 /lib/code3/main_data84.dart
+///输入框边框样式
 class _PageState extends State {
 
   @override
@@ -36,107 +36,135 @@ class _PageState extends State {
         body: Container(
           margin: EdgeInsets.all(30.0),
           child: Column(children: [
-
+            Text("无边框"),
             buildBodyFunction(),
 
             SizedBox(height: 40,),
-            Text("输入字母"),
+            Text("上下左右 都有边框"),
             buildBodyFunction2(),
-            SizedBox(height: 20,),
-            Text("输入字母和数字"),
+            SizedBox(height: 40,),
+            buildBodyFunction4(),
+            SizedBox(height: 40,),
+            Text("只有下边框  默认使用的就是下边框"),
             buildBodyFunction3(),
 
-            SizedBox(height: 20,),
-            Text("验证用户密码"),
-            buildBodyFunction4(),
+            SizedBox(height: 40,),
+            Text("只有下边框  自定义边框颜色"),
+            SizedBox(height: 30,),
+            buildBodyFunction5(),
 
-            SizedBox(height: 20,),
-            Text("输入点后自动补0"),
-            buildBodyFunction6(),
+
 
           ],),));
   }
 
-  ///6 /lib/code3/main_data83.dart
-  /// 限制只能输入数字
+  ///6 /lib/code3/main_data84.dart
+  /// 设置无边框
   buildBodyFunction() {
     return new TextField(
+      //边框样式设置
       decoration: InputDecoration(
+        ///设置无边框
         border: InputBorder.none,
       ),
     );
   }
-  ///6 /lib/code3/main_data83.dart
-  /// 限制只能输入字母
+  ///6 /lib/code3/main_data84.dart
+  /// 设置上下左右 都有边框
   buildBodyFunction2() {
     return new TextField(
-      ///输入文本格式过滤
-      inputFormatters: [
-        ///使用正则过滤
-        WhitelistingTextInputFormatter(RegExp("[a-zA-Z]")),
-      ],
+      //边框样式设置
+      decoration: InputDecoration(
+        ///设置上下左右 都有边框
+        border: OutlineInputBorder(
+        ),
+      ),
+    );
+  }
+  ///6 /lib/code3/main_data84.dart
+  /// 设置上下左右 都有边框
+  buildBodyFunction4() {
+    return new TextField(
+      //边框样式设置
+      decoration: InputDecoration(
+        ///设置上下左右 都有边框
+        ///设置四个角的弧度
+        border: OutlineInputBorder(
+          ///设置边框四个角的弧度
+          borderRadius: BorderRadius.all(Radius.circular(40)),
+        ),
+      ),
+    );
+  }
+  ///6 /lib/code3/main_data84.dart
+  /// 只有下边框  默认使用的就是下边框
+  buildBodyFunction3() {
+    return new TextField(
+      //边框样式设置
+      decoration: InputDecoration(
+        ///只有下边框  默认使用的就是下边框
+        border: UnderlineInputBorder(
+        ),
+      ),
     );
   }
 
-  ///6 /lib/code3/main_data83.dart
-  /// 限制只能输入字母和数字
-  buildBodyFunction3() {
-    return new TextField(
-      ///输入文本格式过滤
-      inputFormatters: [
-        ///使用正则过滤
-        WhitelistingTextInputFormatter(RegExp("[A-Za-z0-9]")),
-      ],
-    );
-  }
-  ///6 /lib/code3/main_data83.dart
-  ///限制单行
-  buildBodyFunction4() {
-    return new TextField(
-      ///设置最大行数为3行
-      maxLines: 3,
-      ///输入文本格式过滤
-      inputFormatters: [
-        ///限制单行
-       BlacklistingTextInputFormatter.singleLineFormatter,
-      ],
-    );
-  }
-  ///6 /lib/code3/main_data83.dart
-  ///输入邮箱控制
+  ///6 /lib/code3/main_data84.dart
+  /// 只有下边框  配置自定义的边框颜色
   buildBodyFunction5() {
     return new TextField(
-      ///输入文本格式过滤
-      inputFormatters: [
-        WhitelistingTextInputFormatter(RegExp("[@]|[A-Za-z0-9]|[.]")),
-      ],
-    );
-  }
-  ///6 /lib/code3/main_data83.dart
-  ///使用自定义的TextInputFormatter
-  buildBodyFunction6() {
-    return new TextField(
-      ///输入文本格式过滤
-      inputFormatters: [
-        CustomInputFormatter(),
-      ],
-    );
-  }
-}
-///6 /lib/code3/main_data83.dart
-// 限制小数位数
-class CustomInputFormatter extends TextInputFormatter {
-  @override
-  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
-    String value = newValue.text;
-    int selectionIndex = newValue.selection.end;
-    if(value=="."){
-      value ="0.";
-      selectionIndex++;
-    }
-    return new TextEditingValue(
-      text: value,
-      selection: new TextSelection.collapsed(offset: selectionIndex),
+      //输入字数限制
+      maxLength: 5,
+      //超出字数限制后仍然可输入
+      maxLengthEnforced: false,
+      ///激活状态
+      enabled: true,
+      ///为true时为只读
+      readOnly: true,
+      //边框样式设置
+      decoration: InputDecoration(
+        ///只有下边框  配置自定义的边框颜色
+        border: UnderlineInputBorder(),
+        ///设置输入框可编辑时的边框样式
+        ///可理解为enabled为true时，就是当前的输入框为激活状态时
+        enabledBorder: OutlineInputBorder(
+          ///设置边框四个角的弧度
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          ///用来配置边框的样式
+          borderSide: BorderSide(
+            ///设置边框的颜色
+            color: Colors.blueGrey,
+            ///设置边框的粗细
+            width: 2.0,
+          ),
+        ),
+
+        ///输入框不可编辑时显示的边框样式
+        ///可理解为enabled为false时，就是当前的输入框为 未激活状态时
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderSide: BorderSide(
+            color: Colors.grey,
+            width: 1.0,
+          ),
+        ),
+        ///输入框错误提示边框样式
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderSide: BorderSide(
+            color: Colors.red,
+            width: 2.0,
+          ),
+        ),
+        ///用来配置输入框获取焦点时的边框样式
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(40)),
+          borderSide: BorderSide(
+            color: Colors.green,
+            width: 2.0,
+          ),
+        ),
+      ),
     );
   }
 

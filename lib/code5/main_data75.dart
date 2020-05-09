@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutterbookcode/code/main_login1.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 import 'main_data76.dart';
@@ -17,6 +18,16 @@ import 'main_data81.dart';
 import 'main_data82.dart';
 import 'main_data83.dart';
 import 'main_data84.dart';
+import 'main_data85-1.dart';
+import 'main_data85-2.dart';
+import 'main_data85-3.dart';
+import 'main_data85.dart';
+import 'main_data86.dart';
+import 'main_data87.dart';
+import 'main_data88.dart';
+import 'main_data89.dart';
+import 'main_data90.dart';
+import 'main_data91.dart';
 
 
 
@@ -50,8 +61,8 @@ class _FirstPageState extends State<TextFieldMainPage> {
 
   buildBodyFunction(BuildContext context){
    return Row(children: [
-     Container(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget(context),),),
-     Container(child: Column(children: [],),),
+     Container(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget(context),),margin: EdgeInsets.only(right: 20),),
+     Container(child:Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget2(context),),),
    ],);
   }
 
@@ -66,9 +77,30 @@ class _FirstPageState extends State<TextFieldMainPage> {
       RaisedButton(child: Text("行数限制"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldMaxLinePage()); },),
       RaisedButton(child: Text("限制输入内容"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldContentPage()); },),
       RaisedButton(child: Text("输入边框样式"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldDecPage()); },),
+      RaisedButton(child: Text("登录页面示例"),onPressed: () { NavigatorUtils.pushPage(context, LoginPage1()); },),
+    ];
+  }
+
+  bluldLeftWidget2(BuildContext context){
+    return [
+
+      RaisedButton(child: Text("labelText"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldLabelTextPage()); },),
+      RaisedButton(child: Text("labelText 样式"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldLabelTextStylePage()); },),
+      RaisedButton(child: Text("labelText 动态修改"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldLabelTextStyle2Page()); },),
+      RaisedButton(child: Text("FocusNode"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldFocusNodePage()); },),
+
+
+      RaisedButton(child: Text("preIcon"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldPreIconPage()); },),
+      RaisedButton(child: Text("preText"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldPreTextPage()); },),
+      RaisedButton(child: Text("countText"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldCountTextPage()); },),
+      RaisedButton(child: Text("自定义countText"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldCustomCountTextPage()); },),
+      RaisedButton(child: Text("suffix显示计数"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldCountAndSufixTextPage()); },),
+      RaisedButton(child: Text("helperText"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldHelperTextPage()); },),
+
 
 
 
     ];
   }
+
 }
