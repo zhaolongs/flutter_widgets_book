@@ -28,6 +28,10 @@ import 'main_data88.dart';
 import 'main_data89.dart';
 import 'main_data90.dart';
 import 'main_data91.dart';
+import 'main_data93.dart';
+import 'main_data94.dart';
+import 'main_data95.dart';
+import 'main_data96.dart';
 
 
 
@@ -78,6 +82,9 @@ class _FirstPageState extends State<TextFieldMainPage> {
       RaisedButton(child: Text("限制输入内容"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldContentPage()); },),
       RaisedButton(child: Text("输入边框样式"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldDecPage()); },),
       RaisedButton(child: Text("登录页面示例"),onPressed: () { NavigatorUtils.pushPage(context, LoginPage1()); },),
+      RaisedButton(child: Text("文本对齐"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldTextAlignPage()); },),
+      RaisedButton(child: Text("fillColor"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldFillColorPage()); },),
+
     ];
   }
 
@@ -96,6 +103,8 @@ class _FirstPageState extends State<TextFieldMainPage> {
       RaisedButton(child: Text("自定义countText"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldCustomCountTextPage()); },),
       RaisedButton(child: Text("suffix显示计数"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldCountAndSufixTextPage()); },),
       RaisedButton(child: Text("helperText"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldHelperTextPage()); },),
+      RaisedButton(child: Text("文本控制器"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldControllerPage()); },),
+      RaisedButton(child: Text("光标样式"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldCursorPage()); },),
 
 
 

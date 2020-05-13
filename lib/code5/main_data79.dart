@@ -65,6 +65,8 @@ class _PageState extends State<TextKeyBoardReturn> {
          */
         textInputAction: TextInputAction.send,
 
+        keyboardAppearance:Brightness.dark,
+
         ///点击键盘上的回车按钮回调事件函数
         ///参数[value]获取的是当前TextField中输入的内容
         onSubmitted: (value){
