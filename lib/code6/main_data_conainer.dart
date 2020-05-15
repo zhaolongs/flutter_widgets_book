@@ -16,6 +16,13 @@ import 'main_data102.dart';
 import 'main_data103.dart';
 import 'main_data104.dart';
 import 'main_data105.dart';
+import 'main_data107.dart';
+import 'main_data108.dart';
+import 'main_data109.dart';
+import 'main_data110.dart';
+import 'main_data111.dart';
+import 'main_data112.dart';
+import 'main_data113.dart';
 import 'main_data97.dart';
 import 'main_data98.dart';
 import 'main_data99.dart';
@@ -57,6 +64,14 @@ class _FirstPageState extends State<ContainerMainPage> {
   bluldLeftWidget(BuildContext context){
     return [
       RaisedButton(child: Text("Container基本使用"),onPressed: () { NavigatorUtils.pushPage(context, ContainerUsePage()); },),
+      buildContainerAndClick("color与decoration同时使用报错",(){NavigatorUtils.pushPage(context, ContainerDecorationAndColorPage());}),
+
+      buildContainerAndClick("BoxDecoration 边框设置分析",(){NavigatorUtils.pushPage(context, ContainerDecorationPage());}),
+      buildContainerAndClick("BoxDecoration boxShadow 阴影设置分析",(){NavigatorUtils.pushPage(context, ContainerBoxShadowPage());}),
+      buildContainerAndClick("BoxDecoration 线性渐变颜色过渡分析",(){NavigatorUtils.pushPage(context, ContainerGradientPage());}),
+      buildContainerAndClick("BoxDecoration 扫描式渐变过渡分析",(){NavigatorUtils.pushPage(context, ContainerSweepGradientPage());}),
+      buildContainerAndClick("BoxDecoration 环形渐变过渡分析",(){NavigatorUtils.pushPage(context, ContainerRadialGradientPage());}),
+
 
 
     ];
@@ -72,6 +87,7 @@ class _FirstPageState extends State<ContainerMainPage> {
       buildContainerAndClick("Contrainer自适应包裹子Widget",(){NavigatorUtils.pushPage(context, ContainerWarpPage());}),
       buildContainerAndClick("Container 内外边距配置说明",(){NavigatorUtils.pushPage(context, ContainerWarpPaddingPage());}),
       buildContainerAndClick("Container 边界配置说明",(){NavigatorUtils.pushPage(context, ContainerEdgeInsetsPage());}),
+      buildContainerAndClick("Container 在ListView中的使用",(){NavigatorUtils.pushPage(context, ContainerListViewPage());}),
 
 
     ];
