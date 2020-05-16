@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
+import 'code20/main_data_other.dart';
 import 'code3/main_data_appbar.dart';
 import 'code5/main_data75.dart';
 import 'code6/main_data_conainer.dart';
@@ -51,6 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
     new CatalogModel("第4章AppBar组件", MainAppBarPage(), "常用作包裹其他Widget，类似html中的div"),
     new CatalogModel("第6章输入框Textfield", TextFieldMainPage(), "Textfield在Flutter中用来进行文本输入框的功能"),
     new CatalogModel("第7章容器Container", ContainerMainPage(), "常用作包裹其他Widget，类似html中的div"),
+
+    new CatalogModel("第19章常用Widget", OtherWidgetMainPage(), "Transform变换组件、"),
 
   ];
 

@@ -23,6 +23,16 @@ import 'main_data110.dart';
 import 'main_data111.dart';
 import 'main_data112.dart';
 import 'main_data113.dart';
+import 'main_data114.dart';
+import 'main_data115.dart';
+import 'main_data116.dart';
+import 'main_data117.dart';
+import 'main_data118.dart';
+import 'main_data119.dart';
+import 'main_data120.dart';
+import 'main_data121.dart';
+import 'main_data122.dart';
+import 'main_data124.dart';
 import 'main_data97.dart';
 import 'main_data98.dart';
 import 'main_data99.dart';
@@ -55,10 +65,10 @@ class _FirstPageState extends State<ContainerMainPage> {
   }
 
   buildBodyFunction(BuildContext context){
-   return Row(children: [
-   Expanded(child: Container(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget(context),),margin: EdgeInsets.only(right: 20),),),
+   return SingleChildScrollView(child: Row(children: [
+     Expanded(child: Container(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget(context),),margin: EdgeInsets.only(right: 20),),),
      Expanded(child: Container(child:Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget2(context),),),)
-   ],);
+   ],),);
   }
 
   bluldLeftWidget(BuildContext context){
@@ -71,6 +81,11 @@ class _FirstPageState extends State<ContainerMainPage> {
       buildContainerAndClick("BoxDecoration 线性渐变颜色过渡分析",(){NavigatorUtils.pushPage(context, ContainerGradientPage());}),
       buildContainerAndClick("BoxDecoration 扫描式渐变过渡分析",(){NavigatorUtils.pushPage(context, ContainerSweepGradientPage());}),
       buildContainerAndClick("BoxDecoration 环形渐变过渡分析",(){NavigatorUtils.pushPage(context, ContainerRadialGradientPage());}),
+      buildContainerAndClick("BoxDecoration shape分析",(){NavigatorUtils.pushPage(context, ContainerShapePage());}),
+      buildContainerAndClick("BoxDecoration image分析",(){NavigatorUtils.pushPage(context, ContainerImagePage());}),
+
+      buildContainerAndClick("ShapeDecoration 分析",(){NavigatorUtils.pushPage(context, ContainerShapeDecorationPage());}),
+
 
 
 
@@ -88,7 +103,15 @@ class _FirstPageState extends State<ContainerMainPage> {
       buildContainerAndClick("Container 内外边距配置说明",(){NavigatorUtils.pushPage(context, ContainerWarpPaddingPage());}),
       buildContainerAndClick("Container 边界配置说明",(){NavigatorUtils.pushPage(context, ContainerEdgeInsetsPage());}),
       buildContainerAndClick("Container 在ListView中的使用",(){NavigatorUtils.pushPage(context, ContainerListViewPage());}),
+      buildContainerAndClick("Container  Transform变换",(){NavigatorUtils.pushPage(context, ContainerTransformPage());}),
+      buildContainerAndClick("Container  Matrix4变换",(){NavigatorUtils.pushPage(context, ContainerMatrix4Page());}),
 
+      buildContainerAndClick("Container  Matrix4实现缩放变换",(){NavigatorUtils.pushPage(context, ContainerMatrixScalePage());}),
+      buildContainerAndClick("Container  Matrix4实现平移变换",(){NavigatorUtils.pushPage(context, ContainerMatrixTranslatePage());}),
+      buildContainerAndClick("Container  Matrix4实现旋转变换",(){NavigatorUtils.pushPage(context, ContainerMatrixRoatePage());}),
+
+      buildContainerAndClick("Container  Matrix4 函数实现缩放",(){NavigatorUtils.pushPage(context, ContainerScallFunctionPage());}),
+      buildContainerAndClick("Container  Matrix4 函数实现视差效果",(){NavigatorUtils.pushPage(context, ContainerEntryPage());}),
 
     ];
   }
