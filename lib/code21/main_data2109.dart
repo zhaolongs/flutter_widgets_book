@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/base/xy_page.dart';
 
-//lib/code20/main_data2108.dart
-///  绘制 圆角矩形
-class DrawRReactPage extends StatefulWidget {
+//lib/code20/main_data2109.dart
+///  绘制 嵌套矩形
+class DRRectReactPage extends StatefulWidget {
   @override
   _PageState createState() => _PageState();
 }
@@ -21,7 +21,7 @@ class _PageState extends State {
   buildBody1() {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Canvas 绘制圆角矩形"),
+        title: Text("Canvas 绘制嵌套矩形"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -34,9 +34,9 @@ class _PageState extends State {
               width: MediaQuery.of(context).size.width,
               height: 400,
               child: CustomPaint(
-                size: Size(200, 100),
+                  size: Size(300,300),
 //                child: XOYPage(),
-                foregroundPainter: RectPainter(),
+                painter: RectPainter(),
               ),
             )
           ],
@@ -46,21 +46,36 @@ class _PageState extends State {
   }
 }
 
-//lib/code20/main_data2108.dart
-///  绘制圆角矩形
+//lib/code20/main_data2109.dart
+///  绘制嵌套矩形
 class RectPainter extends CustomPainter {
   ///[定义画笔]
   Paint _paint = Paint()
     ..color = Colors.blue //画笔颜色
-    ..style= PaintingStyle.fill //画笔style为填充
+    ..style= PaintingStyle.stroke //画笔style为填充
     ..strokeWidth = 4.0; //画笔的宽度
 
   @override
   void paint(Canvas canvas, Size size) {
-    ///创建圆角矩形
-    RRect rect = buildRect3();
-    ///绘制圆角矩形
-    canvas.drawRRect(rect, _paint);
+    //绘制两个矩形
+    Rect rect1 = Rect.fromCircle(center: Offset(100.0, 100.0), radius: 60.0);
+    Rect rect2 = Rect.fromCircle(center: Offset(100.0, 100.0), radius: 40.0);
+
+    //分别绘制外部圆角矩形和内部的圆角矩形
+    RRect outer = RRect.fromRectAndRadius(rect1, Radius.circular(10.0));
+    RRect inner = RRect.fromRectAndRadius(rect2, Radius.circular(10.0));
+
+    ///绘制嵌套矩形
+    canvas.drawDRRect(outer,inner, _paint)
+
+    ///创建外层圆角矩形
+//    RRect rect = RRect.fromLTRBXY(20, 40, 260, 200,60,40);
+//    ///创建内层圆角矩形
+//    RRect rect2 =RRect.fromLTRBXY(30, 40, 200, 150,60,40);
+//    ///绘制嵌套矩形
+//    canvas.drawDRRect(rect,rect2, _paint);
+;
+
   }
 
   @override
@@ -68,16 +83,8 @@ class RectPainter extends CustomPainter {
     return true;
   }
 
-  /*
-  RRect.fromLTRBXY 前四个参数用来绘制矩形位置，剩余两个参数绘制固定 x/y 弧度；
-RRect.fromLTRBR 前四个参数用来绘制矩形位置，最后一个参数绘制 Radius 弧度；
-RRect.fromLTRBAndCorners 前四个参数用来绘制矩形位置，剩余四个可选择参数，根据需求设置四个角 Radius 弧度，可不同；
-RRect.fromRectXY 第一个参数绘制矩形，可以用上面介绍的多种矩形绘制方式，剩余两个参数绘制固定 x/y 弧度；
-RRect.fromRectAndRadius 第一个参数绘制矩形，可以用上面介绍的多种矩形绘制方式，最后一个参数绘制 Radius 弧度；
-RRect.fromRectAndCorners第一个参数绘制矩形，可以用上面介绍的多种矩形绘制方式，剩余四个可选择参数，根据需求设置四个角 Radius 弧度，最为灵活。
-   */
-  //lib/code20/main_data2108.dart
-  ///创建圆角矩形方式一
+  //lib/code20/main_data2109.dart
+  ///创建嵌套矩形方式一
   RRect buildRect1(){
     ///根据以画板左上角为坐标系圆点，分别设置上下左右四个方向距离来创建矩形
     ///left,  top,  right, bottom
@@ -85,8 +92,8 @@ RRect.fromRectAndCorners第一个参数绘制矩形，可以用上面介绍的�
     return RRect.fromLTRBXY(20, 40, 250, 200,60,40);
   }
 
-  //lib/code20/main_data2108.dart
-  ///创建圆角矩形方式二
+  //lib/code20/main_data2109.dart
+  ///创建嵌套矩形方式二
   RRect buildRect2(){
     ///根据以画板左上角为坐标系圆点，分别设置上下左右四个方向距离来创建矩形
     ///left,  top,  right, bottom
@@ -95,8 +102,8 @@ RRect.fromRectAndCorners第一个参数绘制矩形，可以用上面介绍的�
     return RRect.fromLTRBR(20, 40, 250, 200,Radius.circular(40));
   }
 
-  //lib/code20/main_data2108.dart
-  ///创建圆角矩形方式3
+  //lib/code20/main_data2109.dart
+  ///创建嵌套矩形方式3
   RRect buildRect3() {
     ////根据以画板左上角为坐标系圆点，分别设置上下左右四个方向距离来创建矩形
     ///前四个参数分别为 left,  top,  right, bottom，用来创建矩形
