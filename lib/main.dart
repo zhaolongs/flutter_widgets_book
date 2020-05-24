@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
-import 'code20/main_data_other.dart';
+import 'code1/main_materiapp.dart';
+import 'code10/main_data_ui_layout.dart';
+import 'code20/main_data_other_transform.dart';
+import 'code21/main_data_canvas.dart';
+import 'code22/main_data_other.dart';
 import 'code3/main_data_appbar.dart';
+import 'code3/main_data_scffold.dart';
 import 'code5/main_data75.dart';
 import 'code6/main_data_conainer.dart';
+import 'code7/main_data_button.dart';
 
 void main() {
   runApp(MyApp());
 }
+
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -19,6 +27,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        ///Button使用的样式配置
+        buttonTheme: ButtonThemeData()
       ),
       home: MyHomePage(),
     );
@@ -49,11 +59,18 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   List<CatalogModel> list = [
+    new CatalogModel("第2章MaterialApp组件", MaterialAppMainPage(), ""),
+    new CatalogModel("第3章Scaffold组件", ScaffoldWidgetMainPage(), "常用作包裹其他Widget，类似html中的div"),
     new CatalogModel("第4章AppBar组件", MainAppBarPage(), "常用作包裹其他Widget，类似html中的div"),
     new CatalogModel("第6章输入框Textfield", TextFieldMainPage(), "Textfield在Flutter中用来进行文本输入框的功能"),
     new CatalogModel("第7章容器Container", ContainerMainPage(), "常用作包裹其他Widget，类似html中的div"),
+    new CatalogModel("第8章按钮Button", ButtonMainPage(), "MaterialButton的使用分析"),
 
-    new CatalogModel("第19章常用Widget", OtherWidgetMainPage(), "Transform变换组件、"),
+    new CatalogModel("第9章UI布局", UilayoutWidgetMainPage(), "线性布局Column、Row、"),
+    new CatalogModel("第19章矩阵变换t", OtherTransformWidgetMainPage(), "Transform变换组件、"),
+    new CatalogModel("第20章绘图", CanvasWidgetMainPage(), "绘图基础、绘制坐标轴"),
+
+    new CatalogModel("第21章其他Widget", OtherWidgetMainPage(), "Transform变换组件、"),
 
   ];
 
@@ -61,7 +78,6 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget buildItemWidget(BuildContext context, int index) {
     CatalogModel catalogModel = list[index];
     return Container(
-      height: 80,
       padding: EdgeInsets.all(12.0),
       margin: EdgeInsets.only(top: 12.0),
       decoration: BoxDecoration(

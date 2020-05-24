@@ -38,6 +38,9 @@ class _PageState extends State {
               children: [
                 Padding(
                   padding: EdgeInsets.only(top: 40),
+                ),buildBorder6(),
+                Padding(
+                  padding: EdgeInsets.only(top: 40),
                 ),buildBorder5(),
                 Padding(
                   padding: EdgeInsets.only(top: 40),
@@ -170,6 +173,26 @@ class _PageState extends State {
             left: Radius.circular(20),
             ///同时配置topRight与bottomRight两圆角的样式
             right: Radius.circular(10),)
+      ),
+      child: Text("配置边框"),
+    );
+  }
+  ///6 /lib/code6/main_data109.dart
+  ///  Container BoxDecoration horizontal 分别配置左右两组的圆角样式
+  Container buildBorder6() {
+    return Container(
+      //子Widget居中对齐
+      alignment: Alignment.center,
+      width: 200,
+      height: 100,
+      decoration: new BoxDecoration(
+        // 边框颜色与宽度
+          border: new Border.all(color: Color(0xFFFF0000), width: 0.5),
+          borderRadius: BorderRadius.horizontal(
+            ///同时配置topLeft与bottomLeft两个角的圆角样式
+            left: Radius.circular(20),
+            ///同时配置topRight与bottomRight两圆角的样式
+            right: Radius.elliptical(20,30),)
       ),
       child: Text("配置边框"),
     );

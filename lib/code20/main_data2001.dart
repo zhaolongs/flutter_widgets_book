@@ -99,7 +99,7 @@ class _PageState extends State {
         ///  Transform 图形旋转变换
         ///  通过构造函数来配置旋转中心
         Transform(
-          /// roatx为旋转的弧度 0-pi为一圈
+          /// roatx为旋转的弧度 0-pi为180度半圈
           /// Matrix4.rotationZ(roatx) 绕z轴旋转
           /// Matrix4.rotationX(roatx) 绕x轴旋转
           /// Matrix4.rotationZ(roatx) 绕y轴旋转

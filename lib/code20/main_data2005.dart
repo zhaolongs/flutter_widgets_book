@@ -35,6 +35,8 @@ class _PageState extends State {
       x,y,z,1,
     ];
 
+
+
     return Scaffold(
       body: SingleChildScrollView(child: Column(mainAxisAlignment: MainAxisAlignment.start,children: [
 
@@ -96,5 +98,13 @@ class _PageState extends State {
 
       ],),),
     );
+  }
+
+  buildVector3(){
+//    import 'package:vector_math/vector_math_64.dart' as v;
+    //创建平移向量
+    v.Vector3 vector3 =v.Vector3(x, y, z);
+    //参考平移向量变换
+    Matrix4 matrix4 = Matrix4.translation(vector3);
   }
 }

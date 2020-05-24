@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 //本地存储插件
 import 'package:shared_preferences/shared_preferences.dart';
-//应用入口
-main() => runApp(InitThemPage());
+
+
 //本地化语言标识
 Locale _initLocal;
 //本地存储工具
@@ -18,14 +18,14 @@ int indexPage = 0;
 
 //2.9.3 保存用户对应用程序语言环境的偏好设置
 //初始化页面
-class InitThemPage extends StatefulWidget {
+class DateLnaguageSelectPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _InitThemState();
   }
 }
 
-class _InitThemState extends State<InitThemPage> {
+class _InitThemState extends State<DateLnaguageSelectPage> {
   //当State与Context绑定时再加载本地缓存
   @override
   void didChangeDependencies() {
@@ -51,6 +51,7 @@ class _InitThemState extends State<InitThemPage> {
     }
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(title: Text("切换日期控制的语言环境"),),
         body: bodyItemWidget,
       ),
       localizationsDelegates: [

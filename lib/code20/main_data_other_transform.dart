@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/code/common_founction.dart';
 import 'package:flutterbookcode/code/main_login1.dart';
+import 'package:flutterbookcode/demo/ani/demo_flip_page.dart';
+import 'package:flutterbookcode/demo/vn3/main_data3d.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 import 'main_data2001.dart';
@@ -16,6 +18,16 @@ import 'main_data2003.dart';
 import 'main_data2004.dart';
 import 'main_data2005.dart';
 import 'main_data2006.dart';
+import 'main_data2007.dart';
+import 'main_data2008.dart';
+import 'main_data2009.dart';
+import 'main_data2010.dart';
+import 'main_data2011.dart';
+import 'main_data2012.dart';
+import 'main_data2013.dart';
+import 'main_data2014.dart';
+import 'main_data2015.dart';
+import 'main_data2016.dart';
 
 
 
@@ -48,7 +60,7 @@ class _FirstPageState extends State<OtherTransformWidgetMainPage> {
   buildBodyFunction(BuildContext context){
    return SingleChildScrollView(child: Row(children: [
      Expanded(child: Container(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget(context),),margin: EdgeInsets.only(right: 20),),),
-//     Expanded(child: Container(child:Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget2(context),),),)
+     Expanded(child: Container(child:Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget2(context),),),)
    ],),);
   }
 
@@ -61,6 +73,12 @@ class _FirstPageState extends State<OtherTransformWidgetMainPage> {
       buildContainerAndClick("Transform 函数方式缩放变换",(){NavigatorUtils.pushPage(context, TransformScalePage3());}),
       buildContainerAndClick("Transform 函数平移变换",(){NavigatorUtils.pushPage(context, TransformTranslationPage2());}),
       buildContainerAndClick("Transform 矩阵数组平移变换",(){NavigatorUtils.pushPage(context, TransformTranslationPage1());}),
+      buildContainerAndClick("Transform skew x轴方向 倾斜",(){NavigatorUtils.pushPage(context, TransformSkewPage1());}),
+      buildContainerAndClick("Transform skew y轴方向倾斜",(){NavigatorUtils.pushPage(context, TransformSkewPage2());}),
+      buildContainerAndClick("Transform skew x轴与y轴方向同时配置倾斜",(){NavigatorUtils.pushPage(context, TransformSkewPage3());}),
+
+//      buildContainerAndClick("Transform 视差效果",(){NavigatorUtils.pushPage(context, TransformTranslationPage4());}),
+
 
 
 
@@ -70,6 +88,18 @@ class _FirstPageState extends State<OtherTransformWidgetMainPage> {
 
   bluldLeftWidget2(BuildContext context){
     return [
+
+
+      buildContainerAndClick(" Matrix4 矩阵方法汇总说明",(){NavigatorUtils.pushPage(context, TransformTranslationPage7());}),
+    buildContainerAndClick(" Matrix4 矩阵空间旋转示例分析",(){NavigatorUtils.pushPage(context, TransformTranslationPage8());}),
+    buildContainerAndClick(" Matrix4 矩阵组合换",(){NavigatorUtils.pushPage(context, TransformTranslationPage9());}),
+
+      buildContainerAndClick(" 视差效果 推理",(){NavigatorUtils.pushPage(context, TransformTranslationPage3());}),
+      buildContainerAndClick(" 图片前投影",(){NavigatorUtils.pushPage(context, TransformTranslationPage5());}),
+      buildContainerAndClick(" 图片侧位投影",(){NavigatorUtils.pushPage(context, TransformTranslationPage6());}),
+
+      buildContainerAndClick("翻转切换",(){NavigatorUtils.pushPage(context, FlipMainHomePage());}),
+      buildContainerAndClick("3D画廊",(){NavigatorUtils.pushPage(context, Main3DUsePage());}),
 
 
     ];

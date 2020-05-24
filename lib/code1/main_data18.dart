@@ -11,7 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 //Widget的标识GloalKey 
 GlobalKey<_InitThemState> langGlobalKey = new GlobalKey();
 
-main() => runApp(InitThemPage(key: langGlobalKey));
+
 //本地化语言标识
 Locale _initLocal;
 //本地存储工具
@@ -22,15 +22,15 @@ int indexPage = 0;
 
 //2.9.3 保存用户对应用程序语言环境的偏好设置
 //初始化页面
-class InitThemPage extends StatefulWidget {
-  InitThemPage({Key key}) : super(key: key);
+class DateLnaguageSelectPage2 extends StatefulWidget {
+  DateLnaguageSelectPage2() : super(key: langGlobalKey);
   @override
   State<StatefulWidget> createState() {
     return _InitThemState();
   }
 }
 
-class _InitThemState extends State<InitThemPage> {
+class _InitThemState extends State<DateLnaguageSelectPage2> {
   //当State与Context绑定时再加载本地缓存
   @override
   void didChangeDependencies() {
