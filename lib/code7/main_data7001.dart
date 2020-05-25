@@ -29,10 +29,44 @@ class _PageState extends State  {
         width: MediaQuery.of(context).size.width,
         child: Column(children: [
 
-          buildMaterialButton7(),
+          buildMaterialButton12(),
 
       ],),),
     );
+  }
+
+  //lib/code7/main_data7001.dart
+  /// MaterialButton的宽高限定
+  buildMaterialButton12() {
+    return Container(
+      width: 300,
+      height: 60,
+      child: MaterialButton(
+          ///按钮上显示的文字
+          child: Text('登录'),
+          ///配置背景颜色
+          color: Colors.blue,
+          onPressed: () {
+            print("点击事件");
+          }),
+    );
+  }
+
+  //lib/code7/main_data7001.dart
+  /// MaterialButton的宽高限定
+  buildMaterialButton11() {
+    return MaterialButton(
+        ///设置按钮的最小宽度
+        minWidth: 200,
+        ///设置按钮的高度
+        height: 60,
+        ///按钮上显示的文字
+        child: Text('登录'),
+        ///配置背景颜色
+        color: Colors.blue,
+        onPressed: () {
+          print("点击事件");
+        });
   }
 
   //lib/code7/main_data7001.dart
@@ -196,6 +230,7 @@ class _PageState extends State  {
   ///Material Design风格按钮的基本使用
   buildMaterialButton2() {
     return MaterialButton(
+      minWidth: 200,
       ///按钮的背景
       color: Colors.blue,
       ///按钮点击下的颜色

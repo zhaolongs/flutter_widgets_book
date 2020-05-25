@@ -6,6 +6,7 @@ import 'package:flutterbookcode/code/common_founction.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 import 'main_data7001.dart';
+import 'main_data7002.dart';
 
 
 
@@ -46,7 +47,7 @@ class _FirstPageState extends State<ButtonMainPage> {
     return [
 
       buildContainerAndClick("MaterialButton的基本使用",(){NavigatorUtils.pushPage(context, MaterialButtonBaseUse());}),
-
+      buildContainerAndClick("MaterialButton的子组件",(){NavigatorUtils.pushPage(context, MaterialButtonRow());}),
 
 
 
