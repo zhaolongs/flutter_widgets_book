@@ -7,13 +7,14 @@ import 'package:flutter/material.dart';
 //2.6.1 lib/code1/main_data5.dart
 //自定义路由观察者
 import 'package:flutter/cupertino.dart';
+import 'package:flutterbookcode/utils/route/circle/circle_path.dart';
 
 
 
 
-void main() => runApp(RoutesApp());
+void main() => runApp(CustoumRoutesApp());
 //定义根目录Widget
-class RoutesApp extends StatelessWidget {
+class CustoumRoutesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //路由配置404
@@ -52,28 +53,31 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
+  ///按钮的Key
+  GlobalKey openGlobalKey = new GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("第一个页面"),
       ),
-      body: Column(children: <Widget>[
+      body: SingleChildScrollView(child:Column(children: <Widget>[
         FlatButton(
-          child: Text("透明的方式"),
+          child: Text("透明的方式打开新的页面"),
           onPressed: (){
-open1(context);
+            open1(context);
           },
         ),
         FlatButton(
-          child: Text("旋转的方式"),
+          child: Text("旋转的方式打开新的页面"),
           onPressed: (){
             open2(context);
 
           },
         ),
         FlatButton(
-          child: Text("缩放的方式"),
+          child: Text("缩放的方式打开新的页面"),
           onPressed: (){
 
             open4(context);
@@ -81,7 +85,7 @@ open1(context);
           },
         ),
         FlatButton(
-          child: Text("平移的方式"),
+          child: Text("平移的方式打开新的页面"),
           onPressed: (){
 
             open5(context);
@@ -89,19 +93,50 @@ open1(context);
           },
         ),
         FlatButton(
-          child: Text("组合的方式"),
+          child: Text("组合的方式打开新的页面"),
           onPressed: (){
 
             open6(context);
 
           },
         ),
-      ],),
+        FlatButton(
+          key: openGlobalKey,
+          child: Text("圆形过渡的方式打开新的页面"),
+          onPressed: (){
+            ///通过GlobalKey来确定页面打开时的起始位置
+            open7(context,key: openGlobalKey);
+
+          },
+        ),
+        //lib/code1/main_data9.dart
+        ///以手指点按抬起的位置为起点
+        ///圆形过渡的方式打开新的页面
+        Padding(
+          padding: EdgeInsets.only(top: 30),
+          ///手势识别
+          child: GestureDetector(
+            child:Text('打开第二个页面'),
+            ///当手指抬起来时回调的方法
+            onTapUp: (detail) {
+              ///获取手势抬的位置
+              ///localPosition获取的是当前在父组件内的位置
+              ///globalPosition获取的是当前手指按下的在整个手机屏幕上的位置
+              Offset offset = detail.globalPosition;
+              print("当前手指抬起的位置 ${offset.toString()}");
+              ///打开第二个页面
+              open7(context,centerOffset: offset);
+            },
+          ),
+        ),
+
+
+      ],),),
     );
   }
 
   void open1(BuildContext context){
-    //自定义动态路由实战 以透明的方式打开ScendPaged页面
+    //自定义动态路由实战 以透明的方式打开新的页面打开ScendPaged页面
     Navigator.of(context).push(new PageRouteBuilder(pageBuilder:
         (BuildContext context, Animation<double> animation,
         Animation<double> secondaryAnimation) {
@@ -126,7 +161,7 @@ open1(context);
   }
 
   void open2(BuildContext context){
-  //自定义动态路由实战 以旋转的方式打开ScendPaged页面
+  //自定义动态路由实战 以旋转的方式打开新的页面打开ScendPaged页面
     Navigator.of(context).push(new PageRouteBuilder(pageBuilder:
         (BuildContext context, Animation<double> animation,
         Animation<double> secondaryAnimation) {
@@ -153,7 +188,7 @@ open1(context);
     }));
   }
   void open4(BuildContext context){
-    //自定义动态路由实战 以缩放的方式打开ScendPaged页面
+    //自定义动态路由实战 以缩放的方式打开新的页面打开ScendPaged页面
     Navigator.of(context).push(new PageRouteBuilder(pageBuilder:
         (BuildContext context, Animation<double> animation,
         Animation<double> secondaryAnimation) {
@@ -176,7 +211,7 @@ open1(context);
     }));
   }
   void open5(BuildContext context){
-    //自定义动态路由实战 以平移的方式打开ScendPaged页面
+    //自定义动态路由实战 以平移的方式打开新的页面打开ScendPaged页面
     Navigator.of(context).push(new PageRouteBuilder(pageBuilder:
         (BuildContext context, Animation<double> animation,
         Animation<double> secondaryAnimation) {
@@ -199,7 +234,7 @@ open1(context);
     }));
   }
   void open6(BuildContext context){
-    //自定义动态路由实战 以组合的方式打开ScendPaged页面
+    //自定义动态路由实战 以组合的方式打开新的页面打开ScendPaged页面
     Navigator.of(context).push(new PageRouteBuilder(pageBuilder:
         (BuildContext context, Animation<double> animation,
         Animation<double> secondaryAnimation) {
@@ -230,6 +265,42 @@ open1(context);
         ),
       );
     }));
+  }
+
+  //lib/code1/main_data9.dart
+  ///圆形过渡的方式打开新的页面"
+  ///[key]点击事件触发的Widget所绑定的Key,例如Button
+  ///[centerOffset] 过渡的圆形位置
+  ///[key]绑定事件的Widget的GlobalKey，也就是根据key来计算[centerOffset]，
+  ///如果配置同时配置了[key]与[centerOffset]，那么会优先使用[key]来计算中心位置
+  void open7(BuildContext context,{Offset centerOffset,GlobalKey key}) {
+    ///通过PageRouteBuilder来自定义Rout
+    PageRouteBuilder pageRouteBuilder = PageRouteBuilder(
+      ///页面过渡的时间
+        transitionDuration: Duration(milliseconds: 2300),
+        ///通过pageBuilder来构建页面
+        pageBuilder: (BuildContext context, Animation<double> animation,
+            Animation<double> secondaryAnimation) {
+          ///初始化动画构建器
+          return AnimatedBuilder(
+            animation: animation,
+            builder: (context, child) {
+              ///创建裁剪路径
+              return ClipPath(
+                ///自定义的裁剪路径
+                clipper: CirclePath(
+                    animation.value,
+                    centerOffset: centerOffset,
+                    key: key),
+                child: child,
+              );
+            },
+            ///将要打开的目标页面
+            child: ScendPage(),
+          );
+        });
+    ///然后通过Navigator将页面压入栈中
+    Navigator.of(context).push(pageRouteBuilder);
   }
 }
 

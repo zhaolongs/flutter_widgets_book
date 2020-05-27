@@ -29,12 +29,24 @@ class _PageState extends State  {
         width: MediaQuery.of(context).size.width,
         child: Column(children: [
 
-          buildMaterialButton12(),
+          buildMaterialButton13(),
 
       ],),),
     );
   }
-
+  //lib/code7/main_data7001.dart宽高限定
+  buildMaterialButton13() {
+    return  MaterialButton(
+          ///设置子Button的内边距
+          padding: EdgeInsets.only(left: 40),
+        ///按钮上显示的文字
+          child: Text('登录'),
+          ///配置背景颜色
+          color: Colors.blue,
+          onPressed: () {
+            print("点击事件");
+          });
+  }
   //lib/code7/main_data7001.dart
   /// MaterialButton的宽高限定
   buildMaterialButton12() {

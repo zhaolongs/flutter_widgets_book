@@ -10,6 +10,15 @@ import 'main_data1003.dart';
 import 'main_data1004.dart';
 import 'main_data1005.dart';
 import 'main_data1006.dart';
+import 'main_data1007.dart';
+import 'main_data1008.dart';
+import 'main_data1009.dart';
+import 'main_data1010.dart';
+import 'main_data1011.dart';
+import 'main_data1012.dart';
+import 'main_data1013.dart';
+import 'main_data1014.dart';
+import 'main_data1015.dart';
 
 
 
@@ -43,7 +52,7 @@ class _FirstPageState extends State<UilayoutWidgetMainPage> {
   buildBodyFunction(BuildContext context){
    return SingleChildScrollView(child: Row(children: [
      Expanded(child: Container(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget(context),),margin: EdgeInsets.only(right: 20),),),
-//     Expanded(child: Container(child:Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget2(context),),),)
+     Expanded(child: Container(child:Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget2(context),),),)
    ],),);
   }
 
@@ -63,7 +72,16 @@ class _FirstPageState extends State<UilayoutWidgetMainPage> {
 
   bluldLeftWidget2(BuildContext context){
     return [
+      buildContainerAndClick("Column基本使用",(){NavigatorUtils.pushPage(context, ColumnMain1Page());}),
+      buildContainerAndClick("Column 的对齐方式",(){NavigatorUtils.pushPage(context, ColumnMain2Page());}),
+      buildContainerAndClick("Column verticalDirection",(){NavigatorUtils.pushPage(context, ColumnMain3Page());}),
+      buildContainerAndClick("Column 权重适配",(){NavigatorUtils.pushPage(context, ColumnMain4Page());}),
+      buildContainerAndClick("Column 等比适配",(){NavigatorUtils.pushPage(context, ColumnMain5Page());}),
+      buildContainerAndClick("Column 填充与包裹",(){NavigatorUtils.pushPage(context, ColumnMain6Page());}),
 
+      buildContainerAndClick("Row的基本使用",(){NavigatorUtils.pushPage(context, RowMainPage());}),
+      buildContainerAndClick("Row的对齐方式",(){NavigatorUtils.pushPage(context, RowMain1Page());}),
+      buildContainerAndClick("Row的权重适配",(){NavigatorUtils.pushPage(context, RowMain2Page());}),
 
 
     ];

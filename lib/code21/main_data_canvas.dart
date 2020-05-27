@@ -28,6 +28,11 @@ import 'main_data2113.dart';
 import 'main_data2114.dart';
 import 'main_data2115.dart';
 import 'main_data2116.dart';
+import 'main_data2117.dart';
+import 'main_data2118.dart';
+import 'main_data2119.dart';
+import 'main_data2120.dart';
+import 'main_data2121.dart';
 
 
 
@@ -102,6 +107,14 @@ class _FirstPageState extends State<CanvasWidgetMainPage> {
       buildContainerAndClick("canvas save",(){NavigatorUtils.pushPage(context, CanvasSavePage());}),
 
       buildContainerAndClick("点击波浪效果",(){NavigatorUtils.pushPage(context, WaterWavesPage());}),
+      buildContainerAndClick("绘制一个标签",(){NavigatorUtils.pushPage(context, TagsPage());}),
+
+      buildContainerAndClick("绘制文本",(){NavigatorUtils.pushPage(context, CanvasTextPage());}),
+
+      buildContainerAndClick("绘制阴影",(){NavigatorUtils.pushPage(context, DrawShadowPage());}),
+      buildContainerAndClick("绘制图片",(){NavigatorUtils.pushPage(context, DrawImagePage());}),
+      buildContainerAndClick("放大预览图片",(){NavigatorUtils.pushPage(context, BiggerImageView());}),
+
 
 
     ];

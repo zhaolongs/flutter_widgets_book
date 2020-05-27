@@ -4,6 +4,8 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbookcode/utils/route/circle/circle_page_route.dart';
+import 'package:flutterbookcode/utils/route/circle/circle_path.dart';
 class NavigatorUtils {
   //关闭当前页面
   //[context]当前页面的Context
@@ -61,5 +63,54 @@ class NavigatorUtils {
   }
 
 
-
+  //lib/code1/main_data9.dart
+  ///圆形过渡的方式打开新的页面"
+  ///
+  /// [page]将要打开的页面
+  ///[key]点击事件触发的Widget所绑定的Key,例如Button
+  ///[centerOffset] 过渡的圆形位置
+  ///[key]绑定事件的Widget的GlobalKey，也就是根据key来计算[centerOffset]，
+  ///如果配置同时配置了[key]与[centerOffset]，那么会优先使用[key]来计算中心位置
+  ///[routeName]目标页面的路由名称
+  ///[paramtes]向目标页面传的参数
+  ///[callback]目标页面关闭时的回调函数
+  void pushPageAboutCircle(BuildContext context,Widget page,{Offset centerOffset,GlobalKey key,String routeName, paramtes,Function callback}) {
+    ///通过PageRouteBuilder来自定义Rout
+    PageRouteBuilder pageRouteBuilder = PageRouteBuilder(
+        settings: RouteSettings(name: routeName, arguments: paramtes),
+      ///页面过渡的时间
+        transitionDuration: Duration(milliseconds: 2300),
+        ///通过pageBuilder来构建页面
+        pageBuilder: (BuildContext context, Animation<double> animation,
+            Animation<double> secondaryAnimation) {
+          ///初始化动画构建器
+          return AnimatedBuilder(
+            animation: animation,
+            builder: (context, child) {
+              ///创建裁剪路径
+              return ClipPath(
+                ///自定义的裁剪路径
+                clipper: CirclePath(
+                    animation.value,
+                    centerOffset: centerOffset,
+                    key: key),
+                child: child,
+              );
+            },
+            ///将要打开的目标页面
+            child: page,
+          );
+        });
+    ///然后通过Navigator将页面压入栈中
+    Navigator.of(context).push(pageRouteBuilder).then((
+        value) {
+      //目标页面关闭时回调函数与回传参数
+      if (callback != null) {
+        callback(value);
+      }
+    });
+  }
 }
+
+
+

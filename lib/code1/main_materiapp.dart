@@ -9,6 +9,7 @@ import 'main_data17.dart';
 import 'main_data18.dart';
 import 'main_data19.dart';
 import 'main_data20.dart';
+import 'main_data9.dart';
 
 class MaterialAppMainPage extends StatefulWidget {
   @override
@@ -51,7 +52,7 @@ class _FirstPageState extends State<MaterialAppMainPage> {
       buildContainerAndClick("国际化配置文本",(){NavigatorUtils.pushPage(context, LangeageSelectPage());}),
 
 
-
+      buildContainerAndClick("圆形效果逐渐打开页面",(){NavigatorUtils.pushPage(context, CustoumRoutesApp());}),
 
 
     ];
