@@ -19,6 +19,8 @@ import 'main_data1012.dart';
 import 'main_data1013.dart';
 import 'main_data1014.dart';
 import 'main_data1015.dart';
+import 'main_data1016.dart';
+import 'main_data1017.dart';
 
 
 
@@ -64,7 +66,9 @@ class _FirstPageState extends State<UilayoutWidgetMainPage> {
       buildContainerAndClick("流式布局Flow",(){NavigatorUtils.pushPage(context, FlowMain1Page());}),
       buildContainerAndClick("流式布局Flow初探",(){NavigatorUtils.pushPage(context, FlowMain1Page1());}),
       buildContainerAndClick("圆形动态弹出菜单",(){NavigatorUtils.pushPage(context, FlowMain1Page2());}),
-      
+
+      buildContainerAndClick("Flex布局",(){NavigatorUtils.pushPage(context, FlexMain1Page());}),
+      buildContainerAndClick("Flexible和 Expanded的区别",(){NavigatorUtils.pushPage(context, FlexMain2Page());}),
 
 
     ];
