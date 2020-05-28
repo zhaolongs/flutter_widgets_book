@@ -208,13 +208,17 @@ class TestFlowDelegate extends FlowDelegate {
     Size lastChildSize= context.getChildSize(lastIndex);
     double lastx=  (flowWidth-lastChildSize.height*1.5);
     double lasty= flowHeight - lastChildSize.height*2;
-    ///绘制这个菜单在左下角并旋转
+    ///绘制这个菜单在右下角并旋转
     context.paintChild(lastIndex,
-        transform: Matrix4Transform()
-            ///绕自身中心旋转
-            .rotateByCenterDegrees(radiusRate*45, lastChildSize)
-            ///平移到底部中心
-            .translate(x: lastx,y: lasty).matrix4);
+        ///先平移到底部
+        transform: Matrix4.translationValues(lastx, lasty, 0.0)
+        ///然后将旋转中心平移到子Widget的中心
+          ..translate(lastChildSize.width/2,lastChildSize.height/2)
+        ///合并旋转操作
+          ..multiply(Matrix4.rotationZ(radiusRate*0.8)
+          ///再将旋转中心平移回去
+            ..translate(-lastChildSize.width/2,-lastChildSize.height/2))
+    );
   }
 
 
