@@ -7,6 +7,7 @@ import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 import 'main_data2201.dart';
 import 'main_data2202.dart';
+import 'main_data2203.dart';
 
 
 
@@ -49,6 +50,8 @@ class _FirstPageState extends State<OtherWidgetMainPage> {
       buildContainerAndClick("WidgetsBindingObserver",(){NavigatorUtils.pushPage(context, WidgetWillAppearPage());}),
 
       buildContainerAndClick("FittedBox 组件",(){NavigatorUtils.pushPage(context, FittedBoxPage());}),
+
+      buildContainerAndClick("BoxConstraints 组件",(){NavigatorUtils.pushPage(context, ConstrainedBoxPage());}),
 
 
 
