@@ -30,6 +30,7 @@ dependencies:
   #最新版本可查看这里 https://pub.flutter-io.cn/packages/provider
   #在这里的 ^号代表自动加载升级版的插件，如果需要使用固定版本，可以将^去掉，然后直接写上版本号就可以
   provider: ^4.0.5
+  matrix4_transform: ^1.1.4
 
   shared_preferences: ^0.5.6+3
   fluttertextlayoutplugin:

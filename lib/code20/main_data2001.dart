@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:matrix4_transform/matrix4_transform.dart';
 
 ///7 /lib/code20/main_data124.dart
 ///  Transform 图形变换
@@ -67,13 +68,14 @@ class _PageState extends State {
         ///  通过矩阵数组来控制变换
         Transform(
           /// 通过矩阵数组来控制变换
+//          transform: Matrix4Transform().rotateDegrees(z*pi*57, origin: Offset(100,100)).matrix4,
           transform: Matrix4.fromList(tranListValues),
           ///配制旋转中心 相对于当前子Widget的左上角
           ///如这里的子Container的width与height都是200，那么会有旋转中心
           ///   （0，0）为左上角
           ///   （100，100）为中心
           ///   （200，200）为右下角
-          origin: Offset(100, 100),
+//          origin: Offset(100, 100),
           child: Container(
             height: 200.0,
             width: 200.0,

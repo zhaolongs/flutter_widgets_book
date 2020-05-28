@@ -3,25 +3,29 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/base/xy_page.dart';
+import 'package:matrix4_transform/matrix4_transform.dart';
 import 'package:vector_math/vector_math_64.dart' as v;
 //lib/code10/main_data1018.dart
 ///   流式布局 Flow 圆形菜单
 class FlowMain1Page4 extends StatefulWidget {
   @override
-  _PageState createState() => _PageState();
+  _MenuState createState() => _MenuState();
 }
 //lib/code10/main_data1018.dart
-///   流式布局 Flow 圆形菜单
-class _PageState extends State     with SingleTickerProviderStateMixin {
+///   流式布局 Flow 圆形菜单 类似开源中国底部圆形菜单效果
+class _MenuState extends State with SingleTickerProviderStateMixin {
 
-  ///动画控制器
-  AnimationController _controller;
+
   ///变化比率
   double _rad = 0.0;
   ///是否执行完动画，或者说是动画停止
   bool _closed = true;
-
+  ///动画控制器
+  AnimationController _controller;
+  ///用于控制变化速率
   Animation<double> animation;
+  ///用于保存显示出来的菜单效果Widget
+  List<Widget> menuItemList=[];
 
   @override
   void initState() {
@@ -29,12 +33,12 @@ class _PageState extends State     with SingleTickerProviderStateMixin {
     ///创建动画控制器
     ///执行时间为200毫秒
     _controller =
-    AnimationController(duration: Duration(milliseconds: 200), vsync: this)
+    AnimationController(duration: Duration(milliseconds: 400), vsync: this)
     ///设置监听，每当动画执行时就会实时回调此方法
       ..addListener((){
         setState(() {
           ///从0到1
-          _rad =_controller.value;
+          _rad =animation.value;
           print("$_rad ");
         });
 
@@ -50,10 +54,13 @@ class _PageState extends State     with SingleTickerProviderStateMixin {
         }
 
       });
-
+    ///变化值从 0.0-1.0
+    ///Curves.easeInOutExpo 中间快两头慢
     animation = Tween(begin: 0.0, end: 1.0).animate(
-        CurveTween(curve: Curves.easeInBack).animate(_controller));
-
+        ///先快后慢
+        CurveTween(curve: Curves.easeOutQuint).animate(_controller));
+    ///构建菜单具体显示的Widget
+    menuItemList = buildMenuData();
   }
 
   @override
@@ -71,15 +78,15 @@ class _PageState extends State     with SingleTickerProviderStateMixin {
   /// 流式布局 Flow 圆形菜单
   ///构建菜单所使用到的图标
   List<Icon> iconList =[
-    Icon(Icons.add,color: Colors.white,size: 18,),
-    Icon(Icons.wallpaper,color: Colors.white,size: 18,),
-    Icon(Icons.message,color: Colors.white,size: 18,),
-    Icon(Icons.home,color: Colors.white,),
+    Icon(Icons.android,color: Colors.white,size: 18,),
+    Icon(Icons.image,color: Colors.white,size: 18,),
+    Icon(Icons.find_in_page,color: Colors.white,size: 18,),
+    Icon(Icons.add,color: Colors.white,size: 28),
   ];
 
   //lib/code10/main_data1018.dart
   /// Flow 流式布局 构建菜单数据Widget
-  List<Widget>  buildTestData(){
+  List<Widget> buildMenuData(){
     List<Widget> childWidthList = [];
     ///为每个Icon添加一个点击事件与圆形背景
     for (int i = 0; i < iconList.length; i++) {
@@ -128,7 +135,7 @@ class _PageState extends State     with SingleTickerProviderStateMixin {
             ///代理
             delegate: TestFlowDelegate(radiusRate: _rad),
             ///使用到的子Widget
-            children: buildTestData(),
+            children: menuItemList,
           )
         ],
       ),
@@ -150,16 +157,12 @@ class _PageState extends State     with SingleTickerProviderStateMixin {
 ///  流式布局 Flow 计算
 class TestFlowDelegate extends FlowDelegate {
 
-  ///菜单的内边距
-  EdgeInsets padding;
-  ///菜单展开的初始角度 （弧度）
-  double initAngle;
   ///半径变化的比率
   ///一般从0到1 菜单展开
   ///从1-0菜单关闭
   double radiusRate;
 
-  TestFlowDelegate({this.radiusRate=0, this.padding=EdgeInsets.zero, this.initAngle=0.2});
+  TestFlowDelegate({this.radiusRate=0});
 
   @override
   void paintChildren(FlowPaintingContext context) {
@@ -175,6 +178,12 @@ class TestFlowDelegate extends FlowDelegate {
 
     //获取当前画布的最小边长，width与height谁小取谁
     double radius = context.size.shortestSide/3*2;
+    ///获取当前Flow的大小
+    double flowWidth = context.size.width;
+    double flowHeight = context.size.height;
+    
+    ///左右两个菜单的偏移量
+    double dxflag = radius/3*radiusRate;
 
     ///默认将所有的子Widget绘制到左下角
     x = radius;
@@ -185,18 +194,21 @@ class TestFlowDelegate extends FlowDelegate {
     for (var i = 0; i < context.childCount-1; i++) {
       ///获取第i个子Widget的大小
       Size itemChildSize =  context.getChildSize(i);
+      ///子child开始绘制的y中心点
+      double normalHeight = flowHeight - itemChildSize.height*2;
+      ///子child开始绘制的x中心点
+      double normalWidth = flowWidth-itemChildSize.width/2;
       ///计算每个子Widget 的坐标
       if(i==0) {
-        x =( context.size.width-itemChildSize.width/2) / 2-cos(0.3)*radius/2.5*radiusRate;
-        y= context.size.height - itemChildSize.height*2 - radius/4*radiusRate;
+        x =normalWidth / 2-dxflag;
+        y= normalHeight - radius/4.3*radiusRate;
       }else if(i==1){
-        x =  (context.size.width-itemChildSize.width/2) / 2;
-        y= context.size.height - itemChildSize.height*2 - radius/3*radiusRate;
+        x =  normalWidth / 2;
+        y= normalHeight - radius/3*radiusRate;
       }else{
-        x =  (context.size.width-itemChildSize.width/2) / 2+cos(0.3)*radius/2.5*radiusRate;
-        y= context.size.height - itemChildSize.height*2 - radius/4*radiusRate;
+        x =  normalWidth / 2+dxflag;
+        y= normalHeight - radius/4.3*radiusRate;
       }
-
       ///在Flow中进行绘制
       context.paintChild(i, transform: new Matrix4.translationValues(x, y, 0.0));
     }
@@ -204,10 +216,15 @@ class TestFlowDelegate extends FlowDelegate {
     ///最后一个做为菜单选项
     int lastIndex = context.childCount-1;
     Size lastChildSize= context.getChildSize(lastIndex);
-    double lastx=  (context.size.width-lastChildSize.width/2)/2;
-    double lasty= context.size.height - lastChildSize.height*2;
-    ///绘制这个菜单在左下角
-    context.paintChild(lastIndex, transform: new Matrix4.translationValues(lastx, lasty, 0.0));
+    double lastx=  (flowWidth-lastChildSize.width/2)/2;
+    double lasty= flowHeight - lastChildSize.height*2;
+    ///绘制这个菜单在左下角并旋转
+    context.paintChild(lastIndex,
+        transform: Matrix4Transform()
+            ///绕自身中心旋转
+            .rotateByCenterDegrees(radiusRate*45, lastChildSize)
+            ///平移到底部中心
+            .translate(x: lastx,y: lasty).matrix4);
   }
 
 
