@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/code/common_founction.dart';
 import 'package:flutterbookcode/code/main_login1.dart';
+import 'package:flutterbookcode/code20/main_data2018.dart';
 import 'package:flutterbookcode/demo/ani/demo_flip_page.dart';
 import 'package:flutterbookcode/demo/vn3/main_data3d.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
@@ -28,6 +29,8 @@ import 'main_data2013.dart';
 import 'main_data2014.dart';
 import 'main_data2015.dart';
 import 'main_data2016.dart';
+import 'main_data2017.dart';
+import 'main_data2019.dart';
 
 
 
@@ -79,6 +82,11 @@ class _FirstPageState extends State<OtherTransformWidgetMainPage> {
 
 //      buildContainerAndClick("Transform 视差效果",(){NavigatorUtils.pushPage(context, TransformTranslationPage4());}),
 
+      buildContainerAndClick("Matrix4Transform 旋转1",(){NavigatorUtils.pushPage(context, TransformTranslationPage10());}),
+      buildContainerAndClick("Matrix4Transform 旋转2",(){NavigatorUtils.pushPage(context, TransformTranslationPage11());}),
+
+      buildContainerAndClick("compose 复合变换",(){NavigatorUtils.pushPage(context, TransformTranslationPage12());}),
+
 
 
 
@@ -91,8 +99,8 @@ class _FirstPageState extends State<OtherTransformWidgetMainPage> {
 
 
       buildContainerAndClick(" Matrix4 矩阵方法汇总说明",(){NavigatorUtils.pushPage(context, TransformTranslationPage7());}),
-    buildContainerAndClick(" Matrix4 矩阵空间旋转示例分析",(){NavigatorUtils.pushPage(context, TransformTranslationPage8());}),
-    buildContainerAndClick(" Matrix4 矩阵组合换",(){NavigatorUtils.pushPage(context, TransformTranslationPage9());}),
+      buildContainerAndClick(" Matrix4 矩阵空间旋转示例分析",(){NavigatorUtils.pushPage(context, TransformTranslationPage8());}),
+      buildContainerAndClick(" Matrix4 矩阵组合换",(){NavigatorUtils.pushPage(context, TransformTranslationPage9());}),
 
       buildContainerAndClick(" 视差效果 推理",(){NavigatorUtils.pushPage(context, TransformTranslationPage3());}),
       buildContainerAndClick(" 图片前投影",(){NavigatorUtils.pushPage(context, TransformTranslationPage5());}),

@@ -23,6 +23,8 @@ import 'main_data1016.dart';
 import 'main_data1017.dart';
 import 'main_data1018.dart';
 import 'main_data1019.dart';
+import 'main_data1020.dart';
+import 'main_data1021.dart';
 
 
 
@@ -91,6 +93,9 @@ class _FirstPageState extends State<UilayoutWidgetMainPage> {
       buildContainerAndClick("Row的基本使用",(){NavigatorUtils.pushPage(context, RowMainPage());}),
       buildContainerAndClick("Row的对齐方式",(){NavigatorUtils.pushPage(context, RowMain1Page());}),
       buildContainerAndClick("Row的权重适配",(){NavigatorUtils.pushPage(context, RowMain2Page());}),
+
+      buildContainerAndClick("Stack的基本使用",(){NavigatorUtils.pushPage(context, StackMain1Page());}),
+      buildContainerAndClick("Stack的基本使用2",(){NavigatorUtils.pushPage(context, StackMain2Page());}),
 
 
     ];

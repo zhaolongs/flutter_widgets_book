@@ -48,7 +48,6 @@ class _PageState extends State {
           title: Text("Canvas 绘制图片"),
         ),
         body: Container(
-
             ///当图片没加载完时显示一个圆形进度
             child: BiggerView(
           config: BiggerConfig(
