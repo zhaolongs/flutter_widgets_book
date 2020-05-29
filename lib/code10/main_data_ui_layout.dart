@@ -25,6 +25,8 @@ import 'main_data1018.dart';
 import 'main_data1019.dart';
 import 'main_data1020.dart';
 import 'main_data1021.dart';
+import 'main_data1022.dart';
+import 'main_data1023.dart';
 
 
 
@@ -96,7 +98,8 @@ class _FirstPageState extends State<UilayoutWidgetMainPage> {
 
       buildContainerAndClick("Stack的基本使用",(){NavigatorUtils.pushPage(context, StackMain1Page());}),
       buildContainerAndClick("Stack的基本使用2",(){NavigatorUtils.pushPage(context, StackMain2Page());}),
-
+      buildContainerAndClick("Stack left、top 、right、 bottom",(){NavigatorUtils.pushPage(context, StackMain3Page());}),
+      buildContainerAndClick("Positioned的width和height",(){NavigatorUtils.pushPage(context, StackMain4Page());}),
 
     ];
   }
