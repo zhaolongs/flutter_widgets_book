@@ -18,6 +18,7 @@ import 'main_data7010.dart';
 import 'main_data7011.dart';
 import 'main_data7012.dart';
 import 'main_data7013.dart';
+import 'main_data7014.dart';
 
 
 
@@ -84,6 +85,7 @@ class _FirstPageState extends State<ButtonMainPage> {
       buildContainerAndClick("仿闲鱼的发布按钮",(){NavigatorUtils.pushPage(context, FloatingActionButton7Page());}),
       buildContainerAndClick("悬浮按钮的旋转",(){NavigatorUtils.pushPage(context, FloatingActionButton8Page());}),
       buildContainerAndClick("底部弹出的按钮效果",(){NavigatorUtils.pushPage(context, FloatingActionButton9Page());}),
+      buildContainerAndClick("ProgressButton",(){NavigatorUtils.pushPage(context, ProgressButtonPage());}),
 
     ];
   }
