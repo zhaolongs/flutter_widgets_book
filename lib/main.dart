@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List<CatalogModel> list = [
     new CatalogModel("第2章MaterialApp组件", MaterialAppMainPage(), ""),
-    new CatalogModel("第3章Scaffold组件", ScaffoldWidgetMainPage(), "常用作包裹其他Widget，类似html中的div"),
+    new CatalogModel("第3章Scaffold组件", ScaffoldWidgetMainPage(), "常用作包裹其他Widget，类似html中的div，内容涉及BottomAppBar与悬浮按钮结合使用"),
     new CatalogModel("第4章AppBar组件", MainAppBarPage(), "常用作包裹其他Widget，类似html中的div"),
     new CatalogModel("第6章输入框Textfield", TextFieldMainPage(), "Textfield在Flutter中用来进行文本输入框的功能"),
     new CatalogModel("第7章容器Container", ContainerMainPage(), "常用作包裹其他Widget，类似html中的div"),

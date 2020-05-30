@@ -6,15 +6,15 @@ import 'package:flutter/material.dart';
 //应用入口 
 main() =>
     runApp(MaterialApp(
-      home: FirstPage(),),);
+      home: BottomAppBarAndFloatButtonPage(),),);
 
-class FirstPage extends StatefulWidget {
+class BottomAppBarAndFloatButtonPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return FirstThemState();
   }
 }
-class FirstThemState extends State<FirstPage> {
+class FirstThemState extends State<BottomAppBarAndFloatButtonPage> {
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构
