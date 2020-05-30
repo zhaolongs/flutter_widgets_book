@@ -19,6 +19,9 @@ import 'main_data7011.dart';
 import 'main_data7012.dart';
 import 'main_data7013.dart';
 import 'main_data7014.dart';
+import 'main_data7015.dart';
+import 'main_data7016.dart';
+import 'main_data7017.dart';
 
 
 
@@ -86,6 +89,9 @@ class _FirstPageState extends State<ButtonMainPage> {
       buildContainerAndClick("悬浮按钮的旋转",(){NavigatorUtils.pushPage(context, FloatingActionButton8Page());}),
       buildContainerAndClick("底部弹出的按钮效果",(){NavigatorUtils.pushPage(context, FloatingActionButton9Page());}),
       buildContainerAndClick("ProgressButton",(){NavigatorUtils.pushPage(context, ProgressButtonPage());}),
+      buildContainerAndClick("IconButton系列",(){NavigatorUtils.pushPage(context, BackButtonPage());}),
+      buildContainerAndClick("PopupMenuButton",(){NavigatorUtils.pushPage(context, PopupMenuButtonPage());}),
+      buildContainerAndClick("实现类似微信首页右上角的小弹框",(){NavigatorUtils.pushPage(context, PopupMenuButton2Page());}),
 
     ];
   }

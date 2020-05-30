@@ -39,6 +39,7 @@ dependencies:
       url: https://github.com/zhaolongs/flutter_text_layout.git
       ref: master
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
