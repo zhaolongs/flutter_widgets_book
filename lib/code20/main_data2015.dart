@@ -55,7 +55,7 @@ class _PageState extends State {
               color: Colors.deepPurple,
               width: 100,
               height: 100,
-              child: Image.asset("images/2.0/banner1.webp",),
+              child: Image.asset("assets/images/2.0/banner1.webp",),
             ),),
 
           Container(height: 50,),
@@ -68,7 +68,7 @@ class _PageState extends State {
               color: Colors.deepPurple,
               width: 100,
               height: 100,
-              child: Image.asset("images/2.0/banner1.webp",),
+              child: Image.asset("assets/images/2.0/banner1.webp",),
             ),),
 
           Padding(padding: EdgeInsets.all(10),child: Slider(value: x,max: 1,min: -1,onChanged: (va){

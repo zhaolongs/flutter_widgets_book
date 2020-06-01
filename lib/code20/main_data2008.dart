@@ -48,7 +48,7 @@ class _PageState extends State {
                   width: 250,
                   height: 125,
                   child: Image.asset(
-                    "images/2.0/banner1.webp",
+                    "assets/images/2.0/banner1.webp",
                   ),
                 )),
             Padding(

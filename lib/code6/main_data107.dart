@@ -67,7 +67,7 @@ class _PageState extends State {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image(
-              image: AssetImage("images/2.0/my_question_icon.png"),
+              image: AssetImage("assets/images/2.0/my_question_icon.png"),
               height: 60,
               fit: BoxFit.fill,
             ),

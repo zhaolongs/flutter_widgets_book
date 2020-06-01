@@ -51,7 +51,7 @@ class _PageState extends State {
             child: Container(
               width: 250,
               height: 200,
-              child: Image.asset("images/2.0/banner1.webp",),
+              child: Image.asset("assets/images/2.0/banner1.webp",),
             ),),),
           buildBackMirror(),
         ],

@@ -76,7 +76,7 @@ class _PageState extends State {
         ///配置背景图像
         image: DecorationImage(
           ///加载图片
-            image: AssetImage("images/2.0/head1.png"),
+            image: AssetImage("assets/images/2.0/head1.png"),
             ///填充
             fit: BoxFit.fill),
       ),

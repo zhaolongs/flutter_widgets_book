@@ -107,7 +107,7 @@ class _PageState extends State {
               color: Colors.deepPurple,
               width: 200,
               height: 100,
-              child: Image.asset("images/2.0/banner1.webp",),
+              child: Image.asset("assets/images/2.0/banner1.webp",),
             ),),
 
           Container(height: 50,),
@@ -121,7 +121,7 @@ class _PageState extends State {
               color: Colors.deepPurple,
               width: 200,
               height: 100,
-              child: Image.asset("images/2.0/banner1.webp",),
+              child: Image.asset("assets/images/2.0/banner1.webp",),
             ),),
 
           buildFunction(),

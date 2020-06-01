@@ -225,7 +225,7 @@ class _PageState extends State {
           isTextColorRandom: true,
           ///无文字前Icon
           icon:null,
-          imag: Image.asset("images/2.0/friend_icon.png",width: 20,height: 20,),
+          imag: Image.asset("assets/images/2.0/friend_icon.png",width: 20,height: 20,),
           ///显示文字前小圆点
           isShowCirPoint: false);
 

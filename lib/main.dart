@@ -11,6 +11,7 @@ import 'code3/main_data_scffold.dart';
 import 'code5/main_data75.dart';
 import 'code6/main_data_conainer.dart';
 import 'code7/main_data_button.dart';
+import 'code9/image_main_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -67,6 +68,8 @@ class _MyHomePageState extends State<MyHomePage> {
     new CatalogModel("第8章按钮Button", ButtonMainPage(), "MaterialButton的使用分析"),
 
     new CatalogModel("第9章UI布局", UilayoutWidgetMainPage(), "线性布局Column、Row、"),
+    new CatalogModel("第10章图片Image组件", ImageMainPage(), "加载资源文件"),
+
     new CatalogModel("第19章矩阵变换t", OtherTransformWidgetMainPage(), "Transform变换组件、"),
     new CatalogModel("第20章绘图", CanvasWidgetMainPage(), "绘图基础、绘制坐标轴"),
 

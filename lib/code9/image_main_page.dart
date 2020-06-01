@@ -1,0 +1,76 @@
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutterbookcode/code/common_founction.dart';
+import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
+
+import 'main_data9001.dart';
+import 'main_data9002.dart';
+import 'main_data9003.dart';
+import 'main_data9004.dart';
+import 'main_data9005.dart';
+import 'main_data9006.dart';
+import 'main_data9007.dart';
+
+/*
+ * 创建人： Created by zhaolong
+ * 创建时间：Created by  on 2020/5/30.
+ *
+ * 可关注公众号：我的大前端生涯   获取最新技术分享
+ * 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
+ * 可关注博客：https://blog.csdn.net/zl18603543572
+ */
+class ImageMainPage extends StatefulWidget {
+  @override
+  _ImagePageState createState() => _ImagePageState();
+}
+
+//lib/code/main_data.dart
+class _ImagePageState extends State<ImageMainPage> {
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(
+              "Image组件"
+          ),),
+        body: Container(
+          margin: EdgeInsets.all(30.0),
+          child: buildBodyFunction(context),));
+  }
+
+
+
+  buildBodyFunction(BuildContext context){
+    return SingleChildScrollView(child: Row(children: [
+      Expanded(child: Container(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget(context),),margin: EdgeInsets.only(right: 20),),),
+//     Expanded(child: Container(child:Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget2(context),),),)
+    ],),);
+  }
+
+  bluldLeftWidget(BuildContext context){
+    return [
+
+
+
+      buildContainerAndClick("Image.asset的基本使用",(){NavigatorUtils.pushPage(context, ImageAssetsBaseUsePage());}),
+      buildContainerAndClick("Image.network的基本使用",(){NavigatorUtils.pushPage(context, ImageNetBaseUsePage());}),
+      buildContainerAndClick("Image 构造函数加载图片",(){NavigatorUtils.pushPage(context, ImageUsePage());}),
+      buildContainerAndClick("AssetBundle 加载图片",(){NavigatorUtils.pushPage(context, ImageUse2Page());}),
+      buildContainerAndClick("图像混合模式ColorBlendMode",(){NavigatorUtils.pushPage(context, ImageColorBlendMode());}),
+      buildContainerAndClick("图像填充模式",(){NavigatorUtils.pushPage(context, BoxFitBaseUsePage());}),
+      buildContainerAndClick("CenterSlice",(){NavigatorUtils.pushPage(context, CenterSliceUsePage());}),
+
+    ];
+  }
+
+  bluldLeftWidget2(BuildContext context){
+    return [
+
+
+    ];
+  }
+
+}

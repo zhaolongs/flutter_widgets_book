@@ -1,17 +1,10 @@
 name: flutterbookcode
 description: MaterialApp组件的精通使用分析
 
-# The following defines the version and build number for your application.
-#/Users/androidlongs/Desktop/flutter_book/code/flutter_book_code_1/flutter_book_code/pubspec.yaml
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
-# Read more about iOS versioning at
-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+#  * 可关注公众号：我的大前端生涯   获取最新技术分享
+#  * 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
+#  * 可关注博客：https://blog.csdn.net/zl18603543572
+#
 version: 1.0.0+1
 
 environment:
@@ -56,25 +49,30 @@ flutter:
 
 #配置图片的目录结构
   assets:
-    - images/2.0/
-    - images/3.0/
-    - assets/6.obj
+    #一倍图目录
+    - assets/images/
+    #三倍图目录
+    - assets/images/3.0x/
+    #二倍图目录
+    - assets/images/2.0x/
+    - assets/obj/6.obj
+    - assets/voice/
 #配置字体的目录结构
   fonts:
     - family: Schyler
       fonts:
-        - asset: fonts/SourceHanSansCN-Bold.otf
+        - asset: assets/fonts/SourceHanSansCN-Bold.otf
     - family: Medium
       fonts:
-        - asset: fonts/SourceHanSansCN-Medium.otf
+        - asset: assets/fonts/SourceHanSansCN-Medium.otf
 
     - family: UniTortred
       fonts:
-        - asset: fonts/UniTortred.ttf
+        - asset: assets/fonts/UniTortred.ttf
 
     - family: Regular
       fonts:
-        - asset: fonts/FormalScript_Regular.ttf
+        - asset: assets/fonts/FormalScript_Regular.ttf
 
 #FormalScript_Regular.ttf
 
