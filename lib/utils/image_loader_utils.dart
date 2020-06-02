@@ -27,6 +27,16 @@ class ImageLoaderUtils {
     var list = await File(path).readAsBytes();
     return loadImageByUint8List(list, width: width, height: height);
   }
+  ///通过File获取图片的Uint8List数据
+  Future<Uint8List> loadImageUint8ListByFile(
+      String path, {
+        int width,
+        int height,
+      }) async {
+    ///通过readAsBytes来加载数据获取Uint8List数据集
+    var list = await File(path).readAsBytes();
+    return list;
+  }
 
 //通过[Uint8List]获取图片,默认宽高[width][height]
   Future<ui.Image> loadImageByUint8List(

@@ -25,6 +25,12 @@ dependencies:
   provider: ^4.0.5
   matrix4_transform: ^1.1.4
   flutter_progress_button: ^0.6.4
+  #获取手机存储目录
+  path_provider: ^1.6.9
+  #用来加载网络数据
+  dio: 3.0.9
+  #MD5  base64之类 转码
+  crypto: ^2.0.6
 
   shared_preferences: ^0.5.6+3
   fluttertextlayoutplugin:

@@ -11,6 +11,9 @@ import 'main_data9004.dart';
 import 'main_data9005.dart';
 import 'main_data9006.dart';
 import 'main_data9007.dart';
+import 'main_data9008.dart';
+import 'main_data9009.dart';
+import 'main_data9010.dart';
 
 /*
  * 创建人： Created by zhaolong
@@ -46,7 +49,7 @@ class _ImagePageState extends State<ImageMainPage> {
   buildBodyFunction(BuildContext context){
     return SingleChildScrollView(child: Row(children: [
       Expanded(child: Container(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget(context),),margin: EdgeInsets.only(right: 20),),),
-//     Expanded(child: Container(child:Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget2(context),),),)
+     Expanded(child: Container(child:Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget2(context),),),)
     ],),);
   }
 
@@ -68,7 +71,9 @@ class _ImagePageState extends State<ImageMainPage> {
 
   bluldLeftWidget2(BuildContext context){
     return [
-
+      buildContainerAndClick("通过Image来加载本地资源目录asset下的图片",(){NavigatorUtils.pushPage(context, ImageLoadingAssetPage());}),
+      buildContainerAndClick("通过File来加载SD卡下的图片",(){NavigatorUtils.pushPage(context, ImageLoadingFilePage());}),
+      buildContainerAndClick("网络图片的缓存与加载",(){NavigatorUtils.pushPage(context, ImageCachePage());}),
 
     ];
   }
