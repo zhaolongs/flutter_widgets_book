@@ -51,8 +51,9 @@ class _FirstPageState extends State<MaterialAppMainPage> {
       buildContainerAndClick("国际化示例配置日期组件的显示语言3",(){NavigatorUtils.pushPage(context, DateLnaguageSelectPage3());}),
       buildContainerAndClick("国际化配置文本",(){NavigatorUtils.pushPage(context, LangeageSelectPage());}),
 
-
       buildContainerAndClick("圆形效果逐渐打开页面",(){NavigatorUtils.pushPage(context, CustoumRoutesApp());}),
+
+      buildContainerAndClick("多主题配角",(){NavigatorUtils.pushPage(context, CustoumRoutesApp());}),
 
 
     ];

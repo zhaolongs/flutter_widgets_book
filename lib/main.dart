@@ -3,6 +3,7 @@ import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 import 'code1/main_materiapp.dart';
 import 'code10/main_data_ui_layout.dart';
+import 'code11/main_data_check_box.dart';
 import 'code20/main_data_other_transform.dart';
 import 'code21/main_data_canvas.dart';
 import 'code22/main_data_other.dart';
@@ -69,6 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     new CatalogModel("第9章UI布局", UilayoutWidgetMainPage(), "线性布局Column、Row、"),
     new CatalogModel("第10章图片Image组件", ImageMainPage(), "加载资源文件"),
+    new CatalogModel("第11章复选框CheckBox组件", CheckBoxMainPage(), "复选框组件"),
+
 
     new CatalogModel("第19章矩阵变换t", OtherTransformWidgetMainPage(), "Transform变换组件、"),
     new CatalogModel("第20章绘图", CanvasWidgetMainPage(), "绘图基础、绘制坐标轴"),

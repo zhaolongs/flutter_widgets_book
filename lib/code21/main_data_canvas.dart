@@ -24,6 +24,8 @@ import 'main_data2119.dart';
 import 'main_data2120.dart';
 import 'main_data2121.dart';
 import 'main_data2122.dart';
+import 'main_data2123.dart';
+import 'main_data2124.dart';
 
 
 
@@ -106,7 +108,8 @@ class _FirstPageState extends State<CanvasWidgetMainPage> {
       buildContainerAndClick("绘制图片",(){NavigatorUtils.pushPage(context, DrawImagePage());}),
       buildContainerAndClick("放大预览图片",(){NavigatorUtils.pushPage(context, BiggerImageView());}),
       buildContainerAndClick("绘制双层图片",(){NavigatorUtils.pushPage(context, DrawImageAndBleomPage());}),
-
+      buildContainerAndClick("绘制粒子动画",(){NavigatorUtils.pushPage(context, DrawBillAnimationPage());}),
+      buildContainerAndClick("多组绘制粒子动画",(){NavigatorUtils.pushPage(context, DrawBillsAnimationPage());}),
 
     ];
   }
