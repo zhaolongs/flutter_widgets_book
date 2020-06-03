@@ -30,17 +30,17 @@ class _PageState extends State  {
 
           FittedBox(
             fit: BoxFit.none,
-            child: Image.asset("assets/images/2.0/banner1.webp",width: 100,height: 50,),
+            child: Image.asset("assets/images/2.0x/banner1.webp",width: 100,height: 50,),
           ),
           SizedBox(width: 20,),
           FittedBox(
             fit: BoxFit.none,
-            child:Image.asset("assets/images/2.0/banner1.webp",width: 100,height: 100,),
+            child:Image.asset("assets/images/2.0x/banner1.webp",width: 100,height: 100,),
           ),
           SizedBox(width: 20,),
           FittedBox(
             fit: BoxFit.none,
-            child:Image.asset("assets/images/2.0/banner1.webp",width: 100,height: 150,),
+            child:Image.asset("assets/images/2.0x/banner1.webp",width: 100,height: 150,),
           ),
       ],),),
     );

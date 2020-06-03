@@ -75,7 +75,7 @@ class _FirstPageState extends State<FirstPage>
     print("上边刘海高度$top");
     //般AppBar的高度是 kToolbarHeight的值 56.0
     print("AppBar的高度是$kToolbarHeight");
-    return Image(image: AssetImage("assets/images/2.0/head1.png"),height: 190,fit: BoxFit.fill,);
+    return Image(image: AssetImage("assets/images/2.0x/head1.png"),height: 190,fit: BoxFit.fill,);
   }
 
   Widget buildFlexibleSpace2() {
@@ -89,7 +89,7 @@ class _FirstPageState extends State<FirstPage>
       centerTitle: true,
       background: Container(
         color: Colors.blue[300],
-        child: Image(image: AssetImage("assets/images/2.0/head1.png"),height: 150,fit: BoxFit.fill,),
+        child: Image(image: AssetImage("assets/images/2.0x/head1.png"),height: 150,fit: BoxFit.fill,),
       ),
     );
   }

@@ -35,7 +35,7 @@ class _FirstPageState extends State<FirstPage>{
       Widget itemWidget = Container(
         padding: EdgeInsets.all(12), child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(10)), child: Image(
-        image: AssetImage("assets/images/2.0/app_icon.png"),
+        image: AssetImage("assets/images/2.0x/app_icon.png"),
         fit: BoxFit.fill,),),);
       girdChildrend.add(itemWidget);
     }
@@ -91,7 +91,7 @@ class _FirstPageState extends State<FirstPage>{
           width: MediaQuery.of(context).size.width,
           color: Colors.blue[300],
           //一张图片
-          child: Image(image: AssetImage("assets/images/2.0/head1.png"),
+          child: Image(image: AssetImage("assets/images/2.0x/head1.png"),
             fit: BoxFit.fill,),
         ),
         Expanded(child:
@@ -130,7 +130,7 @@ class _FirstPageState extends State<FirstPage>{
             child: Row(
               children: [
                 //左边的图片
-                Image(image: AssetImage("assets/images/2.0/app_icon.png")),
+                Image(image: AssetImage("assets/images/2.0x/app_icon.png")),
                 //与文字中间的间距
                 SizedBox(width: 12,),
                 ///竖直方向的排列

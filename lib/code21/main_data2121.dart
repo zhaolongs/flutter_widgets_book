@@ -26,7 +26,7 @@ class _PageState extends State {
   }
   ///异步加载图片
   void loadingAssetImage() async {
-    image = await ImageLoaderUtils.imageLoader.loadImageByAsset("assets/images/2.0/head1.png");
+    image = await ImageLoaderUtils.imageLoader.loadImageByAsset("assets/images/2.0x/head1.png");
     if(!mounted){
       return;
     }
@@ -51,7 +51,7 @@ class _PageState extends State {
             ///当图片没加载完时显示一个圆形进度
             child: BiggerView(
           config: BiggerConfig(
-              image: AssetImage("assets/images/2.0/head1.png"), rate: 3, isClip: true),
+              image: AssetImage("assets/images/2.0x/head1.png"), rate: 1, isClip: true),
         )));
   }
 }
@@ -68,7 +68,7 @@ class BiggerConfig {
   bool isClip;
 
   BiggerConfig(
-      {this.rate = 3,
+      {this.rate = 6,
         @required this.image,
         this.isClip = true,
         this.radius = 30,

@@ -44,6 +44,7 @@ class _ImageFileUsePageState extends State {
   void loadingLocalImage() async{
     ///使用工具类加载本地缓存目录下的图片
     localImageFile = await ImageUtils.imageUtils.getImageFileByPath(localPathPicName);
+
     if (localImageFile != null) {
       setState(() {
 
@@ -51,6 +52,13 @@ class _ImageFileUsePageState extends State {
     }
   }
   //lib/code/main_data9010.dart
+  //将本地手机存储空间的图片加载为Uint8List格式
+  ///localPathName为本地存储目录的图片名称
+  void loadingLocalU8ListImage(String localPathName) async {
+    ///使用工具类加载本地缓存目录下的图片
+    Uint8List uint8list = await ImageUtils.imageUtils.getImageUint8ListByPath(localPathName);
+  }
+    //lib/code/main_data9010.dart
   void saveImage() {
     ///使用工具类将网络图片保存到手机本地缓存目录下
     ImageUtils.imageUtils.saveImageByUrl(netImageUrl,picName: localPathPicName,isEncode: false);

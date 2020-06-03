@@ -51,7 +51,7 @@ class _PageState extends State {
               right: 0,
               bottom: 0,
               child: Image.asset(
-                "assets/images/2.0/highway.webp",
+                "assets/images/2.0x/highway.webp",
                 fit: BoxFit.fill,
                 repeat: ImageRepeat.noRepeat,
               ),

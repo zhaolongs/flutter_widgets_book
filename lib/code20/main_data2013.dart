@@ -38,7 +38,7 @@ class _PageState extends State {
             child: Container(
               width: 200,
               height: 200,
-              child: Image.asset("assets/images/2.0/banner1.webp",),
+              child: Image.asset("assets/images/2.0x/banner1.webp",),
             ),),),
           //构建前阴影
           buildBackMirror(),

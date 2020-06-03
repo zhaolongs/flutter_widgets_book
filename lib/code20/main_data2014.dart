@@ -45,7 +45,7 @@ class _PageState extends State {
               color: Colors.deepPurple,
               width: 200,
               height: 100,
-              child: Image.asset("assets/images/2.0/banner1.webp",),
+              child: Image.asset("assets/images/2.0x/banner1.webp",),
             ),),),
           //构建图片2
           Align(alignment: Alignment(00,0.0), child:
@@ -58,7 +58,7 @@ class _PageState extends State {
               color: Colors.yellow,
               width: 200,
               height: 100,
-              child: Image.asset("assets/images/2.0/banner2.webp",),
+              child: Image.asset("assets/images/2.0x/banner2.webp",),
             ),),),
         ],
       ),),

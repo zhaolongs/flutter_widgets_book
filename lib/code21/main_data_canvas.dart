@@ -1,18 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/code/common_founction.dart';
-import 'package:flutterbookcode/code/main_login1.dart';
-import 'package:flutterbookcode/demo/ani/demo_flip_page.dart';
-import 'package:flutterbookcode/demo/vn3/main_data3d.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
-
-import 'main_data2101.dart';
 import 'main_data2102.dart';
 import 'main_data2103.dart';
 import 'main_data2104.dart';
@@ -33,6 +23,7 @@ import 'main_data2118.dart';
 import 'main_data2119.dart';
 import 'main_data2120.dart';
 import 'main_data2121.dart';
+import 'main_data2122.dart';
 
 
 
@@ -114,7 +105,7 @@ class _FirstPageState extends State<CanvasWidgetMainPage> {
       buildContainerAndClick("绘制阴影",(){NavigatorUtils.pushPage(context, DrawShadowPage());}),
       buildContainerAndClick("绘制图片",(){NavigatorUtils.pushPage(context, DrawImagePage());}),
       buildContainerAndClick("放大预览图片",(){NavigatorUtils.pushPage(context, BiggerImageView());}),
-
+      buildContainerAndClick("绘制双层图片",(){NavigatorUtils.pushPage(context, DrawImageAndBleomPage());}),
 
 
     ];

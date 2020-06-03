@@ -19,13 +19,13 @@ class _PageState extends State<Main3DUsePage> {
   double fraction = 0.50;
 
   List<String> imageList =[
-    "assets/images/2.0/banner1.webp",
-    "assets/images/2.0/banner2.webp",
-    "assets/images/2.0/banner3.webp",
-    "assets/images/2.0/banner4.webp",
-    "assets/images/2.0/banner5.webp",
-    "assets/images/2.0/banner6.webp",
-    "assets/images/2.0/banner7.webp",
+    "assets/images/2.0x/banner1.webp",
+    "assets/images/2.0x/banner2.webp",
+    "assets/images/2.0x/banner3.webp",
+    "assets/images/2.0x/banner4.webp",
+    "assets/images/2.0x/banner5.webp",
+    "assets/images/2.0x/banner6.webp",
+    "assets/images/2.0x/banner7.webp",
   ];
 
   @override

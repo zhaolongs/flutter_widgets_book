@@ -73,7 +73,7 @@ class _PageState extends State {
         ///配置背景图像
         image: DecorationImage(
           ///加载图片
-            image: AssetImage("assets/images/2.0/logo.jpg"),
+            image: AssetImage("assets/images/2.0x/logo.jpg"),
             ///填充
             fit: BoxFit.fill),
       ),
@@ -93,7 +93,7 @@ class _PageState extends State {
         ///配置背景图像
         image: DecorationImage(
           ///加载图片
-            image: AssetImage("assets/images/2.0/logo.jpg"),
+            image: AssetImage("assets/images/2.0x/logo.jpg"),
             ///填充
             fit: BoxFit.fill),
       ),
@@ -113,7 +113,7 @@ class _PageState extends State {
         ///配置背景图像
         image: DecorationImage(
           ///加载图片
-            image: AssetImage("assets/images/2.0/logo.jpg"),
+            image: AssetImage("assets/images/2.0x/logo.jpg"),
             ///填充
             fit: BoxFit.fill),
       ),

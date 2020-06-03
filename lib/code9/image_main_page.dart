@@ -14,6 +14,8 @@ import 'main_data9007.dart';
 import 'main_data9008.dart';
 import 'main_data9009.dart';
 import 'main_data9010.dart';
+import 'main_data9011.dart';
+import 'main_data9012.dart';
 
 /*
  * 创建人： Created by zhaolong
@@ -74,6 +76,8 @@ class _ImagePageState extends State<ImageMainPage> {
       buildContainerAndClick("通过Image来加载本地资源目录asset下的图片",(){NavigatorUtils.pushPage(context, ImageLoadingAssetPage());}),
       buildContainerAndClick("通过File来加载SD卡下的图片",(){NavigatorUtils.pushPage(context, ImageLoadingFilePage());}),
       buildContainerAndClick("网络图片的缓存与加载",(){NavigatorUtils.pushPage(context, ImageCachePage());}),
+      buildContainerAndClick("圆角图片",(){NavigatorUtils.pushPage(context, ImageOvalPage());}),
+      buildContainerAndClick("RawImage的使用分析",(){NavigatorUtils.pushPage(context, RawImagePage());}),
 
     ];
   }

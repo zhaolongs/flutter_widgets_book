@@ -26,7 +26,7 @@ class _PageState extends State {
   }
   ///异步加载图片
   void loadingAssetImage() async {
-    image = await ImageLoaderUtils.imageLoader.loadImageByAsset("assets/images/2.0/head1.png");
+    image = await ImageLoaderUtils.imageLoader.loadImageByAsset("assets/images/2.0x/head1.png");
     if(!mounted){
       return;
     }
@@ -65,7 +65,7 @@ class _PageState extends State {
         ),
         body: Container(
           child: FutureBuilder<ui.Image>(
-            future: ImageLoaderUtils.imageLoader.loadImageByAsset("assets/images/2.0/head1.png"),
+            future: ImageLoaderUtils.imageLoader.loadImageByAsset("assets/images/2.0x/head1.png"),
             builder: (context, snapshot) => CustomPaint(
               painter: ImagePainter(snapshot.data),
             ),
@@ -79,7 +79,6 @@ class _PageState extends State {
 class ImagePainter extends CustomPainter {
   ///画笔
   Paint _paint;
-
   ui.Image image;
 
   ImagePainter(this.image){

@@ -52,7 +52,7 @@ class _FirstPageState extends State<FirstPage>
                 background: Container(
                   color: Colors.blue[300],
                   //一张图片
-                  child: Image(image: AssetImage("assets/images/2.0/head1.png"),
+                  child: Image(image: AssetImage("assets/images/2.0x/head1.png"),
                     fit: BoxFit.fill,),
                 ),
                   stretchModes:[

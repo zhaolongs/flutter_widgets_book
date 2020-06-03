@@ -25,7 +25,7 @@ class _ImageAssetsBaseUsePageState extends State {
       appBar: AppBar(
         title: Text("加载网络图片"),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey,
       ///填充布局
       body: ConstrainedBox(
           constraints: BoxConstraints.expand(),

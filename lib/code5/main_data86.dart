@@ -67,7 +67,7 @@ class _PageState extends State {
                 //边框样式设置
                 decoration: InputDecoration(
                   //最前面的图标
-                  prefix:Image(image: AssetImage("assets/images/2.0/password_icon.png"),height: 24,),
+                  prefix:Image(image: AssetImage("assets/images/2.0x/password_icon.png"),height: 24,),
                   suffix: InkWell(onTap: () {
                     ///点击清除密码输入框中的内容
                     passwordController.text="";

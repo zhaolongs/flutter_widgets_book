@@ -59,7 +59,7 @@ class _ImageAssetsBaseUsePageState extends State {
                   ),
                 ),
                 child: Image.asset(
-                  "assets/images/2.0x/app_icon.png",
+                  "assets/images/2.0xx/app_icon.png",
                   fit: currentBoxFit,
                   repeat: currentImageRepeat,
                   width: 200,

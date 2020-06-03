@@ -34,7 +34,7 @@ class _ImageAssetsBaseUsePageState extends State {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
 
-              Image.asset("assets/images/2.0x/message_bg.png",
+              Image.asset("assets/images/2.0xx/message_bg.png",
                 alignment: Alignment.topLeft,
                 fit: BoxFit.fitWidth,
                 width: 300,
