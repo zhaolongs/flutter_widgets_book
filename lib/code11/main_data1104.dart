@@ -13,21 +13,27 @@ main() {
 }
 
 //lib/code10/main_data1104.dart
-/// 仿开源中国注册页面
+/// 注册页面
 class OsChinaLoginPage extends StatefulWidget {
   @override
   _PageState createState() => _PageState();
 }
 
 //lib/code10/main_data1104.dart
-///复选框Checkbox结合TextSpan使用
+///一个登录页面
+///因为页面中需要监听键盘的弹出，所以这里混入了 WidgetsBindingObserver
+///因为页面中有多组动画效果，所以这晨混入了 ickerProviderStateMixin
 class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateMixin{
 
-  ///
+  ///RichText中隐私协议的手势
   TapGestureRecognizer _privacyProtocolRecognizer;
+  ///RichText中注册协议的手势
   TapGestureRecognizer _registProtocolRecognizer;
+  ///用户手机号输入框TextField的控制器
   TextEditingController _userPhoneTextController;
+  ///用户密码输入框TextField的控制器
   TextEditingController _userPasswrodtController;
+
 
   ///手机号焦点控制
   FocusNode userPhoneFieldNode = new FocusNode();
@@ -67,6 +73,7 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
   ///注册状态
   RestureStatus currentRestureStatus=RestureStatus.none;
 
+  //lib/code10/main_data1104.dart
   ///生命周期函数 页面创建时执行一次
   @override
   void initState() {
@@ -77,9 +84,30 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
     initInputAnimationFunction();
     ///初始化注册相关动画
     initRegisterAnimationFunction();
+    ///初始化输入框控制器
     initInputControllerFunction();
-    //初始化
+    //添加监听
     WidgetsBinding.instance.addObserver(this);
+  }
+  //lib/code10/main_data1104.dart
+  ///生命周期函数 页面销毁时执行一次
+  @override
+  void dispose() {
+    super.dispose();
+    ///logo动画控制器释放
+    logoAnimatController.dispose();
+    ///输入框动画控制器
+    inputAnimatController.dispose();
+    ///注册动画控制器释放
+    registerAnimatController..dispose();
+    //解绑
+    WidgetsBinding.instance.removeObserver(this);
+    ///注册协议手势释放
+    _registProtocolRecognizer.dispose();
+    _privacyProtocolRecognizer.dispose();
+    ///焦点释放
+    userPhoneFieldNode.unfocus();
+    userPasswordFieldNode.unfocus();
   }
 
   void initInputControllerFunction(){
@@ -240,17 +268,7 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
   }
 
 
-  ///生命周期函数 页面销毁时执行一次
-  @override
-  void dispose() {
-    super.dispose();
-    logoAnimatController.dispose();
-    //销毁
-    WidgetsBinding.instance.removeObserver(this);
-    ///销毁
-    _registProtocolRecognizer.dispose();
-    _privacyProtocolRecognizer.dispose();
-  }
+
 
   ///构建填充页面的背景图片
   buildBgWidget() {
@@ -445,7 +463,7 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
                 ///设置键盘的类型
                 keyboardType: isPassword
                     ? TextInputType.visiblePassword
-                    : TextInputType.phone,
+                    : TextInputType.text,
 
                 ///键盘回车键的样式
                 textInputAction:
@@ -680,17 +698,17 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
       Future.delayed(Duration(milliseconds: 4000),(){
 
         ///模拟请求成功
-        setState(() {
-          currentRestureStatus=RestureStatus.success;
-        });
-       ///模拟请求失败
 //        setState(() {
-//          currentRestureStatus=RestureStatus.error;
+//          currentRestureStatus=RestureStatus.success;
 //        });
-//
-//        Future.delayed(Duration(milliseconds: 1000),(){
-//          registerAnimatController.reverse();
-//        });
+       ///模拟请求失败
+        setState(() {
+          currentRestureStatus=RestureStatus.error;
+        });
+
+        Future.delayed(Duration(milliseconds: 1000),(){
+          registerAnimatController.reverse();
+        });
 //      registerAnimatController.reverse();
       });
     }
