@@ -4,6 +4,7 @@ import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 import 'code1/main_materiapp.dart';
 import 'code10/main_data_ui_layout.dart';
 import 'code11/main_data_check_box.dart';
+import 'code12/main_data_radio.dart';
 import 'code20/main_data_other_transform.dart';
 import 'code21/main_data_canvas.dart';
 import 'code22/main_data_other.dart';
@@ -62,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   List<CatalogModel> list = [
     new CatalogModel("第2章MaterialApp组件", MaterialAppMainPage(), ""),
-    new CatalogModel("第3章Scaffold组件", ScaffoldWidgetMainPage(), "常用作包裹其他Widget，类似html中的div，内容涉及BottomAppBar与悬浮按钮结合使用"),
+    new CatalogModel("第3章Scaffold组件", ScaffoldWidgetMainPage(), "常用作包裹其他Widget，类似html中的div，内容涉及BottomAppBar与悬浮按钮结合使用，与PageView、TabbarView结合使用实现标签页面"),
     new CatalogModel("第4章AppBar组件", MainAppBarPage(), "常用作包裹其他Widget，类似html中的div"),
     new CatalogModel("第6章输入框Textfield", TextFieldMainPage(), "Textfield在Flutter中用来进行文本输入框的功能"),
     new CatalogModel("第7章容器Container", ContainerMainPage(), "常用作包裹其他Widget，类似html中的div"),
@@ -70,7 +71,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     new CatalogModel("第9章UI布局", UilayoutWidgetMainPage(), "线性布局Column、Row、"),
     new CatalogModel("第10章图片Image组件", ImageMainPage(), "加载资源文件"),
-    new CatalogModel("第11章复选框CheckBox组件", CheckBoxMainPage(), "复选框组件"),
+    new CatalogModel("第11章复选框CheckBox组件", CheckBoxMainPage(), "复选框组件、自定义复选框组件、仿开源中国的注册页面"),
+    new CatalogModel("第12章单选框Radio组件", RadioMainPage(), "单选框组件、自定义单选选框组件"),
 
 
     new CatalogModel("第19章矩阵变换t", OtherTransformWidgetMainPage(), "Transform变换组件、"),

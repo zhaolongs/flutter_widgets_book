@@ -8,6 +8,7 @@ import 'main_data1101.dart';
 import 'main_data1102.dart';
 import 'main_data1103.dart';
 import 'main_data1104.dart';
+import 'main_data1105.dart';
 
 
 
@@ -53,6 +54,7 @@ class _FirstPageState extends State<CheckBoxMainPage> {
       buildContainerAndClick("圆形复选框",(){NavigatorUtils.pushPage(context, RotundityCheckBoxPage());}),
       buildContainerAndClick("圆形图片复选框",(){NavigatorUtils.pushPage(context, RotundityImageCheckBoxPage());}),
       buildContainerAndClick("仿开源中国注册页面",(){NavigatorUtils.pushPage(context, OsChinaLoginPage());}),
+      buildContainerAndClick("WidgetsBindingObserver",(){NavigatorUtils.pushPage(context, WidgetsBindingObserverPage());}),
 
     ];
   }

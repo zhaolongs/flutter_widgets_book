@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/code/common_founction.dart';
-import 'package:flutterbookcode/code2/main_data38.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
-import 'main_data301.dart';
-import 'main_data43-2.dart';
-import 'main_data43-3.dart';
+import 'main_data1201.dart';
+import 'main_data1202.dart';
+import 'main_data1203.dart';
+import 'main_data1204.dart';
 
 
 
@@ -16,13 +15,14 @@ import 'main_data43-3.dart';
 
 
 
-class ScaffoldWidgetMainPage extends StatefulWidget {
+
+class  RadioMainPage extends StatefulWidget {
   @override
   _FirstPageState createState() => _FirstPageState();
 }
 
 
-class _FirstPageState extends State<ScaffoldWidgetMainPage> {
+class _FirstPageState extends State<RadioMainPage> {
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class _FirstPageState extends State<ScaffoldWidgetMainPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-              "container"
+              "Radio单行框组件"
           ),),
         body: Container(
           margin: EdgeInsets.all(30.0),
@@ -50,13 +50,11 @@ class _FirstPageState extends State<ScaffoldWidgetMainPage> {
   bluldLeftWidget(BuildContext context){
     return [
 
-      buildContainerAndClick("BottomAppBar与悬浮按钮结合使用",(){NavigatorUtils.pushPage(context, BottomAppBarAndFloatButtonPage());}),
+      buildContainerAndClick("单选框的基本使用",(){NavigatorUtils.pushPage(context,RadioBaseUsePage());}),
 
-
-      buildContainerAndClick("3D底部菜单",(){NavigatorUtils.pushPage(context, Bottom3DBarPage());}),
-      buildContainerAndClick("PageView实现滑动标签页面切换",(){NavigatorUtils.pushPage(context, PageViewFirstPage());}),
-      buildContainerAndClick("TabBarView实现滑动标签页面切换",(){NavigatorUtils.pushPage(context, TabBarViewFirstPage());}),
-
+      buildContainerAndClick("VisualDensity 视觉密度配制",(){NavigatorUtils.pushPage(context,RadioVisualDensityPage());}),
+      buildContainerAndClick("RadioListTitle 的基本使用",(){NavigatorUtils.pushPage(context,RadioListTitlePage());}),
+      buildContainerAndClick("底部弹框优惠券选项 ",(){NavigatorUtils.pushPage(context,ModalBottomSheetPage());}),
 
 
     ];
