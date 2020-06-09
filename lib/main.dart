@@ -5,6 +5,7 @@ import 'code1/main_materiapp.dart';
 import 'code10/main_data_ui_layout.dart';
 import 'code11/main_data_check_box.dart';
 import 'code12/main_data_radio.dart';
+import 'code13/main_data_gesture.dart';
 import 'code20/main_data_other_transform.dart';
 import 'code21/main_data_canvas.dart';
 import 'code22/main_data_other.dart';
@@ -73,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
     new CatalogModel("第10章图片Image组件", ImageMainPage(), "加载资源文件"),
     new CatalogModel("第11章复选框CheckBox组件", CheckBoxMainPage(), "复选框组件、自定义复选框组件、仿开源中国的注册页面"),
     new CatalogModel("第12章单选框Radio组件", RadioMainPage(), "单选框组件、自定义单选选框组件"),
+    new CatalogModel("第13章手势处理", GestureDetectorMainPage(), "GestureDetector、Ink、InkWell"),
 
 
     new CatalogModel("第19章矩阵变换t", OtherTransformWidgetMainPage(), "Transform变换组件、"),

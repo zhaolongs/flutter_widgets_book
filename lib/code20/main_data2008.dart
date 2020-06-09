@@ -50,7 +50,7 @@ class _PageState extends State {
                   child: Image.asset(
                     "assets/images/2.0x/banner1.webp",
                   ),
-                )),
+                ),),
             Padding(
               padding: EdgeInsets.only(bottom: 10),
             ),

@@ -385,6 +385,7 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
           ///使用图片切图实现自定义的复选框
           buildCircleCheckBox(),
           SizedBox(width: 1,),
+          ///文字区域
           Expanded(
             child: RichText(
               ///文字区域
@@ -499,7 +500,7 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
             padding: EdgeInsets.only(left: 10,),
             child: Icon(
               preIconData,
-              size: 26, color: Color(0xaafafafa),
+              color: Color(0xaafafafa),size: 26,
             ),
           ),
           ///竖线
@@ -579,6 +580,7 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
     ///点击事件
     return InkWell(
       onTap: () {
+        ///提交数据
         registerSubmitFunction();
       },
       ///加载进度圆圈与底层显示

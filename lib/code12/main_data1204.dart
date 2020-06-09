@@ -65,15 +65,15 @@ class _TestPageState extends State<ModalBottomSheetPage> {
       ///当点击弹框黑色背景时弹框会消失也会回调
       ///此时无数据回传 val为null
       if (val != null) {
-
         if (val != null) {
-        ///弹框关闭的的回调
-        DiscountCouponModel model = val;
+          ///弹框关闭的的回调
+          DiscountCouponModel model = val;
 
-        ///刷新页面显示
-        setState(() {
-          selectDiscountMessage = model.couponMessage;
-        });
+          ///刷新页面显示
+          setState(() {
+            selectDiscountMessage = model.couponMessage;
+          });
+        }
       }
     });
   }
