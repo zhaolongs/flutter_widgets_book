@@ -52,6 +52,9 @@ class _TestPageState extends State<GesturTapPage> {
           onTapDown: (TapDownDetails details) {
             print("onTapDown手指按下回调");
           },
+          onPanUpdate: (DragUpdateDetails details){
+            print("onPanUpdate手指移动回调 dx:${details.delta.dx}  dy:${details.delta.dy}");
+          },
           onTapUp: (TapUpDetails details) {
             print("onTapUp手指抬起回调");
           },

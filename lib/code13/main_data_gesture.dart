@@ -7,6 +7,7 @@ import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 import 'main_data1301.dart';
 import 'main_data1302.dart';
 import 'main_data1303.dart';
+import 'main_data1304.dart';
 
 class GestureDetectorMainPage extends StatefulWidget {
   @override
@@ -57,6 +58,10 @@ class _GestureDetectorState extends State<GestureDetectorMainPage> {
       buildContainerAndClick("GestureDetector与使用", () {
         NavigatorUtils.pushPage(context, GesturTapPage());
       }),
+      buildContainerAndClick("图像的移动", () {
+        NavigatorUtils.pushPage(context, GesturTapMoveImagePage());
+      }),
+
       buildContainerAndClick("图片的缩放", () {
         NavigatorUtils.pushPage(context, ImageScalePage());
       }),
