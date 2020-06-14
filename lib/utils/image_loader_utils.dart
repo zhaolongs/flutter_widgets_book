@@ -6,7 +6,9 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
+import 'dart:ui';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 
 
@@ -119,6 +121,33 @@ class ImageLoaderUtils {
     ByteData byteData = await image.toByteData(format:format);
     Uint8List pngBytes = byteData.buffer.asUint8List();
     return file.writeAsBytes(pngBytes);
+  }
+
+
+  // 将一个Widget转为image.Image对象
+  Future<ui.Image> getImageFromWidget(GlobalKey globalKey) async {
+    // globalKey为需要图像化的widget的key
+    RenderRepaintBoundary boundary = globalKey.currentContext.findRenderObject();
+    // 转换为图像
+    ui.Image img = await boundary.toImage();
+    return img;
+  }
+
+  // 将一个Widget转为image.Image对象
+  Future<ui.Image> _getImageFromWidget2(GlobalKey globalKey) async {
+    // globalKey为需要图像化的widget的key
+    RenderRepaintBoundary boundary = globalKey.currentContext.findRenderObject();
+    // 转换为图像
+    ui.Image img = await boundary.toImage();
+    ///
+    ByteData byteData = await img.toByteData(format: ImageByteFormat.png);
+    Uint8List pngBytes = byteData.buffer.asUint8List();
+    ///通过instantiateImageCodec 初始化一个图像编解码器Codec对象
+    ui.Codec codec = await ui.instantiateImageCodec(pngBytes);
+    ///通过图像编解码器Codec对象来获取第一帧图像信息
+    ui.FrameInfo fi = await codec.getNextFrame();
+    ///获取最终的ui.Image
+    return fi.image;
   }
 
 }
