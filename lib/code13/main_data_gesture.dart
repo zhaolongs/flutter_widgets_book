@@ -10,6 +10,8 @@ import 'main_data1303.dart';
 import 'main_data1304.dart';
 import 'main_data1305.dart';
 import 'main_data1306.dart';
+import 'main_data1308.dart';
+import 'main_data1309.dart';
 
 class GestureDetectorMainPage extends StatefulWidget {
   @override
@@ -69,6 +71,15 @@ class _GestureDetectorState extends State<GestureDetectorMainPage> {
       buildContainerAndClick("水平方向的拖动与滑动", () {
         NavigatorUtils.pushPage(context, GesturOnVerticalPanPage());
       }),
+      buildContainerAndClick("缩放与拖动结合", () {
+        NavigatorUtils.pushPage(context, GesturScaleAndSpanPage());
+      }),
+      buildContainerAndClick("双击放大图片", () {
+        NavigatorUtils.pushPage(context, DoubleTapScaleImagePage());
+      }),
+
+
+
 
       buildContainerAndClick("图像的移动", () {
         NavigatorUtils.pushPage(context, GesturTapMoveImagePage());

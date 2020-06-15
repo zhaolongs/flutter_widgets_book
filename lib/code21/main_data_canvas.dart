@@ -26,6 +26,7 @@ import 'main_data2121.dart';
 import 'main_data2122.dart';
 import 'main_data2123.dart';
 import 'main_data2124.dart';
+import 'main_data2125.dart';
 
 
 
@@ -91,7 +92,7 @@ class _FirstPageState extends State<CanvasWidgetMainPage> {
 
       buildContainerAndClick("drawColor",(){NavigatorUtils.pushPage(context, DrawColorPage());}),
 
-
+      buildContainerAndClick("贝塞尔曲线",(){NavigatorUtils.pushPage(context, DrawBezierDemoPage());}),
     ];
   }
 

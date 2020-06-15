@@ -17,6 +17,9 @@ import 'main_data9010.dart';
 import 'main_data9011.dart';
 import 'main_data9012.dart';
 import 'main_data9013.dart';
+import 'main_data9014.dart';
+import 'main_data9015.dart';
+import 'main_data9016.dart';
 
 /*
  * 创建人： Created by zhaolong
@@ -80,6 +83,10 @@ class _ImagePageState extends State<ImageMainPage> {
       buildContainerAndClick("圆角图片",(){NavigatorUtils.pushPage(context, ImageOvalPage());}),
       buildContainerAndClick("RawImage的使用分析",(){NavigatorUtils.pushPage(context, RawImagePage());}),
       buildContainerAndClick("高斯模糊",(){NavigatorUtils.pushPage(context, BackdropImagePage());}),
+
+      buildContainerAndClick("消失效果",(){NavigatorUtils.pushPage(context, DismissImagePage());}),
+
+      buildContainerAndClick("widget生成图片",(){NavigatorUtils.pushPage(context, WidgetToImagePage());}),
 
     ];
   }
