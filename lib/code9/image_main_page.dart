@@ -20,6 +20,7 @@ import 'main_data9013.dart';
 import 'main_data9014.dart';
 import 'main_data9015.dart';
 import 'main_data9016.dart';
+import 'main_data9017.dart';
 
 /*
  * 创建人： Created by zhaolong
@@ -34,7 +35,7 @@ class ImageMainPage extends StatefulWidget {
   _ImagePageState createState() => _ImagePageState();
 }
 
-//lib/code/main_data.dart
+//lib/code9/image_main_data.dart
 class _ImagePageState extends State<ImageMainPage> {
 
   @override
@@ -87,7 +88,21 @@ class _ImagePageState extends State<ImageMainPage> {
       buildContainerAndClick("消失效果",(){NavigatorUtils.pushPage(context, DismissImagePage());}),
 
       buildContainerAndClick("widget生成图片",(){NavigatorUtils.pushPage(context, WidgetToImagePage());}),
-
+      buildContainerAndClick("图片添加水印", () {
+        ///背景透明的跳转
+        Navigator.of(context)
+            .push(PageRouteBuilder(
+                opaque: false,
+                pageBuilder: (context, animation, secondaryAnimation) {
+                  return ImageWatermarkPage();
+                }))
+            .then((value) {
+              if(value!=null){
+                ///
+                print("保存的图片地址为$value");
+              }
+        });
+      }),
     ];
   }
 
