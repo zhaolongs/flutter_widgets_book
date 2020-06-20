@@ -22,11 +22,11 @@ class _PageState extends State with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-//横屏
-    SystemChrome.setPreferredOrientations(
-        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
-    //全屏显示
-    SystemChrome.setEnabledSystemUIOverlays([]);
+////横屏
+//    SystemChrome.setPreferredOrientations(
+//        [DeviceOrientation.landscapeLeft, DeviceOrientation.landscapeRight]);
+//    //全屏显示
+//    SystemChrome.setEnabledSystemUIOverlays([]);
   }
 
   @override

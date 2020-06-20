@@ -39,7 +39,11 @@ dependencies:
     git:
       url: https://github.com/zhaolongs/flutter_text_layout.git
       ref: master
-
+  #手势缩放图片组件
+  flutterdragscalewidget:
+    git:
+      url: https://github.com/zhaolongs/flutter_drag_scale_widget.git
+      ref: master
 
 dev_dependencies:
   flutter_test:

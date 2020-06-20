@@ -119,6 +119,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutterdragscalewidget:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: cc8e53921b384d0959f4b24f2f7bb04ee61bdeb6
+      url: "https://github.com/zhaolongs/flutter_drag_scale_widget.git"
+    source: git
+    version: "0.0.1"
   fluttertextlayoutplugin:
     dependency: "direct main"
     description:

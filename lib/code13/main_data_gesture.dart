@@ -17,6 +17,7 @@ import 'main_data1311.dart';
 import 'main_data1312.dart';
 import 'main_data1313.dart';
 import 'main_data1314.dart';
+import 'main_data1315.dart';
 
 class GestureDetectorMainPage extends StatefulWidget {
   @override
@@ -88,6 +89,10 @@ class _GestureDetectorState extends State<GestureDetectorMainPage> {
       buildContainerAndClick("双指旋转、缩放、拖动图片2", () {
         NavigatorUtils.pushPage(context, RoteAndScaleImagePage2());
       }),
+    buildContainerAndClick("双指旋转、缩放、拖动图片 依赖库使用", () {
+    NavigatorUtils.pushPage(context, RoteAndScaleImagePage3());
+    }),
+
 
 
       buildContainerAndClick("Flutter获取点击元素的位置与大小", () {

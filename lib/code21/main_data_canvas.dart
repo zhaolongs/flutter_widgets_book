@@ -27,6 +27,9 @@ import 'main_data2122.dart';
 import 'main_data2123.dart';
 import 'main_data2124.dart';
 import 'main_data2125.dart';
+import 'main_data2126.dart';
+import 'main_data2127.dart';
+import 'main_data2128.dart';
 
 
 
@@ -91,8 +94,9 @@ class _FirstPageState extends State<CanvasWidgetMainPage> {
       buildContainerAndClick("QQ粘性组件",(){NavigatorUtils.pushPage(context, PathQQPage());}),
 
       buildContainerAndClick("drawColor",(){NavigatorUtils.pushPage(context, DrawColorPage());}),
-
-      buildContainerAndClick("贝塞尔曲线",(){NavigatorUtils.pushPage(context, DrawBezierDemoPage());}),
+      //DrawBezierDemoPage
+      buildContainerAndClick("二阶贝塞尔曲线 动态演示",(){NavigatorUtils.pushPage(context, DrawBezierDemoPage2());}),
+      buildContainerAndClick("三阶贝塞尔曲线 动态演示",(){NavigatorUtils.pushPage(context, DrawBezierDemoPage3());}),
     ];
   }
 
@@ -111,6 +115,7 @@ class _FirstPageState extends State<CanvasWidgetMainPage> {
       buildContainerAndClick("绘制双层图片",(){NavigatorUtils.pushPage(context, DrawImageAndBleomPage());}),
       buildContainerAndClick("绘制粒子动画",(){NavigatorUtils.pushPage(context, DrawBillAnimationPage());}),
       buildContainerAndClick("多组绘制粒子动画",(){NavigatorUtils.pushPage(context, DrawBillsAnimationPage());}),
+    buildContainerAndClick(" 绘制网格的坐标轴",(){NavigatorUtils.pushPage(context, GriddingDemoPage());}),
 
     ];
   }
