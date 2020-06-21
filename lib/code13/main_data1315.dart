@@ -42,9 +42,12 @@ class _TestPageState extends State<RoteAndScaleImagePage3> {
       backgroundColor: Colors.white,
       body: Center(
         ///缩放拖动组件
-        child: DragScaleContainer(
+        child: TouchableContainer(
           ///双击放大
           doubleTapStillScale: true,
+          scaleChanged: (ScaleChangedModel model){
+            print("ScaleChangedModel ${model.toString()}");
+          },
           ///需要操作的子组件
           child: Container(
             width: 260,
