@@ -20,6 +20,7 @@ import 'main_data1314.dart';
 import 'main_data1315.dart';
 import 'main_data1316.dart';
 import 'main_data1317.dart';
+import 'main_data1318.dart';
 
 class GestureDetectorMainPage extends StatefulWidget {
   @override
@@ -128,6 +129,9 @@ class _GestureDetectorState extends State<GestureDetectorMainPage> {
     return [
       buildContainerAndClick("InkWell点击事件的基本使用", () {
         NavigatorUtils.pushPage(context, InkWellUsePage());
+      }),
+      buildContainerAndClick("InkWell 通过Ink来配置装饰样式", () {
+        NavigatorUtils.pushPage(context, InkWellUsePage2());
       }),
 
     ];
