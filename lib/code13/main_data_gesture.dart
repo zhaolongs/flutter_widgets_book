@@ -19,6 +19,7 @@ import 'main_data1313.dart';
 import 'main_data1314.dart';
 import 'main_data1315.dart';
 import 'main_data1316.dart';
+import 'main_data1317.dart';
 
 class GestureDetectorMainPage extends StatefulWidget {
   @override
@@ -55,7 +56,7 @@ class _GestureDetectorState extends State<GestureDetectorMainPage> {
               margin: EdgeInsets.only(right: 20),
             ),
           ),
-//     Expanded(child: Container(child:Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget2(context),),),)
+     Expanded(child: Container(child:Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget2(context),),),)
         ],
       ),
     );
@@ -113,9 +114,6 @@ class _GestureDetectorState extends State<GestureDetectorMainPage> {
         NavigatorUtils.pushPage(context, DoubleTapScaleImagePage());
       }),
 
-
-
-
       buildContainerAndClick("图像的移动", () {
         NavigatorUtils.pushPage(context, GesturTapMoveImagePage());
       }),
@@ -127,6 +125,11 @@ class _GestureDetectorState extends State<GestureDetectorMainPage> {
   }
 
   bluldLeftWidget2(BuildContext context) {
-    return [];
+    return [
+      buildContainerAndClick("InkWell点击事件的基本使用", () {
+        NavigatorUtils.pushPage(context, InkWellUsePage());
+      }),
+
+    ];
   }
 }
