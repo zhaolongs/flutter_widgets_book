@@ -24,6 +24,7 @@ import 'main_data1318.dart';
 import 'main_data1319.dart';
 import 'main_data1320.dart';
 import 'main_data1321.dart';
+import 'main_data1322.dart';
 
 class GestureDetectorMainPage extends StatefulWidget {
   @override
@@ -146,6 +147,12 @@ class _GestureDetectorState extends State<GestureDetectorMainPage> {
       buildContainerAndClick("InkResponse ", () {
         NavigatorUtils.pushPage(context, InkWellUsePage5());
       }),
+
+      buildContainerAndClick("为图片添加点击事件 ", () {
+        NavigatorUtils.pushPage(context, InkWellUsePage6());
+      }),
+
+
     ];
   }
 }
