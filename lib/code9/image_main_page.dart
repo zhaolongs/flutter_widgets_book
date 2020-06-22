@@ -103,6 +103,9 @@ class _ImagePageState extends State<ImageMainPage> {
               }
         });
       }),
+      buildContainerAndClick("Ink.image",(){NavigatorUtils.pushPage(context, WidgetToImagePage());}),
+
+
     ];
   }
 
