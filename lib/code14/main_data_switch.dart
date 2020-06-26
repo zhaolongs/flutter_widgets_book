@@ -5,6 +5,9 @@ import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/code/common_founction.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
+import 'main_data1401.dart';
+import 'main_data1402.dart';
+
 
 
 
@@ -45,7 +48,8 @@ class _FirstPageState extends State<SwitchWidgetMainPage> {
   bluldLeftWidget(BuildContext context){
     return [
 
-//      buildContainerAndClick("WidgetsBindingObserver",(){NavigatorUtils.pushPage(context, WidgetWillAppearPage());}),
+      buildContainerAndClick("开关Switch的基本使用",(){NavigatorUtils.pushPage(context, SwitchBaseUsePage());}),
+      buildContainerAndClick("开关Switch的属性分析",(){NavigatorUtils.pushPage(context, SwitchBaseUsePage2());}),
 
 
 
