@@ -61,8 +61,31 @@ class NavigatorUtils {
       }
     });
   }
-
-
+  ///lib/utils/code1/navigator_utils.dart
+  ///以透明过渡的方式打开新的页面
+  static void openPageByFade(BuildContext context,Widget page) {
+    Navigator.of(context).push(new PageRouteBuilder(pageBuilder:
+        (BuildContext context, Animation<double> animation,
+        Animation<double> secondaryAnimation) {
+      //目标页面
+      return page;
+    }, transitionsBuilder: (BuildContext context,
+        Animation<double> animation,
+        Animation<double> secondaryAnimation,
+        Widget child,) {
+      //渐变过渡动画
+      return FadeTransition(
+        // 透明度从 0.0-1.0
+        opacity: Tween(begin: 0.0, end: 1.0).animate(
+          CurvedAnimation(
+            parent: animation,
+            //动画曲线规则，这里使用的是先快后慢
+            curve: Curves.fastOutSlowIn,
+          ),),
+        child: child,
+      );
+    }));
+  }
   //lib/code1/main_data9.dart
   ///圆形过渡的方式打开新的页面"
   ///
