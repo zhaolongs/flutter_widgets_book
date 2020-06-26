@@ -7,6 +7,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/code/main_login1.dart';
+import 'package:flutterbookcode/code5/test_search_bar.dart';
+import 'package:flutterbookcode/code5/test_search_bar2.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 import 'main_data76.dart';
@@ -63,11 +65,26 @@ class _FirstPageState extends State<TextFieldMainPage> {
           child: buildBodyFunction(context),));
   }
 
-  buildBodyFunction(BuildContext context){
-   return Row(children: [
-     Container(child: Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget(context),),margin: EdgeInsets.only(right: 20),),
-     Container(child:Column(crossAxisAlignment: CrossAxisAlignment.start,children: bluldLeftWidget2(context),),),
-   ],);
+  buildBodyFunction(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+            child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: bluldLeftWidget(context),
+          ),
+        )),
+        Container(
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: bluldLeftWidget2(context),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 
   bluldLeftWidget(BuildContext context){
@@ -106,6 +123,9 @@ class _FirstPageState extends State<TextFieldMainPage> {
       RaisedButton(child: Text("文本控制器"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldControllerPage()); },),
       RaisedButton(child: Text("光标样式"),onPressed: () { NavigatorUtils.pushPage(context, TextFieldCursorPage()); },),
 
+      RaisedButton(child: Text("搜索框"),onPressed: () { NavigatorUtils.pushPage(context, TestSearchBarPage()); },),
+
+      RaisedButton(child: Text("搜索框 pub库"),onPressed: () { NavigatorUtils.pushPage(context, TestSearchBarPage2()); },),
 
 
 

@@ -35,15 +35,23 @@ dependencies:
   flutter_spinkit: ^4.1.2+1
 
   shared_preferences: ^0.5.6+3
-  fluttertextlayoutplugin:
-    git:
-      url: https://github.com/zhaolongs/flutter_text_layout.git
-      ref: master
+#  fluttertextlayoutplugin:
+#    git:
+#      url: https://github.com/zhaolongs/flutter_text_layout.git
+#      ref: master
+  #搜索框
+  flutter_search_bars: ^0.0.2
+  #文本标签
+#  flutter_tag_layout: ^0.0.3
+  flutter_tag_layout :
+    path: /Volumes/code/ico/Desktop/code/flutter_app/flutter_search_bars/flutter_tag_layout
   #手势缩放图片组件
   flutterdragscalewidget:
     git:
       url: https://github.com/zhaolongs/flutter_drag_scale_widget.git
       ref: master
+
+
 
 dev_dependencies:
   flutter_test:

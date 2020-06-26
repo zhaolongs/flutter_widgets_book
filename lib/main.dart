@@ -11,6 +11,7 @@ import 'code21/main_data_canvas.dart';
 import 'code22/main_data_other.dart';
 import 'code3/main_data_appbar.dart';
 import 'code3/main_data_scffold.dart';
+import 'code4/main_data_text.dart';
 import 'code5/main_data75.dart';
 import 'code6/main_data_conainer.dart';
 import 'code7/main_data_button.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter组件精讲与实战',
+      locale: const Locale('en'),
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -66,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
     new CatalogModel("第2章MaterialApp组件", MaterialAppMainPage(), ""),
     new CatalogModel("第3章Scaffold组件", ScaffoldWidgetMainPage(), "常用作包裹其他Widget，类似html中的div，内容涉及BottomAppBar与悬浮按钮结合使用，与PageView、TabbarView结合使用实现标签页面"),
     new CatalogModel("第4章AppBar组件", MainAppBarPage(), "常用作包裹其他Widget，类似html中的div"),
+    new CatalogModel("第5章文本Text组件", TextMainPage(), ""),
     new CatalogModel("第6章输入框Textfield", TextFieldMainPage(), "Textfield在Flutter中用来进行文本输入框的功能"),
     new CatalogModel("第7章容器Container", ContainerMainPage(), "常用作包裹其他Widget，类似html中的div"),
     new CatalogModel("第8章按钮Button", ButtonMainPage(), "MaterialButton的使用分析"),

@@ -109,6 +109,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.6.4"
+  flutter_search_bars:
+    dependency: "direct main"
+    description:
+      name: flutter_search_bars
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.2"
   flutter_spinkit:
     dependency: "direct main"
     description:
@@ -116,6 +123,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.1.2+1"
+  flutter_tag_layout:
+    dependency: "direct main"
+    description:
+      path: "/Volumes/code/ico/Desktop/code/flutter_app/flutter_search_bars/flutter_tag_layout"
+      relative: false
+    source: path
+    version: "0.0.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -133,15 +147,6 @@ packages:
       ref: master
       resolved-ref: "086aae983f8ac70b72703dda851ec38316c48256"
       url: "https://github.com/zhaolongs/flutter_drag_scale_widget.git"
-    source: git
-    version: "0.0.1"
-  fluttertextlayoutplugin:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: master
-      resolved-ref: "06af99ac0e678c7bee39d58b1695919efacbbcd3"
-      url: "https://github.com/zhaolongs/flutter_text_layout.git"
     source: git
     version: "0.0.1"
   http_parser:
