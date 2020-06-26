@@ -6,6 +6,11 @@ import 'code10/main_data_ui_layout.dart';
 import 'code11/main_data_check_box.dart';
 import 'code12/main_data_radio.dart';
 import 'code13/main_data_gesture.dart';
+import 'code14/main_data_switch.dart';
+import 'code15/main_data_scrollview.dart';
+import 'code16/main_data_listview.dart';
+import 'code17/main_data_girdview.dart';
+import 'code18/main_data_clip.dart';
 import 'code20/main_data_other_transform.dart';
 import 'code21/main_data_canvas.dart';
 import 'code22/main_data_other.dart';
@@ -78,6 +83,12 @@ class _MyHomePageState extends State<MyHomePage> {
     new CatalogModel("第11章复选框CheckBox组件", CheckBoxMainPage(), "复选框组件、自定义复选框组件、仿开源中国的注册页面"),
     new CatalogModel("第12章单选框Radio组件", RadioMainPage(), "单选框组件、自定义单选选框组件"),
     new CatalogModel("第13章手势处理", GestureDetectorMainPage(), "GestureDetector、Ink、InkWell"),
+
+    new CatalogModel("第14章开关", SwitchWidgetMainPage(), ""),
+    new CatalogModel("第15章 滑动视图ScrollView", ScrollViewMainPage(), ""),
+    new CatalogModel("第16章 列表ListView", ListViewMainPage(), ""),
+    new CatalogModel("第17章 GridView九宫格组件", GridViewMainPage(), ""),
+    new CatalogModel("第18章 Clip裁剪组件系列", ClipViewMainPage(), ""),
 
 
     new CatalogModel("第19章矩阵变换t", OtherTransformWidgetMainPage(), "Transform变换组件、"),
