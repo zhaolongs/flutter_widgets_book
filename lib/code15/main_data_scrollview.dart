@@ -10,6 +10,8 @@ import 'main_data1502.dart';
 import 'main_data1503.dart';
 import 'main_data1504.dart';
 import 'main_data1505.dart';
+import 'main_data1506.dart';
+import 'main_data1507.dart';
 
 
 
@@ -59,6 +61,9 @@ class _FirstPageState extends State<ScrollViewMainPage> {
       buildContainerAndClick("SingleChildScrollView 下拉刷新",(){NavigatorUtils.pushPage(context, ScrollBaseUsePage5());}),
 
 
+      buildContainerAndClick("NestedScrollView 的基本使用",(){NavigatorUtils.pushPage(context, NestScrollBaseUsePage());}),
+
+      buildContainerAndClick("NestedScrollView 中searchBar的大小变动",(){NavigatorUtils.pushPage(context, NestScrollBaseUsePage2());}),
     ];
   }
 

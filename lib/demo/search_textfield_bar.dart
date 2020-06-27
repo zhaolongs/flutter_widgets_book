@@ -47,6 +47,8 @@ class SearchTextFieldBar extends StatefulWidget {
   double width;
   ///搜索框的高度
   double height;
+  ///搜索图标的大小
+  double searchIconSize;
 
   SearchTextFieldBar(
       {this.hint = "搜索",
@@ -64,6 +66,7 @@ class SearchTextFieldBar extends StatefulWidget {
       this.fontSize = 14,
       this.isShowBackButton = false,
       this.width,
+        this.searchIconSize=18.0,
       this.height}) {
     if (this.height == null) {
       this.height = this.defaultBorderRadius * 2;
@@ -185,8 +188,8 @@ class SearchTextFieldBarState extends State<SearchTextFieldBar> {
         ///左侧的搜索图标
         Image.asset(
           "assets/images/2.0x/search_icon.png",
-          width: 18.0,
-          height: 18.0,
+          width:widget.searchIconSize,
+          height: widget.searchIconSize,
         ),
         SizedBox(
           width: 8.0,
