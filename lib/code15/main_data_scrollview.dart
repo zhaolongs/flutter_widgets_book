@@ -5,6 +5,8 @@ import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/code/common_founction.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
+import 'main_data1501.dart';
+
 
 
 
@@ -45,7 +47,7 @@ class _FirstPageState extends State<ScrollViewMainPage> {
   bluldLeftWidget(BuildContext context){
     return [
 
-//      buildContainerAndClick("WidgetsBindingObserver",(){NavigatorUtils.pushPage(context, WidgetWillAppearPage());}),
+      buildContainerAndClick("SingleChildScrollView 的基本使用",(){NavigatorUtils.pushPage(context, ScrollBaseUsePage());}),
 
 
 
