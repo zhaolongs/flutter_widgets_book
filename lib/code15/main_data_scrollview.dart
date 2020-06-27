@@ -6,6 +6,8 @@ import 'package:flutterbookcode/code/common_founction.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 import 'main_data1501.dart';
+import 'main_data1502.dart';
+import 'main_data1503.dart';
 
 
 
@@ -48,6 +50,8 @@ class _FirstPageState extends State<ScrollViewMainPage> {
     return [
 
       buildContainerAndClick("SingleChildScrollView 的基本使用",(){NavigatorUtils.pushPage(context, ScrollBaseUsePage());}),
+      buildContainerAndClick("SingleChildScrollView 的属性分析",(){NavigatorUtils.pushPage(context, ScrollBaseUsePage2());}),
+      buildContainerAndClick("SingleChildScrollView 的controller",(){NavigatorUtils.pushPage(context, ScrollBaseUsePage3());}),
 
 
 
