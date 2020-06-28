@@ -12,6 +12,8 @@ import 'main_data1504.dart';
 import 'main_data1505.dart';
 import 'main_data1506.dart';
 import 'main_data1507.dart';
+import 'main_data1508.dart';
+import 'main_data1509.dart';
 
 
 
@@ -55,6 +57,9 @@ class _FirstPageState extends State<ScrollViewMainPage> {
 
       buildContainerAndClick("SingleChildScrollView 的基本使用",(){NavigatorUtils.pushPage(context, ScrollBaseUsePage());}),
       buildContainerAndClick("SingleChildScrollView 的属性分析",(){NavigatorUtils.pushPage(context, ScrollBaseUsePage2());}),
+      buildContainerAndClick("SingleChildScrollView 的属性 floationg 分析",(){NavigatorUtils.pushPage(context, NestScrollBaseUsePage4());}),
+
+
       buildContainerAndClick("SingleChildScrollView 的controller",(){NavigatorUtils.pushPage(context, ScrollBaseUsePage3());}),
 
       buildContainerAndClick("SingleChildScrollView 结合Column使用",(){NavigatorUtils.pushPage(context, ScrollBaseUsePage4());}),
@@ -64,6 +69,9 @@ class _FirstPageState extends State<ScrollViewMainPage> {
       buildContainerAndClick("NestedScrollView 的基本使用",(){NavigatorUtils.pushPage(context, NestScrollBaseUsePage());}),
 
       buildContainerAndClick("NestedScrollView 中searchBar的大小变动",(){NavigatorUtils.pushPage(context, NestScrollBaseUsePage2());}),
+
+      buildContainerAndClick("NestedScrollView 商品详情页面",(){NavigatorUtils.pushPage(context, NestScrollBaseUsePage3());}),
+
     ];
   }
 

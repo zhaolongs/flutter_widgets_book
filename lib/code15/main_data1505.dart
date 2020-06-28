@@ -33,13 +33,10 @@ class ScrollHomePageState extends State {
       body: RefreshIndicator(
         ///刷新中间带箭头小圆圈的颜色
         color: Colors.red,
-
         ///刷新组件背景颜色
         backgroundColor: Colors.white,
-
         ///刷新中间带箭头小圆圈的宽度
         strokeWidth: 4.0,
-
         ///下拉刷新回调方法
         onRefresh: () async {
           ///模拟网络刷新 等待2秒
