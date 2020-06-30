@@ -16,6 +16,8 @@ import 'main_data1508.dart';
 import 'main_data1509.dart';
 import 'main_data1510.dart';
 import 'main_data1512.dart';
+import 'main_data1513.dart';
+import 'main_data1514.dart';
 
 
 
@@ -77,6 +79,12 @@ class _FirstPageState extends State<ScrollViewMainPage> {
       buildContainerAndClick("NestedScrollView 商品详情页面",(){NavigatorUtils.pushPage(context, NestScrollBaseUsePage3());}),
 
       buildContainerAndClick("CustomScrollView 的基本使用",(){NavigatorUtils.pushPage(context, CustomScrollBaseUsePage());}),
+
+      buildContainerAndClick("常见滑动布局的实现 SingleScrollView + GridView + ListView",(){NavigatorUtils.pushPage(context, ScrollBaseUsePage6());}),
+
+//      buildContainerAndClick("常见滑动布局的实现 SingleScrollView + GridView + ListView 滑动冲突解决",(){NavigatorUtils.pushPage(context, ScrollBaseUsePage7());}),
+
+
 
     ];
   }

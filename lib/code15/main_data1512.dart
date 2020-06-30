@@ -203,7 +203,6 @@ class ScrollHomePageState extends State with SingleTickerProviderStateMixin {
   buildSliverAppBar() {
     return SliverAppBar(
       title: Text("标题"),
-
       ///标题居中
       centerTitle: true,
 
