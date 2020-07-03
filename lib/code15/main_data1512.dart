@@ -210,9 +210,10 @@ class ScrollHomePageState extends State with SingleTickerProviderStateMixin {
       ///当此值为fase时 SliverAppBar 会随着滑动向上滑动
       pinned: true,
 
-      ///SliverAppBar中的AppBar与flexibleSpace
-      ///中配制的FlexibleSpaceBar属于浮动关系
-      ///结合snap为true来使用
+       ///当值为true时 SliverAppBar设置的title会随着上滑动隐藏
+      ///然后配置的bottom会显示在原AppBar的位置
+      ///当值为false时 SliverAppBar设置的title会不会隐藏
+      ///然后配置的bottom会显示在原AppBar设置的title下面
       floating: false,
 
       ///当snap配置为true时，向下滑动页面，SliverAppBar（以及其中配置的flexibleSpace内容）会立即显示出来，

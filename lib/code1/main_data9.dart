@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutterbookcode/utils/route/circle/circle_path.dart';
 
+import '../global_key.dart';
+
 
 
 
@@ -44,17 +46,25 @@ class CustoumRoutesApp extends StatelessWidget {
 }
 
 
+
+
 //2.6.3 lib/code1/main_data5.dart
 //NavigatorObservers实战
 //页面FirstPage
 class FirstPage extends StatefulWidget {
+
   @override
-  _FirstPageState createState() => _FirstPageState();
+  FirstPageState createState() => FirstPageState();
+
+  FirstPage();
 }
 
-class _FirstPageState extends State<FirstPage> {
+class FirstPageState extends State<FirstPage> {
   ///按钮的Key
   GlobalKey openGlobalKey = new GlobalKey();
+
+
+
 
   @override
   Widget build(BuildContext context) {

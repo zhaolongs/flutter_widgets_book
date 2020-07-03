@@ -49,6 +49,8 @@ class ScrollHomePageState extends State {
       shrinkWrap: true,
       ///每个子条目的高度
       itemExtent: 80,
+      ///
+      cacheExtent: 200,
       ///子Item
       children: [
         buildListViewItemWidget(1),

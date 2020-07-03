@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutterbookcode/demo/search_textfield_bar.dart';
+import 'package:flutterbookcode/utils/global_key_utils.dart';
 
 import 'item/item_page1.dart';
 import 'item/item_page2.dart';
@@ -55,6 +56,7 @@ class ScrollHomePageState extends State {
       ///包含滚动信息的信息体
       ScrollPosition scrollPosition = scrollController.position;
 
+
       ///滚动到了顶部
       if (offset == scrollPosition.minScrollExtent) {
         isTop = true;
@@ -101,6 +103,7 @@ class ScrollHomePageState extends State {
             child: SingleChildScrollView(
               ///配置控制器
               controller: scrollController,
+              scrollDirection: Axis.vertical,
               child: Container(
                 height: 5000,
                 color: Colors.grey,
@@ -159,5 +162,54 @@ class ScrollHomePageState extends State {
         }
       },
     );
+  }
+  ///lib/code15/main_data1510.dart
+  ///滑动到页面顶部
+  ///无动画效果
+  void jumpToTop(){
+    scrollController.jumpTo(scrollController.position.minScrollExtent);
+  }
+  ///滑动到页面顶部
+  ///动画效果
+  void animateTop() {
+    scrollController.animateTo(
+      scrollController.position.minScrollExtent,
+      // 返回顶部的过程中执行一个滚动动画，动画时间是200毫秒，
+      duration: Duration(milliseconds: 200),
+      ///动画曲线是Curves.ease
+      curve: Curves.ease,
+    );
+  }
+  ///lib/code15/main_data1510.dart
+  ///滑动到页面底部部
+  ///动画效果
+  void animateBottom() {
+    scrollController.animateTo(
+      ///获取滑动视图的最大可滑动距离
+      scrollController.position.maxScrollExtent,
+      //动画时间是200毫秒，
+      duration: Duration(milliseconds: 200),
+      ///动画曲线是Curves.ease
+      curve: Curves.ease,
+    );
+  }
+
+  ///lib/code15/main_data1510.dart
+  ///滑动到 指定位置
+  ///动画效果
+  void animateToByGlobalKey(GlobalKey globalKey, {Axis scrollDirection = Axis.vertical}) {
+    ///根据Widget的主键GlobalKey来获取位置信息
+    Offset offset = GlobalKeyUtils.getWidgetOffset(globalKey);
+    if (offset != null) {
+      scrollController.animateTo(
+        ///指定位置
+        scrollDirection == Axis.vertical?offset.dx :offset.dy,
+        //动画时间是200毫秒，
+        duration: Duration(milliseconds: 200),
+
+        ///动画曲线是Curves.ease
+        curve: Curves.ease,
+      );
+    }
   }
 }

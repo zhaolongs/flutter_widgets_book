@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/code1/main_data9.dart';
 import 'package:flutterbookcode/utils/global_key_utils.dart';
 
 import 'custom_persistent_header_delegate.dart';
@@ -16,9 +15,9 @@ import 'custom_persistent_header_delegate.dart';
  * 可关注博客：https://blog.csdn.net/zl18603543572
  */
 
-///lib/code15/main_data1524.dart
+///lib/code15/main_data1523.dart
 ///常见滑动布局的实现 CustomScrollView + SliverGrid + SliverList
-class ScrollBaseUsePage15 extends StatefulWidget {
+class ScrollBaseUsePage14 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return ScrollHomePageState();
@@ -63,7 +62,7 @@ class ScrollHomePageState extends State {
      print(" opacity $opacity");
    });
   }
-  ///lib/code15/main_data1524.dart
+  ///lib/code15/main_data1523.dart
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,12 +87,8 @@ class ScrollHomePageState extends State {
           slivers: [
             ///固定的布局 SliverAppBar
             buildSliverAppBar(),
-            ///页面中的普通布局构建的标题
-            buildGridTitleWidget("分类说明"),
             ///九宫格布局 SliverGrid
             buildSliverGrid(),
-            ///页面中的普通布局构建的标题
-            buildGridTitleWidget("推荐内容"),
             ///列表布局 SliverList
             buildSliverList(),
           ],
@@ -103,7 +98,7 @@ class ScrollHomePageState extends State {
   }
 
 
-  ///lib/code15/main_data1524.dart
+  ///lib/code15/main_data1523.dart
   ///SliverAppBar 可折叠的标题栏
   ///flexibleSpace可折叠的内容区域
   buildSliverAppBar() {
@@ -144,7 +139,7 @@ class ScrollHomePageState extends State {
     );
   }
 
-  ///lib/code15/main_data1524.dart
+  ///lib/code15/main_data1523.dart
   ///构建中间显示的标题
   Widget buildSliverTitleWidget(){
     //透明组件 默认opacity为0 完全透明 表现为页面上不显示
@@ -153,25 +148,7 @@ class ScrollHomePageState extends State {
     return Opacity(opacity:opacity,child: Text("内容详情"),);
   }
 
-  ///lib/code15/main_data1524.dart
-  Widget buildGridTitleWidget(String title) {
-    ///Sliver组件适配器
-    ///将普通Widget用于Sliver组件容器中
-    return SliverToBoxAdapter(
-      child: Container(
-        height: 50,
-        padding: EdgeInsets.all(10),
-        ///线性布局排开的标题内容
-        child: Row(children: [
-          Container(width: 6,color: Colors.blue,),
-          SizedBox(width: 12,),
-          Text("$title")
-        ],),
-      ),
-    );
-  }
-
-  ///lib/code15/main_data1524.dart
+  ///lib/code15/main_data1523.dart
   ///CustomScrollView 中使用九宫格布局
   ///九宫格 通过构造函数来创建
   SliverPadding buildSliverGrid() {
@@ -217,7 +194,7 @@ class ScrollHomePageState extends State {
     }
     return list;
   }
-  ///lib/code15/main_data1524.dart
+  ///lib/code15/main_data1523.dart
   ///SliverList 列表
   /// 通过构造方法方法来创建
   Widget buildSliverList() {
