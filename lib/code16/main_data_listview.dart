@@ -9,6 +9,7 @@ import 'main_data1601.dart';
 import 'main_data1602.dart';
 import 'main_data1603.dart';
 import 'main_data1604.dart';
+import 'main_data1605.dart';
 
 
 
@@ -59,6 +60,7 @@ class _FirstPageState extends State<ListViewMainPage> {
 
 
       buildContainerAndClick("ListView 的builder方法构建使用",(){NavigatorUtils.pushPage(context, ListViewUsePage4());}),
+      buildContainerAndClick("ListView 的separated方法构建使用",(){NavigatorUtils.pushPage(context, ListViewUsePage5());}),
 
     ];
   }

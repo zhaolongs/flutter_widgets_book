@@ -30,6 +30,8 @@ import 'main_data1524.dart';
 import 'main_data1525.dart';
 import 'main_data1526.dart';
 import 'main_data1527.dart';
+import 'main_data1528.dart';
+import 'main_data1529.dart';
 
 
 
@@ -109,7 +111,8 @@ class _FirstPageState extends State<ScrollViewMainPage> {
       buildContainerAndClick(" Scrollable 基本使用 ",(){NavigatorUtils.pushPage(context, ScrollableUsePage2());}),
 
 //      buildContainerAndClick("常见滑动布局的实现 SingleScrollView + GridView + ListView 滑动冲突解决",(){NavigatorUtils.pushPage(context, ScrollBaseUsePage7());}),
-
+      buildContainerAndClick(" ListWheelScrollView 轮子滚动效果 ",(){NavigatorUtils.pushPage(context, ListWheelScrollViewPage());}),
+      buildContainerAndClick(" ListWheelScrollView 轮子滚动效果 属性分析使用",(){NavigatorUtils.pushPage(context, ListWheelScrollViewPage2());}),
 
 
     ];

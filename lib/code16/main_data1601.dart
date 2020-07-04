@@ -60,23 +60,6 @@ class ScrollHomePageState extends State {
       ],
     );
   }
-  ///ListView 的基本使用
-  Widget buildListView2(){
-
-    return ListView.builder();
-  }
-
-  ///ListView 的基本使用
-  Widget buildListView3(){
-
-    return ListView.custom();
-  }
-
-  ///ListView 的基本使用
-  Widget buildListView4(){
-
-    return ListView.separated();
-  }
 
   ///lib/code15/main_data1601.dart
   ///创建ListView使用的子布局
