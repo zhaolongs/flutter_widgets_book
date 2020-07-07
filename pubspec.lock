@@ -78,6 +78,15 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.9"
+  drag_container:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: master
+      resolved-ref: f2099a9432b9906df9b096e280eb8eac2a52e6c3
+      url: "https://github.com/zhaolongs/drag_container.git"
+    source: git
+    version: "0.0.1"
   fake_async:
     dependency: transitive
     description:
@@ -129,7 +138,7 @@ packages:
       path: "/Volumes/code/ico/Desktop/code/flutter_app/flutter_search_bars/flutter_tag_layout"
       relative: false
     source: path
-    version: "0.0.2"
+    version: "0.0.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter

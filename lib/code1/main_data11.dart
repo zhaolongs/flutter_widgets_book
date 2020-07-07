@@ -74,7 +74,7 @@ class _FirstPageState extends State<FirstPage> with SingleTickerProviderStateMix
         SizedBox(height: 20,),
         Switch(value: true, onChanged: (bool value) {},),
         Checkbox(onChanged: (bool value) {  }, value: true,),
-        Radio(groupValue: 1, onChanged: (int value) {  },),
+        Radio(groupValue: 1, onChanged: (int value) {  }, value: 2,),
       ],),
       floatingActionButton: FloatingActionButton(onPressed: () {  },child:Icon(Icons.add) ,),
     );
