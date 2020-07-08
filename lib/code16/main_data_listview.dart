@@ -14,6 +14,7 @@ import 'main_data1606.dart';
 import 'main_data1607.dart';
 import 'main_data1608.dart';
 import 'main_data1609.dart';
+import 'main_data1610.dart';
 
 
 
@@ -69,6 +70,8 @@ class _FirstPageState extends State<ListViewMainPage> {
       buildContainerAndClick("ListView 添加下拉刷新与上拉加载更多功能",(){NavigatorUtils.pushPage(context, ListViewUsePage7());}),
 
       buildContainerAndClick("ListView 添加下拉刷新与上拉加载更多功能2",(){NavigatorUtils.pushPage(context, ListViewUsePage8());}),
+      buildContainerAndClick("ListView 封装 RefreshListView组件的使用",(){NavigatorUtils.pushPage(context, ListViewUsePage10());}),
+
       buildContainerAndClick("ListView 侧滑删除",(){NavigatorUtils.pushPage(context, ListViewUsePage9());}),
     ];
   }
