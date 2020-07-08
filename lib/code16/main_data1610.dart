@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -21,17 +23,13 @@ class ListViewUsePage10 extends StatefulWidget {
     return ScrollHomePageState();
   }
 }
-
 class ScrollHomePageState extends State {
-
   ///列表使用到的数据
   List<ListDataBean> mDatalist = [];
-
   @override
   void initState() {
     super.initState();
   }
-
   ///lib/code15/main_data1610.dart
   @override
   Widget build(BuildContext context) {
@@ -45,16 +43,22 @@ class ScrollHomePageState extends State {
 
   ///构建下拉刷新组件
   Widget buildRefresh() {
+    ///使用封装的下拉刷新列表组件
     return RefreshListView(
+      ///条目构建
       itemBuider: (BuildContext context, int index) {
+        ///构建显示使用的子条目
         return buildItemWidget(index);
       },
+      ///下拉刷新回调方法
       refreshCallback: (pageIndex,pageSize){
         return getData(pageIndex,pageSize,isRefresh:true);
       },
+      ///上拉加载更多回调方法
       loadMoreCallback: (pageIndex,pageSize){
         return getData(pageIndex,pageSize,isRefresh:false);
       },
+      ///ListView的条目数
       itemCount: mDatalist.length,
     );
   }
@@ -62,7 +66,9 @@ class ScrollHomePageState extends State {
   ///lib/code15/main_data1610.dart
   ///异步加载数据的方法
   ///[isRefresh]是否是下拉刷新
-  Future<List> getData(int pageIndex, int pageSize,{bool isRefresh}) async {
+  Future<RefreshStatus> getData(int pageIndex, int pageSize,{bool isRefresh}) async {
+
+
     print("加载数据  pageIndex $pageIndex pageSize $pageSize");
     ///这里通过延时来模拟实际项目开发中的网络请求
     ///延时2秒
@@ -97,7 +103,8 @@ class ScrollHomePageState extends State {
     if (mounted) {
       setState(() {});
     }
-    return Future.value(mDatalist);
+
+    return Future.value(RefreshStatus.normal);
   }
 
   ///构建ListView中的条目 Widget

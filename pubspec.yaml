@@ -33,8 +33,12 @@ dependencies:
   crypto: ^2.0.6
   image: ^2.1.13
   flutter_spinkit: ^4.1.2+1
-
+# 数据存储
   shared_preferences: ^0.5.6+3
+  #列表的加载动画
+  flutter_staggered_animations: ^0.1.2
+#  下拉刷新
+  pull_to_refresh: ^1.6.0
 #  fluttertextlayoutplugin:
 #    git:
 #      url: https://github.com/zhaolongs/flutter_text_layout.git

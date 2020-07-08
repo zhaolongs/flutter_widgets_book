@@ -17,10 +17,15 @@ import 'package:flutter/material.dart';
   final int itemCount;
   ///子条目的构建器
   final Function(BuildContext context, int index) itemBuider;
+
   ///下拉刷新的回调
-  final Function(int pageIndex, int pageSize) refreshCallback;
+  final Future<RefreshStatus> Function(int pageIndex, int pageSize)
+      refreshCallback;
+
   ///上拉加载更多的回调
-  final  Function(int pageIndex, int pageSize) loadMoreCallback;
+  final Future<RefreshStatus> Function(int pageIndex, int pageSize)
+      loadMoreCallback;
+
   ///ListView条目构建回调函数 
   ///[firstIndex]当前页面显示的第一个条目的索引
   ///[lastIndex]当前页面显示的最后一个条目的索引
@@ -39,7 +44,7 @@ import 'package:flutter/material.dart';
 }
 
 
-
+///lib/code16/refresh_listView.dart
 class ScrollHomePageState extends State<RefreshListView> {
   ///分页加载数据的页数
   int pageIndex = 1;
@@ -53,10 +58,10 @@ class ScrollHomePageState extends State<RefreshListView> {
   @override
   void initState() {
     super.initState();
+    ///滑动控制器
     if(widget.scrollController!=null){
       scrollController = widget.scrollController;
     }
-
     if(widget.refreshCallback!=null){
      _loadMoreData(true);
     }
@@ -78,27 +83,26 @@ class ScrollHomePageState extends State<RefreshListView> {
     });
   }
 
-  ///lib/code15/main_data1609.dart
+  ///lib/code16/refresh_listView.dart
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: buildRefresh(),
     );
-  }
 
+  }
   ///构建下拉刷新组件
   Widget buildRefresh() {
     return RefreshIndicator(
       ///下拉刷新回调方法
         onRefresh: () async {
-            return _loadMoreData(true);
+          return _loadMoreData(true);
         },
         ///页面的列表
         child: buildListView());
   }
 
-  ///lib/code15/main_data1609.dart
-  ///通过custom来构建 列表 ListView
+  ///lib/code16/refresh_listView.dart
   ///通过custom来构建 列表 ListView
   Widget buildListView() {
     return ListView.custom(
@@ -130,7 +134,7 @@ class ScrollHomePageState extends State<RefreshListView> {
     );
   }
 
-  ///lib/code15/main_data1609.dart
+  ///lib/code16/refresh_listView.dart
   ///加载更多
   Future<bool> _loadMoreData(bool isRefresh) async {
     print("加载数据  isRefresh $isRefresh pageIndex $pageIndex");
@@ -139,32 +143,35 @@ class ScrollHomePageState extends State<RefreshListView> {
       ///列表尾部显示加载中
       currentRefreshStatus = RefreshStatus.loading;
     });
-    List list =[];
+    RefreshStatus refreshStatus;
+    ///如果是下拉刷新 回调下拉刷新
     if(isRefresh){
       if(widget.refreshCallback!=null){
-        list = await widget.refreshCallback(pageIndex,pageSize);
+        refreshStatus = await widget.refreshCallback(pageIndex,pageSize);
       }
     }else{
       if(widget.loadMoreCallback!=null){
-        list= await widget.loadMoreCallback(pageIndex,pageSize);
+        refreshStatus= await widget.loadMoreCallback(pageIndex,pageSize);
       }
     }
-    ///加载完成后更新状态
-    if(list==null){
-      ///更新页面角标
+    ///更新标识
+    currentRefreshStatus = refreshStatus;
+    switch(refreshStatus){
+      case RefreshStatus.none:
+        break;
+      case RefreshStatus.normal:
+        break;
+      case RefreshStatus.noData:
+        break;
+      case RefreshStatus.loading:
+        break;
+      case RefreshStatus.loadMoreNoData:
+      case RefreshStatus.loadMoreError:
       pageIndex--;
-      ///数据加载错误
-      currentRefreshStatus = RefreshStatus.loadMoreError;
-
-    }else if(list.length==0){
-      pageIndex--;
-      ///无数据时显示暂无数据
-      currentRefreshStatus = RefreshStatus.noData;
-    }else if(list.length<pageSize){
-      ///当前的列表数据大于一页时才显示加载更多
-      currentRefreshStatus = RefreshStatus.none;
-    }else{
-      currentRefreshStatus = RefreshStatus.normal;
+        break;
+    }
+    if(mounted){
+      setState(() {});
     }
     return true;
   }
