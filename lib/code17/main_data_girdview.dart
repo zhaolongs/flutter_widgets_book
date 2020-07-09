@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/code/common_founction.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
+
+import 'main_data1701.dart';
 
 
 
@@ -45,7 +46,7 @@ class _FirstPageState extends State<GridViewMainPage> {
   bluldLeftWidget(BuildContext context){
     return [
 
-//      buildContainerAndClick("WidgetsBindingObserver",(){NavigatorUtils.pushPage(context, WidgetWillAppearPage());}),
+      buildContainerAndClick("GridView的基本使用",(){NavigatorUtils.pushPage(context, GridViewBaseUsePage());}),
 
 
 
