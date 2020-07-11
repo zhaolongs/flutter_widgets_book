@@ -33,6 +33,8 @@ import 'main_data120.dart';
 import 'main_data121.dart';
 import 'main_data122.dart';
 import 'main_data124.dart';
+import 'main_data125.dart';
+import 'main_data126.dart';
 import 'main_data97.dart';
 import 'main_data98.dart';
 import 'main_data99.dart';
@@ -113,6 +115,9 @@ class _FirstPageState extends State<ContainerMainPage> {
       buildContainerAndClick("Container  Matrix4 函数实现缩放",(){NavigatorUtils.pushPage(context, ContainerScallFunctionPage());}),
       buildContainerAndClick("Container  Matrix4 函数实现视差效果",(){NavigatorUtils.pushPage(context, ContainerEntryPage());}),
 
+      buildContainerAndClick("AnimatedContainer  图片由正方形转换为圆形",(){NavigatorUtils.pushPage(context, AnimatedContainerPage());}),
+
+      buildContainerAndClick("AnimatedContainer 字母的位置修改",(){NavigatorUtils.pushPage(context, AnimatedContainerPage2());}),
     ];
   }
 
