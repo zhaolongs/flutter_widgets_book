@@ -26,9 +26,13 @@ class ScrollHomePageState extends State {
       appBar: new AppBar(
         title: Text("GridView基本使用"),
       ),
-      ///构建九宫格数据数据
-      body: buildGridView1(),
+
+      ///构建列表数据
+//      body: buildGridView1(),
 //      body: buildGridView2(),
+//      body: buildGridView3(),
+//      body: buildGridView4(),
+      body: buildGridView5(),
     );
   }
 
@@ -52,6 +56,92 @@ class ScrollHomePageState extends State {
       children: buildListViewItemList(),
     );
   }
+
+  ///lib/code15/main_data1701.dart
+  ///GridView 的基本使用
+  ///通过构造函数来创建
+  Widget buildGridView2() {
+    double width = MediaQuery.of(context).size.width;
+    double devicePixelRatio = MediaQuery.of(context).devicePixelRatio;
+    print(" width $width  devicePixelRatio $devicePixelRatio");
+    return GridView(
+      ///子Item排列规则
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        ///子Item的最大宽度
+        maxCrossAxisExtent: 100,
+        //纵轴间距
+        mainAxisSpacing: 10.0,
+        //横轴间距
+        crossAxisSpacing: 10.0,
+        //子组件宽高长度比例
+        childAspectRatio: 1.4,
+      ),
+      ///GridView中使用的子Widegt
+      children: buildListViewItemList(),
+    );
+  }
+
+
+  ///lib/code15/main_data1701.dart
+  ///GridView 的基本使用
+  ///通过count方式来创建
+  Widget buildGridView3() {
+    return GridView.count(
+      ///每行的列数
+      crossAxisCount: 4,
+      //纵轴间距
+      mainAxisSpacing: 10.0,
+      //横轴间距
+      crossAxisSpacing: 10.0,
+      ///所有的子条目
+      children: buildListViewItemList(),
+    );
+  }
+
+  ///lib/code15/main_data1701.dart
+  ///GridView 的基本使用
+  ///通过count方式来创建
+  Widget buildGridView4() {
+    return GridView.extent(
+      ///每列Item的最大宽度
+      maxCrossAxisExtent: 120,
+      //纵轴间距
+      mainAxisSpacing: 10.0,
+      //横轴间距
+      crossAxisSpacing: 10.0,
+      ///所有的子条目
+      children: buildListViewItemList(),
+    );
+  }
+  ///lib/code15/main_data1701.dart
+  ///GridView 的基本使用
+  ///通过builder方式来创建
+  Widget buildGridView5() {
+    return GridView.builder(
+      ///缓存区域
+      cacheExtent: 120,
+      ///内边距
+      padding: EdgeInsets.all(8),
+      ///条目个数
+      itemCount: 100,
+      ///子Item排列规则
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        ///子Item的最大宽度
+        maxCrossAxisExtent: 100,
+        //纵轴间距
+        mainAxisSpacing: 10.0,
+        //横轴间距
+        crossAxisSpacing: 10.0,
+        //子组件宽高长度比例
+        childAspectRatio: 1.4,
+      ),
+      ///懒加载构建子条目
+      itemBuilder: (BuildContext context,int index){
+        return buildListViewItemWidget(index);
+      },
+    );
+  }
+
   ///lib/code15/main_data1701.dart
   ///GridView 的基本使用
   ///通过custom方式来创建
