@@ -75,10 +75,7 @@ class ClipRectPageState extends State {
             duration: Duration(milliseconds: 500),	// 设置时间
             color: _colors[index],	//设置颜色
             alignment: _alignments[index],	// 设置位置
-            child: Text(
-              'A',
-              style: TextStyle(color: Colors.white, fontSize: 50),
-            ),
+            child: Icon(Icons.face)
           ),
         ),
       ),

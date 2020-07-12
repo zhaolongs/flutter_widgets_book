@@ -22,6 +22,8 @@ import 'main_data7014.dart';
 import 'main_data7015.dart';
 import 'main_data7016.dart';
 import 'main_data7017.dart';
+import 'main_data7018.dart';
+import 'main_data7019.dart';
 
 
 
@@ -92,6 +94,9 @@ class _FirstPageState extends State<ButtonMainPage> {
       buildContainerAndClick("IconButton系列",(){NavigatorUtils.pushPage(context, BackButtonPage());}),
       buildContainerAndClick("PopupMenuButton",(){NavigatorUtils.pushPage(context, PopupMenuButtonPage());}),
       buildContainerAndClick("实现类似微信首页右上角的小弹框",(){NavigatorUtils.pushPage(context, PopupMenuButton2Page());}),
+      buildContainerAndClick("AnimatedButton 动画切换按钮",(){NavigatorUtils.pushPage(context, AnimatedButtonPage());}),
+      buildContainerAndClick("AnimatedButton 动画 进度条 切换按钮",(){NavigatorUtils.pushPage(context, AnimatedStutesButtonPage());}),
+
 
     ];
   }

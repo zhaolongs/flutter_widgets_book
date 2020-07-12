@@ -56,11 +56,11 @@ dependencies:
       ref: master
 
   #抽屉
-#  drag_container: ^0.0.1
-  drag_container:
-    git:
-      url: https://github.com/zhaolongs/drag_container.git
-      ref: master
+  drag_container: ^0.0.1
+#  drag_container:
+#    git:
+#      url: https://github.com/zhaolongs/drag_container.git
+#      ref: master
 
 
 dev_dependencies:

@@ -81,12 +81,10 @@ packages:
   drag_container:
     dependency: "direct main"
     description:
-      path: "."
-      ref: master
-      resolved-ref: f2099a9432b9906df9b096e280eb8eac2a52e6c3
-      url: "https://github.com/zhaolongs/drag_container.git"
-    source: git
-    version: "0.0.1"
+      name: drag_container
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.2"
   fake_async:
     dependency: transitive
     description:
