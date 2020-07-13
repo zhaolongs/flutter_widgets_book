@@ -30,6 +30,9 @@ import 'main_data2125.dart';
 import 'main_data2126.dart';
 import 'main_data2127.dart';
 import 'main_data2128.dart';
+import 'main_data2129.dart';
+import 'main_data2130.dart';
+import 'main_data2131.dart';
 
 
 
@@ -115,7 +118,11 @@ class _FirstPageState extends State<CanvasWidgetMainPage> {
       buildContainerAndClick("绘制双层图片",(){NavigatorUtils.pushPage(context, DrawImageAndBleomPage());}),
       buildContainerAndClick("绘制粒子动画",(){NavigatorUtils.pushPage(context, DrawBillAnimationPage());}),
       buildContainerAndClick("多组绘制粒子动画",(){NavigatorUtils.pushPage(context, DrawBillsAnimationPage());}),
-    buildContainerAndClick(" 绘制网格的坐标轴",(){NavigatorUtils.pushPage(context, GriddingDemoPage());}),
+     buildContainerAndClick(" 绘制网格的坐标轴",(){NavigatorUtils.pushPage(context, GriddingDemoPage());}),
+      buildContainerAndClick(" 评分五角",(){NavigatorUtils.pushPage(context, RatingBarPage());}),
+      buildContainerAndClick(" 评分五角",(){NavigatorUtils.pushPage(context, RatingPage());}),
+
+      buildContainerAndClick(" 评分五角",(){NavigatorUtils.pushPage(context, StarRatinIconPage());}),
 
     ];
   }
