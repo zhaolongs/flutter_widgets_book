@@ -14,6 +14,7 @@ import 'code18/main_data_clip.dart';
 import 'code20/main_data_other_transform.dart';
 import 'code21/main_data_canvas.dart';
 import 'code22/main_data_other.dart';
+import 'code23/main_data_animation.dart';
 import 'code3/main_data_appbar.dart';
 import 'code3/main_data_scffold.dart';
 import 'code4/main_data_text.dart';
@@ -93,8 +94,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
     new CatalogModel("第19章矩阵变换t", OtherTransformWidgetMainPage(), "Transform变换组件、"),
     new CatalogModel("第20章绘图", CanvasWidgetMainPage(), "绘图基础、绘制坐标轴"),
-
-    new CatalogModel("第21章其他Widget", OtherWidgetMainPage(), "Transform变换组件、"),
+    new CatalogModel("第21章动画", AnimationWidgetMainPage(), "动画 、"),
+    new CatalogModel("第22章其他Widget", OtherWidgetMainPage(), "Transform变换组件、"),
 
   ];
 
