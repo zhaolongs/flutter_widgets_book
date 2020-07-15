@@ -10,6 +10,12 @@ import 'main_data2302.dart';
 import 'main_data2303.dart';
 import 'main_data2304.dart';
 import 'main_data2305.dart';
+import 'main_data2306.dart';
+import 'main_data2307.dart';
+import 'main_data2308.dart';
+import 'main_data2309.dart';
+import 'main_data2310.dart';
+import 'main_data2311.dart';
 
 
 
@@ -55,6 +61,14 @@ class _FirstPageState extends State<AnimationWidgetMainPage> {
       buildContainerAndClick("透明度动画 FadeTransition",(){NavigatorUtils.pushPage(context, FadeTransitionPage());}),
       buildContainerAndClick("透明度动画 Opacity 与 Slider ",(){NavigatorUtils.pushPage(context, AnimatedOpacityPage2());}),
       buildContainerAndClick("透明度动画 Color ARGB ",(){NavigatorUtils.pushPage(context, AnimatedOpacityFromARGBPage());}),
+
+
+      buildContainerAndClick("缩放动画 动态修改容器的 内边距 Padding ",(){NavigatorUtils.pushPage(context, AnimatedPaddingPage());}),
+      buildContainerAndClick("缩放动画 AnimatedPadding ",(){NavigatorUtils.pushPage(context, AnimatedAnimatedPaddingPage());}),
+      buildContainerAndClick("缩放动画 Stack 层叠布局中 AnimatedPositioned 实现的动画效果",(){NavigatorUtils.pushPage(context, AnimatedPositionedPage());}),
+      buildContainerAndClick("缩放动画 AnimatedSize 实现的动画效果",(){NavigatorUtils.pushPage(context, AnimatedSizePage());}),
+      buildContainerAndClick("缩放动画 ScaleTransition 实现的动画效果",(){NavigatorUtils.pushPage(context, ScaleTransitionPage());}),
+      buildContainerAndClick("缩放动画 Transform Scale 实现的动画效果",(){NavigatorUtils.pushPage(context, TransformScalePage());}),
 
 
       buildContainerAndClick("WidgetsBindingObserver",(){NavigatorUtils.pushPage(context, FlashAnimationPage());}),
