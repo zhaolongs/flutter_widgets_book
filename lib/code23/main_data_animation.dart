@@ -16,6 +16,20 @@ import 'main_data2308.dart';
 import 'main_data2309.dart';
 import 'main_data2310.dart';
 import 'main_data2311.dart';
+import 'main_data2313.dart';
+import 'main_data2314.dart';
+import 'main_data2315.dart';
+import 'main_data2316.dart';
+import 'main_data2317.dart';
+import 'main_data2318.dart';
+import 'main_data2319.dart';
+import 'main_data2320.dart';
+import 'main_data2321.dart';
+import 'main_data2322.dart';
+import 'main_data2324.dart';
+import 'main_data2325.dart';
+import 'main_data2326.dart';
+import 'main_data2327.dart';
 
 
 
@@ -69,7 +83,30 @@ class _FirstPageState extends State<AnimationWidgetMainPage> {
       buildContainerAndClick("缩放动画 AnimatedSize 实现的动画效果",(){NavigatorUtils.pushPage(context, AnimatedSizePage());}),
       buildContainerAndClick("缩放动画 ScaleTransition 实现的动画效果",(){NavigatorUtils.pushPage(context, ScaleTransitionPage());}),
       buildContainerAndClick("缩放动画 Transform Scale 实现的动画效果",(){NavigatorUtils.pushPage(context, TransformScalePage());}),
+      buildContainerAndClick("缩放动画 AnimatedContainer  实现的动画效果",(){NavigatorUtils.pushPage(context, AnimatedContainerPage());}),
 
+
+      buildContainerAndClick("旋转动画 Transform Roate  实现的动画效果",(){NavigatorUtils.pushPage(context, TransformRotatePage());}),
+      buildContainerAndClick("旋转动画 RotationTransition  实现的动画效果",(){NavigatorUtils.pushPage(context, RotationTransitionPage());}),
+
+      buildContainerAndClick("平移动画 SlideTransition  实现的动画效果",(){NavigatorUtils.pushPage(context, SlideTransitionPage());}),
+      buildContainerAndClick("平移动画 Transform Translate  实现的动画效果",(){NavigatorUtils.pushPage(context, TransformTranslatePage());}),
+
+      buildContainerAndClick("Tween 基本使用  double 实现的动画效果",(){NavigatorUtils.pushPage(context, TweenPage());}),
+
+      buildContainerAndClick("Tween 基本使用 Color  实现的动画效果",(){NavigatorUtils.pushPage(context, TweenPage2());}),
+      buildContainerAndClick("Tween 基本使用 BoxConstraintsTween  实现的动画效果",(){NavigatorUtils.pushPage(context, BoxConstraintsTweenPage());}),
+      buildContainerAndClick("Tween 基本使用 DecorationTween  实现的动画效果",(){NavigatorUtils.pushPage(context, DecorationTweenPage());}),
+
+      buildContainerAndClick("Tween 基本使用 BorderRadiusTween  实现的动画效果",(){NavigatorUtils.pushPage(context, BorderRadiusTweenPage());}),
+      buildContainerAndClick("Tween 基本使用 BorderTween  实现的动画效果",(){NavigatorUtils.pushPage(context, BorderTweenPage());}),
+      buildContainerAndClick("Tween 基本使用 TextStyleTween  实现的动画效果",(){NavigatorUtils.pushPage(context, TextStyleTweenPage());}),
+      buildContainerAndClick("CurvedAnimation结合Tween  实现的动画效果",(){NavigatorUtils.pushPage(context, CurvedAnimationAndTween());}),
+
+
+
+
+      buildContainerAndClick("CurvedAnimation 基本使用 实现的动画效果",(){NavigatorUtils.pushPage(context, CurvedAnimationPage());}),
 
       buildContainerAndClick("WidgetsBindingObserver",(){NavigatorUtils.pushPage(context, FlashAnimationPage());}),
 

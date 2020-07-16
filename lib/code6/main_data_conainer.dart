@@ -35,6 +35,7 @@ import 'main_data122.dart';
 import 'main_data124.dart';
 import 'main_data125.dart';
 import 'main_data126.dart';
+import 'main_data127.dart';
 import 'main_data97.dart';
 import 'main_data98.dart';
 import 'main_data99.dart';
@@ -88,7 +89,7 @@ class _FirstPageState extends State<ContainerMainPage> {
 
       buildContainerAndClick("ShapeDecoration 分析",(){NavigatorUtils.pushPage(context, ContainerShapeDecorationPage());}),
 
-
+      buildContainerAndClick("ConstrainedBox 分析",(){NavigatorUtils.pushPage(context, ConstrainedBoxPage());}),
 
 
     ];
