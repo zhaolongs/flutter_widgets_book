@@ -30,6 +30,11 @@ import 'main_data2324.dart';
 import 'main_data2325.dart';
 import 'main_data2326.dart';
 import 'main_data2327.dart';
+import 'main_data2328.dart';
+import 'main_data2329.dart';
+import 'main_data2330.dart';
+import 'main_data2331.dart';
+import 'main_data2332.dart';
 
 
 
@@ -101,7 +106,14 @@ class _FirstPageState extends State<AnimationWidgetMainPage> {
       buildContainerAndClick("Tween 基本使用 BorderRadiusTween  实现的动画效果",(){NavigatorUtils.pushPage(context, BorderRadiusTweenPage());}),
       buildContainerAndClick("Tween 基本使用 BorderTween  实现的动画效果",(){NavigatorUtils.pushPage(context, BorderTweenPage());}),
       buildContainerAndClick("Tween 基本使用 TextStyleTween  实现的动画效果",(){NavigatorUtils.pushPage(context, TextStyleTweenPage());}),
+      buildContainerAndClick("Tween 基本使用 TweenSequence 实现的动画效果",(){NavigatorUtils.pushPage(context, TweenSequencePage());}),
+      buildContainerAndClick("Tween 基本使用 TweenSequence2  实现的动画效果",(){NavigatorUtils.pushPage(context, TweenSequencePage2());}),
+      buildContainerAndClick("Tween 基本使用 TweenSequence3  实现的动画效果",(){NavigatorUtils.pushPage(context, TweenSequencePage3());}),
+      buildContainerAndClick("Tween 基本使用 文字抖动  实现的动画效果",(){NavigatorUtils.pushPage(context, TweenSequencePage4());}),
+
+
       buildContainerAndClick("CurvedAnimation结合Tween  实现的动画效果",(){NavigatorUtils.pushPage(context, CurvedAnimationAndTween());}),
+      buildContainerAndClick("按钮的抖动  实现的动画效果",(){NavigatorUtils.pushPage(context, ButtonShakeAnimationPage());}),
 
 
 

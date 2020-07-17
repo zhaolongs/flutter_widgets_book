@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/demo/flash/child/list_placeholder.dart';
 import 'package:flutterbookcode/demo/flash/flash_animation_widget.dart';
-import 'package:flutterbookcode/demo/shake/shake_animation_text.dart';
 import 'package:flutterbookcode/demo/shake/shake_animation_type.dart';
 import 'package:flutterbookcode/demo/shake/shake_animation_widget.dart';
 
@@ -17,15 +16,15 @@ import 'package:flutterbookcode/demo/shake/shake_animation_widget.dart';
  * 可关注博客：https://blog.csdn.net/zl18603543572
  */
 
-///lib/code23/20main_data2331.dart
-class TweenSequencePage4 extends StatefulWidget {
+///lib/code23/20main_data2330.dart
+class TweenSequencePage3 extends StatefulWidget {
   @override
   _TransformPageState createState() => _TransformPageState();
 }
 
-///lib/code23/20main_data2331.dart
+///lib/code23/20main_data2330.dart
 /// AnimatedWidget 的基本使用
-class _TransformPageState extends State<TweenSequencePage4> {
+class _TransformPageState extends State<TweenSequencePage3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,25 +35,37 @@ class _TransformPageState extends State<TweenSequencePage4> {
       ///执行旋转，快速的微旋转而形成抖动的动画效果
       body: Column(
         children: [
+          ///抖动效果
+          ShakeAnimationWidget(
+            shakeAnimationType: ShakeAnimationType.RandomShake,
+            child: Container(
+              width: 100,
+              height: 100,
+              color: Colors.deepOrange,
+            ),
+          ),
           SizedBox(
             height: 20,
           ),
-          ///lib/code23/20main_data2331.dart
-          ShakeTextAnimationWidget(
-            ///需要设置抖动效果的文本
-            animationString: "这里是文字的抖动",
-            ///字符间距
-            space: 1.0,
-            ///行间距
-            runSpace: 10,
-            ///文字的样式
-            textStyle: TextStyle(
-              ///文字的大小
-              fontSize: 25,
+          ShakeAnimationWidget(
+            shakeAnimationType: ShakeAnimationType.RandomShake,
+            child: Container(
+              width: 100,
+              height: 100,
+              color: Colors.blue,
             ),
-            ///抖动次数
-            shakeCount: 0,
           ),
+          SizedBox(
+            height: 20,
+          ),
+          ShakeAnimationWidget(
+            shakeAnimationType: ShakeAnimationType.RandomShake,
+            child: Container(
+              width: 100,
+              height: 100,
+              color: Colors.lightBlueAccent,
+            ),
+          )
         ],
       ),
     );
