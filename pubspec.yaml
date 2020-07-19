@@ -24,6 +24,8 @@ dependencies:
   #在这里的 ^号代表自动加载升级版的插件，如果需要使用固定版本，可以将^去掉，然后直接写上版本号就可以
   provider: ^4.0.5
   matrix4_transform: ^1.1.4
+  # Material motion 规范的预构建动画
+  animations: ^1.1.1
   flutter_progress_button: ^0.6.4
   #闪光动画
   flash_animation: ^0.0.1

@@ -33,6 +33,9 @@ import 'main_data2128.dart';
 import 'main_data2129.dart';
 import 'main_data2130.dart';
 import 'main_data2131.dart';
+import 'main_data2132.dart';
+import 'main_data2133.dart';
+import 'main_data2134.dart';
 
 
 
@@ -123,6 +126,10 @@ class _FirstPageState extends State<CanvasWidgetMainPage> {
       buildContainerAndClick(" 评分五角",(){NavigatorUtils.pushPage(context, RatingPage());}),
 
       buildContainerAndClick(" 评分五角",(){NavigatorUtils.pushPage(context, StarRatinIconPage());}),
+
+      buildContainerAndClick(" N角星的绘制 ",(){NavigatorUtils.pushPage(context, NStarPage());}),
+      buildContainerAndClick(" Path动画 ",(){NavigatorUtils.pushPage(context, AnimateRectPage());}),
+      buildContainerAndClick(" 绘制虚线 ",(){NavigatorUtils.pushPage(context, DashLinePainterPage());}),
 
     ];
   }

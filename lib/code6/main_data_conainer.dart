@@ -36,6 +36,8 @@ import 'main_data124.dart';
 import 'main_data125.dart';
 import 'main_data126.dart';
 import 'main_data127.dart';
+import 'main_data128.dart';
+import 'main_data129.dart';
 import 'main_data97.dart';
 import 'main_data98.dart';
 import 'main_data99.dart';
@@ -119,6 +121,11 @@ class _FirstPageState extends State<ContainerMainPage> {
       buildContainerAndClick("AnimatedContainer  图片由正方形转换为圆形",(){NavigatorUtils.pushPage(context, AnimatedContainerPage());}),
 
       buildContainerAndClick("AnimatedContainer 字母的位置修改",(){NavigatorUtils.pushPage(context, AnimatedContainerPage2());}),
+
+      buildContainerAndClick("shape 样式",(){NavigatorUtils.pushPage(context, ConstrainedShapePage());}),
+      buildContainerAndClick("shape 自定义 样式",(){NavigatorUtils.pushPage(context, CustomShapePage());}),
+
+
     ];
   }
 

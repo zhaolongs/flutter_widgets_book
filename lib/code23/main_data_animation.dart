@@ -35,6 +35,11 @@ import 'main_data2329.dart';
 import 'main_data2330.dart';
 import 'main_data2331.dart';
 import 'main_data2332.dart';
+import 'main_data2333.dart';
+import 'main_data2334.dart';
+import 'main_data2335.dart';
+import 'main_data2336.dart';
+import 'main_data2337.dart';
 
 
 
@@ -121,6 +126,13 @@ class _FirstPageState extends State<AnimationWidgetMainPage> {
       buildContainerAndClick("CurvedAnimation 基本使用 实现的动画效果",(){NavigatorUtils.pushPage(context, CurvedAnimationPage());}),
 
       buildContainerAndClick("闪光动画",(){NavigatorUtils.pushPage(context, FlashAnimationPage());}),
+      buildContainerAndClick("Hero动画",(){NavigatorUtils.pushPage(context, HeroPage());}),
+
+      buildContainerAndClick("Hero动画 自定义转场动画",(){NavigatorUtils.pushPage(context, HeroPage2());}),
+      buildContainerAndClick("Hero动画 实现径向Hero动画",(){NavigatorUtils.pushPage(context, HeroPage3());}),
+      buildContainerAndClick("OpenContainer 动画",(){NavigatorUtils.pushPage(context, OpenContainerPage());}),
+
+      buildContainerAndClick("SharedAxisTransition 动画",(){NavigatorUtils.pushPage(context, SharedAxisTransitionPage());}),
 
     ];
   }
