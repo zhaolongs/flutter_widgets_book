@@ -120,7 +120,7 @@ class _FirstPageState extends State<AnimationWidgetMainPage> {
 
       buildContainerAndClick("CurvedAnimation 基本使用 实现的动画效果",(){NavigatorUtils.pushPage(context, CurvedAnimationPage());}),
 
-      buildContainerAndClick("WidgetsBindingObserver",(){NavigatorUtils.pushPage(context, FlashAnimationPage());}),
+      buildContainerAndClick("闪光动画",(){NavigatorUtils.pushPage(context, FlashAnimationPage());}),
 
     ];
   }

@@ -25,6 +25,8 @@ dependencies:
   provider: ^4.0.5
   matrix4_transform: ^1.1.4
   flutter_progress_button: ^0.6.4
+  #闪光动画
+  flash_animation: ^0.0.1
   #获取手机存储目录
   path_provider: ^1.6.9
   #用来加载网络数据
