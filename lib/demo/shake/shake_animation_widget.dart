@@ -28,11 +28,13 @@ class ShakeAnimationWidget extends StatefulWidget {
   final ShakeAnimationController shakeAnimationController;
   ///是否自动执行抖动
   final bool isForward;
-
+  ///是否输出日志
+  final bool isLog;
   ShakeAnimationWidget(
       {@required this.child,
       this.shakeRange = 0.1,
       this.shakeCount = 0,
+        this.isLog=false,
       this.shakeAnimationType = ShakeAnimationType.RoateShake,
       this.shakeAnimationController,
       this.isForward = true,
@@ -150,8 +152,10 @@ class _ShakeAnimationState extends State<ShakeAnimationWidget>
   void dispose() {
     ///销毁
     _animationController.dispose();
-    ///移动监听
-    widget.shakeAnimationController.removeListener();
+    if(widget.shakeAnimationController!=null) {
+      ///移动监听
+      widget.shakeAnimationController.removeListener();
+    }
     super.dispose();
   }
 
@@ -159,6 +163,7 @@ class _ShakeAnimationState extends State<ShakeAnimationWidget>
   @override
   Widget build(BuildContext context) {
     return ShakeAnimationBuilder(
+      isLog:widget.isLog,
       ///执行动画的Widget
       child: widget.child,
       ///动画曲线

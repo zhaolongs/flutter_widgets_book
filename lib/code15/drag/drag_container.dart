@@ -136,6 +136,9 @@ class _DragContainerState extends State<DragContainer>
         ///计算抽屉关闭时的高度
         widget.initialChildSize =
             MediaQuery.of(context).size.height * widget.initChildRate;
+      }else if(widget.initialChildSize==null){
+        widget.initialChildSize =
+            MediaQuery.of(context).size.height * widget.initChildRate;
       }
 
       ///计算临界值
@@ -150,7 +153,7 @@ class _DragContainerState extends State<DragContainer>
       }
 
       ///初始化偏移量 为抽屉的关闭状态
-      offsetDistance =widget.initialChildSize;
+      offsetDistance =widget.maxChildSize  - widget.initialChildSize;
     }
   }
 
@@ -165,7 +168,7 @@ class _DragContainerState extends State<DragContainer>
   Widget build(BuildContext context) {
     ///抽屉视图可偏移的距离限制在
     ///widget.initialChildSize/4 与 widget.maxChildSize 之间
-    offsetDistance = offsetDistance.clamp(widget.initialChildSize/4, widget.maxChildSize);
+//    offsetDistance = offsetDistance.clamp(widget.initialChildSize/4, widget.maxChildSize);
     ///平移变换
     return Transform.translate(
       ///在y轴方向移动

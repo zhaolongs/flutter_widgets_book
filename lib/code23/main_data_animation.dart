@@ -40,6 +40,7 @@ import 'main_data2334.dart';
 import 'main_data2335.dart';
 import 'main_data2336.dart';
 import 'main_data2337.dart';
+import 'main_data2338.dart';
 
 
 
@@ -133,6 +134,7 @@ class _FirstPageState extends State<AnimationWidgetMainPage> {
       buildContainerAndClick("OpenContainer 动画",(){NavigatorUtils.pushPage(context, OpenContainerPage());}),
 
       buildContainerAndClick("SharedAxisTransition 动画",(){NavigatorUtils.pushPage(context, SharedAxisTransitionPage());}),
+      buildContainerAndClick("读书效果",(){NavigatorUtils.pushPage(context, ReadBookPage1());}),
 
     ];
   }

@@ -21,9 +21,11 @@ class ShakeAnimationBuilder extends StatelessWidget {
   ShakeAnimationBuilder(
       {@required this.child,
       @required this.animation,
+        this.isLog=false,
       this.randomValue = 5,
       this.shakeAnimationType = ShakeAnimationType.RoateShake});
 
+  final bool isLog;
   ///执行动画的子Widget
   final Widget child;
   ///动画的定义
@@ -73,8 +75,9 @@ class ShakeAnimationBuilder extends StatelessWidget {
         dx = animation.value * 15;
         dy = animation.value * 15;
       }
-
-      print("dx $dx dy $dy");
+     if(isLog){
+       print("dx $dx dy $dy");
+     }
       ///在XOY平面的平移
       return Matrix4.translationValues(dx, dy, 0);
     }

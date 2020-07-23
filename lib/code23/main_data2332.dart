@@ -59,13 +59,13 @@ class _TransformPageState extends State<ButtonShakeAnimationPage> {
       ///抖动控制器
       shakeAnimationController: _shakeAnimationController,
       ///微旋转的抖动
-      shakeAnimationType: ShakeAnimationType.LeftRightShake,
+      shakeAnimationType: ShakeAnimationType.SkewShake,
       ///设置不开启抖动
       isForward: false,
       ///默认为 0 无限执行
       shakeCount: 0,
       ///抖动的幅度 取值范围为[0,1]
-      shakeRange: 1,
+      shakeRange: 0.2,
       ///执行抖动动画的子Widget
       child: RaisedButton(
         child: Text(

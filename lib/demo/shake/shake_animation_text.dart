@@ -24,10 +24,13 @@ class ShakeTextAnimationWidget extends StatefulWidget {
   final double runSpace;
   ///抖动次数
   final shakeCount;
+  ///是否输出日志
+  final isLog;
   ShakeTextAnimationWidget(
       {@required this.animationString,
       this.textStyle,
       this.space = 1,
+        this.isLog =false,
       this.runSpace = 6,
       this.shakeCount = 0});
 
@@ -75,6 +78,7 @@ class _TextAnimationState extends State<ShakeTextAnimationWidget> {
             itemStr,
             style: widget.textStyle,
           ),
+          isLog:widget.isLog,
           ///抖动次数限制
           shakeCount: widget.shakeCount,
           ///抖动动画的类型

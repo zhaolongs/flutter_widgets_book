@@ -16,7 +16,9 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-
+  cached_network_image: ^2.2.0+1
+  #视频播放
+  video_player: ^0.10.11+2
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
@@ -26,6 +28,8 @@ dependencies:
   matrix4_transform: ^1.1.4
   # Material motion 规范的预构建动画
   animations: ^1.1.1
+  # 友盟统计
+  flutter_fai_umeng: ^0.0.2
   flutter_progress_button: ^0.6.4
   #闪光动画
   flash_animation: ^0.0.1
@@ -36,6 +40,7 @@ dependencies:
   #MD5  base64之类 转码
   crypto: ^2.0.6
   image: ^2.1.13
+  permission_handler: ^5.0.1+1
   flutter_spinkit: ^4.1.2+1
 # 数据存储
   shared_preferences: ^0.5.6+3
@@ -50,9 +55,9 @@ dependencies:
   #搜索框
   flutter_search_bars: ^0.0.2
   #文本标签
-#  flutter_tag_layout: ^0.0.3
-  flutter_tag_layout :
-    path: /Volumes/code/ico/Desktop/code/flutter_app/flutter_search_bars/flutter_tag_layout
+  flutter_tag_layout: ^0.0.3
+#  flutter_tag_layout :
+#    path: /Volumes/code/ico/Desktop/code/flutter_app/flutter_search_bars/flutter_tag_layout
   #手势缩放图片组件
   flutterdragscalewidget:
     git:
