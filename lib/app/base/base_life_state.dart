@@ -67,6 +67,9 @@ abstract class BaseLifeState<T extends StatefulWidget> extends State<T>
   ///当前 Widget 获取焦点的监听
   ///当前的 Widget 的焦点有变化时都会回调些方法
   void focusScopeListener() {
+    if(context==null){
+      return;
+    }
     ///判断当前是否有焦点
     /// 当被dialog挡住时，虽然可见，但是不可操作
     bool isFirstFocus = FocusScope.of(context).isFirstFocus;

@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterbookcode/app/base/pop_base_state.dart';
+import 'package:flutterbookcode/app/common/user_helper.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
@@ -81,7 +82,7 @@ class _TestPageState extends PopBaseState<UserProtocolRequestPage> {
         selectText:
             StringLanguages.of(context).get(StringKey.buttonConsentProtocol),
         selectCallBack: (){
-          SPUtil.save(spUserProtocolKey,true);
+          UserHelper.getInstance.userProtocol=true;
           Navigator.of(context).pop();
         },
         cancleText: StringLanguages.of(context).get(StringKey.buttonExit),

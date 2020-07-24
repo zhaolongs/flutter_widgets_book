@@ -4,11 +4,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutterbookcode/app/common/user_helper.dart';
+import 'package:flutterbookcode/app/page/common/user_protocol_page.dart';
 import 'package:flutterbookcode/base/xy_page.dart';
+import 'package:flutterbookcode/demo/shake/shake_animation_controller.dart';
+import 'package:flutterbookcode/demo/shake/shake_animation_type.dart';
+import 'package:flutterbookcode/demo/shake/shake_animation_widget.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 void openLoginPage(BuildContext context){
-  NavigatorUtils.openPageFromBottom(context, LoginPage());
+  NavigatorUtils.openPageFromBottom(context, LoginPage(),dismissCallBack: (value){
+    if(!UserHelper.getInstance.isUserProtocol){
+      showUserProtocolPage(context: context);
+    }
+  });
 }
 
 /// 登录页面
@@ -32,7 +41,9 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
   ///用户密码输入框TextField的控制器
   TextEditingController _userPasswrodtController;
 
-
+  ShakeAnimationController _phoneShakeController=new ShakeAnimationController();
+  ShakeAnimationController _passwordController=new ShakeAnimationController();
+  ShakeAnimationController _agreentController=new ShakeAnimationController();
   ///手机号焦点控制
   FocusNode userPhoneFieldNode = new FocusNode();
   ///用户密码焦点控制
@@ -52,22 +63,10 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
   //注册动画控制器
   AnimationController registerAnimatController;
 
-  //输入框动画控制器
-  //当输入的手机号不合格或者是密码不合格时
-  //通过此动画实现抖动效果
-  AnimationController inputAnimatController;
-  Animation inputAnimaton;
-  ///抖动动画执行次数
-  int inputAnimationNumber =0;
 
-  ///输入手机号码合格标识
-  /// 11位为合格，此值为false 否则为为true不合格
-  bool isPhoneError = false;
-  ///输入密码合格标识
-  /// 6-12位为合格，此值为false 否则为true不合格
-  bool isPasswordError = false;
-  ///同意协议标识
-  bool isAgreentError = false;
+
+
+
   ///注册状态
   RestureStatus currentRestureStatus=RestureStatus.none;
 
@@ -78,14 +77,14 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
     super.initState();
     ///初始化顶部Logo相关动画
     initLogoAnimationFunction();
-    ///初始化输入框相关动画
-    initInputAnimationFunction();
     ///初始化注册相关动画
     initRegisterAnimationFunction();
     ///初始化输入框控制器
     initInputControllerFunction();
     //添加监听
     WidgetsBinding.instance.addObserver(this);
+
+    checkIsSelect =UserHelper.getInstance.isUserProtocol;
   }
   //lib/code10/main_data1104.dart
   ///生命周期函数 页面销毁时执行一次
@@ -94,8 +93,6 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
     super.dispose();
     ///logo动画控制器释放
     logoAnimatController.dispose();
-    ///输入框动画控制器
-    inputAnimatController.dispose();
     ///注册动画控制器释放
     registerAnimatController..dispose();
     //解绑
@@ -145,43 +142,7 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
       checkRegister();
     });
   }
-  //初始化输入框相关动画
-  void initInputAnimationFunction(){
-    ///这里是通过左右摆动两次来实现的抖动动画
-    inputAnimatController = AnimationController(
-        duration: const Duration(milliseconds: 100), vsync: this);
-    ///构建线性动画，从0-10的匀速
-    inputAnimaton =
-        new Tween(begin: 0.0, end: 10.0).animate(inputAnimatController);
-    ///添加监听，动画执行的每一帧都会回调这里
-    inputAnimatController.addListener(() {
-      double value = inputAnimatController.value;
-      print("变化比率 $value");
-      setState(() {
-      });
-    });
-    ///添加动画执行状态监听
-    inputAnimatController.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        print("正向执行完毕 调用 forward方法动画执行完毕的回调");
-        inputAnimationNumber++;
-        ///反向执行动画
-        inputAnimatController.reverse();
-      }else if(status == AnimationStatus.dismissed){
-        print("反向执行完毕 调用reverse方法动画执行完毕的回调");
-        ///重置动画
-        inputAnimatController.reset();
-        ///记录动画的执行次数
-        ///执行2次便达到了左右抖动的视觉效果
-        if(inputAnimationNumber<2){
-          //正向执行动画
-          inputAnimatController.forward();
-        }else{
-          inputAnimationNumber=0;
-        }
-      }
-    });
-  }
+
   ///初始化注册相关动画
   void initRegisterAnimationFunction(){
     registerAnimatController =
@@ -351,7 +312,8 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
             ///构建用户输入手机号UI
             buildUserRowWidgets("请输入11位手机号", userPhoneFieldNode,
                 Icons.phone_android, 11, _userPhoneTextController,
-                isError: isPhoneError),
+                shakeAnimationController: _phoneShakeController,
+            ),
 
             ///间隔
             Container(margin: EdgeInsets.only(top: 20),),
@@ -361,7 +323,8 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
                 userPasswordFieldNode,
                 Icons.lock_open, 12,
                 _userPasswrodtController,
-                isPassword: true, isError: isPasswordError),
+                shakeAnimationController: _passwordController,
+                isPassword: true,),
             ///用户协议
             buildAgreementWidget(),
             ///间隔
@@ -430,28 +393,27 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
         onTap: () {
           setState(() {
             checkIsSelect = !checkIsSelect;
+            UserHelper.getInstance.userProtocol=checkIsSelect;
           });
         },
-        child: Transform.scale(scale: computeAgrementScale(),child: Image.asset(
-          checkIsSelect
-              ? "assets/images/2.0x/no_select_icon.png"
-              : "assets/images/2.0x/select_icon.png",
-          width: 18,
-          height: 18,
-        ),),
+        child: ShakeAnimationWidget(
+          isForward: false,
+          shakeAnimationType: ShakeAnimationType.RandomShake,
+          shakeAnimationController: _agreentController,
+          shakeCount: 1,
+          child: Image.asset(
+            checkIsSelect
+                ? "assets/images/2.0x/no_select_icon.png"
+                : "assets/images/2.0x/select_icon.png",
+            width: 18,
+            height: 18,
+          ),
+        ),
       ),
     );
   }
 
-  ///缩放抖动值计算
-  double computeAgrementScale(){
-    double scale = 1.0;
-    if(isAgreentError){
-      double value = inputAnimaton.value;
-      scale = value/20+1.0;
-    }
-    return scale;
-  }
+
 
   //lib/code10/main_data1104.dart
   ///构建用户通用输入UI
@@ -461,15 +423,16 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
   ///[maxLenght]允许输入的最大字符个数
   ///[controller]输入框控制器
   ///[isPassword]可选参数，为true时，输入框内容为隐藏
-  ///[isError]为true时，启用左右抖动值绑定
   buildUserRowWidgets(String hintText, FocusNode focusNode,
       IconData preIconData, int maxLenght,
       TextEditingController controller,
-      {bool isPassword = false, bool isError = false}) {
+      {bool isPassword = false,ShakeAnimationController shakeAnimationController}) {
     ///平移动画 实现抖动效果
-    return Transform.translate(
-      //只有为输入校验错误里才启用左右平移实现抖动提示效果
-      offset: Offset(isError ? inputAnimaton.value : 0, 0),
+    return  ShakeAnimationWidget(
+      isForward: false,
+      shakeAnimationController: shakeAnimationController,
+      shakeAnimationType: ShakeAnimationType.LeftRightShake,
+      shakeCount: 1,
       child: Container(
         margin: EdgeInsets.only(left: 22, right: 22,
         ),
@@ -728,30 +691,21 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
     String inputPhone = _userPhoneTextController.text;
     if(inputPhone.length!=11){
       ///更新标识 触发抖动动画
-      isPhoneError = true;
-      inputAnimatController.forward();
+       _phoneShakeController.start();
       return;
-    }else{
-      isPhoneError = false;
     }
     ///获取输入的密码
     String inputPassword = _userPasswrodtController.text;
     if(inputPassword.length<6){
       ///更新标识 触发抖动动画
-      isPasswordError = true;
-      inputAnimatController.forward();
+      _passwordController.start();
       return;
-    }else{
-      isPasswordError = false;
     }
     ///校验是否选择了同意协议
     if(!checkIsSelect){
       ///更新标识 触发放大动画
-      isAgreentError=true;
-      inputAnimatController.forward();
+      _agreentController.start();
       return;
-    }else{
-      isAgreentError = false;
     }
 
     if(currentRestureStatus==RestureStatus.none){

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_fai_umeng/flutter_fai_umeng.dart';
 import 'package:flutterbookcode/app/base/pop_base_state.dart';
+import 'package:flutterbookcode/app/common/user_helper.dart';
 import 'package:flutterbookcode/app/page/common/permission_request_page.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
@@ -37,8 +38,6 @@ class _IndexPageState extends PopBaseState<IndexPage> {
   ///用户是否第一次使用
   bool _userFirst = false;
 
-  ///是否同同意隐私与用户协议
-  bool _userProtocol = false;
   bool _isFrameCallBack = false;
 
   @override
@@ -98,7 +97,9 @@ class _IndexPageState extends PopBaseState<IndexPage> {
     _userFirst = await SPUtil.getBool(spUserIsFirstKey);
 
     ///获取用户隐私协议的状态
-    _userProtocol = await SPUtil.getBool(spUserProtocolKey);
+    bool _userProtocol = await SPUtil.getBool(spUserProtocolKey);
+    ///记录
+    UserHelper.getInstance.userProtocol=_userProtocol;
     openUserProtocol();
   }
 
@@ -161,7 +162,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
   ///判断用户隐私协议
   void openUserProtocol() {
     ///已同意用户隐私协议 下一步
-    if (_userProtocol!=null&&_userProtocol) {
+    if (UserHelper.getInstance.isUserProtocol) {
       openNext();
     } else {
       ///未同意用户协议 弹框显示
