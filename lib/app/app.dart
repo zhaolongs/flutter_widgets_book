@@ -13,6 +13,7 @@ import 'common/sp_key.dart';
 import 'config/cupertino_delegate.dart';
 import 'config/language_config.dart';
 import 'config/local_model.dart';
+import 'config/observer_route.dart';
 import 'config/theme_model.dart';
 import 'index.dart';
 import 'splash.dart';
@@ -36,15 +37,17 @@ class _RottAppState extends State<RootApp> {
   Locale _userLocale;
 
 
-   ///Provider的三个好兄弟：老大 -- MultiProvider  供货商
-   ///老二 -- Providers   货源
-   ///老三 -- Provider.of<T>(context)  /  Widget Consumer 消费者
+  ///Provider的三个好兄弟：老大 -- MultiProvider  供货商
+  ///老二 -- Providers   货源
+  ///老三 -- Provider.of<T>(context)  /  Widget Consumer 消费者
   @override
   Widget build(BuildContext context) {
     ///供货商
     return MultiProvider(
+
       ///构建子Widget
       child: buildMaterialApp(),
+
       ///货源
       providers: [
         //在这里可配置多个数据模型的Provider
@@ -75,9 +78,13 @@ class _RottAppState extends State<RootApp> {
         _userLocale = localeState.locale;
         LogUtil.e("根目录 修改语言环境 $_userLocale");
         return ColorFiltered(
-          colorFilter: ColorFilter.mode(value.getCurrentThemeData().primaryColor==Colors.grey?Colors.grey:Colors.transparent, BlendMode.color),
+          colorFilter: ColorFilter.mode(value
+              .getCurrentThemeData()
+              .primaryColor == Colors.grey ? Colors.grey : Colors.transparent,
+              BlendMode.color),
           child: MaterialApp(
             theme: value.getCurrentThemeData(),
+
             ///应用程序默认显示的页面
             home: IndexPage(),
             debugShowCheckedModeBanner: false,
@@ -95,6 +102,7 @@ class _RottAppState extends State<RootApp> {
               ///支持使用 CupertinoAlertDialog 的代理
               FallbackCupertinoLocalisationsDelegate.delegate,
             ],
+            navigatorObservers: [routeObserver],
 
             ///当前区域，如果为null则使用系统区域一般用于语言切换
             ///传入两个参数，语言代码，国家代码
@@ -143,3 +151,4 @@ class _RottAppState extends State<RootApp> {
 
 
 }
+

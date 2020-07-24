@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutterbookcode/app/base/base_life_state.dart';
 import 'package:flutterbookcode/app/config/theme_model.dart';
+import 'package:flutterbookcode/app/page/common/common_dialog.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
 import 'package:provider/provider.dart';
 
+import '../../app.dart';
 import '../common/common_bottom_dialog.dart';
 import '../../config/local_model.dart';
 
@@ -22,7 +25,50 @@ class SettingPage extends StatefulWidget {
 }
 
 //lib/code/main_data.dart
-class _TestPageState extends State<SettingPage> {
+class _TestPageState extends BaseLifeState<SettingPage>{
+  List<String> menuList = [
+    StringKey.languageSelect,
+    StringKey.themeSelect,
+  ];
+  List<IconData> iconList = [
+    Icons.language,
+    Icons.table_chart,
+  ];
+
+  Map<String, List<String>> mapDataList;
+  @override
+  void initState() {
+
+    super.initState();
+
+    mapDataList = {
+      "language": [
+        StringKey.languageZn,
+        StringKey.languageEn,
+      ],
+      "theme": [
+        StringKey.themeDark,
+        StringKey.themeLight,
+        StringKey.themeGray,
+      ],
+    };
+
+    Future.delayed(Duration(milliseconds: 3000),(){
+//      showCommonAlertDialog(
+////          contentMessag: "提示",
+////          cancleText: StringLanguages.of(context).get(StringKey.buttonExit),
+////          selectText:StringLanguages.of(context).get(StringKey.buttonConsent),
+////          selectCallBack: () {
+////
+////          },
+////          cancleCallBack: () {
+////
+////          }, context: context);
+    showSimpleDialog();
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,26 +91,7 @@ class _TestPageState extends State<SettingPage> {
     );
   }
 
-  List<String> menuList = [
-    StringKey.languageSelect,
-    StringKey.themeSelect,
-  ];
-  List<IconData> iconList = [
-    Icons.language,
-    Icons.table_chart,
-  ];
 
-  Map<String, List<String>> mapDataList = {
-    "language": [
-      StringKey.languageZn,
-      StringKey.languageEn,
-    ],
-    "theme": [
-      StringKey.themeDark,
-      StringKey.themeLight,
-      StringKey.themeGray,
-    ],
-  };
 
   Widget buildItemWidget(BuildContext context, int index) {
     return Container(
@@ -114,5 +141,71 @@ class _TestPageState extends State<SettingPage> {
       ),
     );
   }
+ void showSimpleDialog() {
+    showDialog<Null>(
+      context: context,
+      builder: (BuildContext context) {
+        return new SimpleDialog(
+          title: new Text('选择'),
+          children: <Widget>[
+            new SimpleDialogOption(
+              child: new Text('选项 1'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            new SimpleDialogOption(
+              child: new Text('选项 2'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  @override
+  void onCreat() {
+    super.onCreat();
+    LogUtil.e("设置页面 onCreat");
+  }
+  @override
+  void onStart() {
+    super.onStart();
+    LogUtil.e("设置页面 onStart");
+  }
+
+  @override
+  void onResumed() {
+    // TODO: implement onResumed
+    super.onResumed();
+    LogUtil.e("设置页面 onResumed");
+  }
+  @override
+  void onPause() {
+    // TODO: implement onPause
+    super.onPause();
+    LogUtil.e("设置页面 onPause");
+  }
+  @override
+  void onStop() {
+    super.onStop();
+    LogUtil.e("设置页面 onStope");
+  }
+
+  @override
+  void onWillDestory() {
+    super.onWillDestory();
+    LogUtil.e("设置页面 onWillDestory");
+  }
+  @override
+  void onDestory() {
+    LogUtil.e("设置页面 onDestory");
+  }
+
+
+
 
 }

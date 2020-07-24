@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbookcode/app/base/base_life_state.dart';
 import 'package:flutterbookcode/app/bean/bean_video.dart';
 import 'package:video_player/video_player.dart';
 
@@ -17,7 +18,7 @@ class FindVideoItemPage extends StatefulWidget {
   }
 }
 
-class FindVideoItemPageState extends State<FindVideoItemPage> {
+class FindVideoItemPageState extends BaseLifeState<FindVideoItemPage> {
   ///创建视频播放控制 器
   VideoPlayerController videoPlayerController;
   ///控制更新视频加载初始化完成状态更新
@@ -508,5 +509,16 @@ class FindVideoItemPageState extends State<FindVideoItemPage> {
         ],
       ),
     );
+  }
+
+  @override
+  void onPause() {
+    super.onPause();
+    videoPlayerController.pause();
+  }
+  @override
+  void onResumed() {
+    // TODO: implement onResumed
+    super.onResumed();
   }
 }

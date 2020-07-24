@@ -75,8 +75,8 @@ class NavigatorUtils {
   ///[isReplace] 是否替换当前路由中的页面
   static void openPageByFade(BuildContext context, Widget page,
       {bool isReplace = false,
-      bool opaque = true,
-      Function(dynamic value) dismissCallBack}) {
+        bool opaque = true,
+        Function(dynamic value) dismissCallBack}) {
     PageRouteBuilder pageRouteBuilder = new PageRouteBuilder(
         opaque: opaque,
         pageBuilder: (BuildContext context, Animation<double> animation,
@@ -85,12 +85,10 @@ class NavigatorUtils {
           return page;
         },
         transitionDuration: Duration(milliseconds: 800),
-        transitionsBuilder: (
-          BuildContext context,
-          Animation<double> animation,
-          Animation<double> secondaryAnimation,
-          Widget child,
-        ) {
+        transitionsBuilder: (BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,) {
           //渐变过渡动画
           return FadeTransition(
             // 透明度从 0.0-1.0
@@ -128,10 +126,10 @@ class NavigatorUtils {
   ///[callback]目标页面关闭时的回调函数
   static void pushPageAboutCircle(BuildContext context, Widget page,
       {Offset centerOffset,
-      GlobalKey key,
-      String routeName,
-      paramtes,
-      Function callback}) {
+        GlobalKey key,
+        String routeName,
+        paramtes,
+        Function callback}) {
     ///通过PageRouteBuilder来自定义Rout
     PageRouteBuilder pageRouteBuilder = PageRouteBuilder(
         settings: RouteSettings(name: routeName, arguments: paramtes),
@@ -148,6 +146,7 @@ class NavigatorUtils {
             builder: (context, child) {
               ///创建裁剪路径
               return ClipPath(
+
                 ///自定义的裁剪路径
                 clipper: CirclePath(animation.value,
                     centerOffset: centerOffset, key: key),
@@ -168,4 +167,45 @@ class NavigatorUtils {
       }
     });
   }
+
+  ///从下向上打开页面
+  static void openPageFromBottom(BuildContext context, Widget page,
+      {bool isReplace = false,
+        bool opaque = true,
+        Function(dynamic value) dismissCallBack}) {
+    PageRouteBuilder pageRouteBuilder = new PageRouteBuilder(
+        opaque: opaque,
+        pageBuilder: (BuildContext context, Animation<double> animation,
+            Animation<double> secondaryAnimation) {
+          //目标页面
+          return page;
+        },
+        transitionDuration: Duration(milliseconds: 600),
+        transitionsBuilder: (BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,) {
+          //渐变过渡动画
+          return SlideTransition(
+            // 从位置(-1.0, 0.0) 平移到 (0.0, 0.0)
+            position: Tween(begin: Offset(0.0, 1.0), end: Offset(0.0, 0.0))
+                .animate(
+              CurvedAnimation(
+                parent: animation,
+                curve: Curves.easeInOut,
+              ),),
+            child: child,
+          );
+        });
+    if (isReplace) {
+      Navigator.of(context).pushReplacement(pageRouteBuilder);
+    } else {
+      Navigator.of(context).push(pageRouteBuilder).then((value) {
+        if (dismissCallBack != null) {
+          dismissCallBack(value);
+        }
+      });
+    }
+  }
+
 }

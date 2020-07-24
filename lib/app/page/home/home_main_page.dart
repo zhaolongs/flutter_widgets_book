@@ -3,7 +3,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutterbookcode/app/common/user_helper.dart';
 import 'package:flutterbookcode/app/page/catalogue/catalogue_main_page.dart';
+import 'package:flutterbookcode/app/page/mine/mine_login_page.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
 
@@ -66,6 +68,7 @@ class FirstThemState extends State<HomeMainPage> {
   Widget buildBodyFunction() {
     //帧布局结合透明布局
     return PageView(
+      physics: NeverScrollableScrollPhysics(),
       onPageChanged: (value) {
         setState(() {
           _tabIndex = value;
@@ -100,6 +103,12 @@ class FirstThemState extends State<HomeMainPage> {
       iconSize: 24.0,
       //点击事件
       onTap: (index) {
+        if(index==2){
+          if(UserHelper.getInstance.userBean==null){
+            openLoginPage(context);
+            return;
+          }
+        }
         _pageController.jumpToPage(index);
         _tabIndex = index;
       },

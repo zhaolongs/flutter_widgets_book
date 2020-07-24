@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbookcode/app/base/base_life_state.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/app/page/mine/setting_page.dart';
@@ -21,7 +22,7 @@ class MineMainPage extends StatefulWidget {
   ScrollHomePageState createState() => ScrollHomePageState();
 }
 
-class ScrollHomePageState extends State with TickerProviderStateMixin {
+class ScrollHomePageState extends BaseLifeState<MineMainPage> with TickerProviderStateMixin {
   ///NestedScrollView的滚动控制器
   ///用来监听滚动距离
   ScrollController scrollController = new ScrollController();
@@ -400,4 +401,20 @@ class ScrollHomePageState extends State with TickerProviderStateMixin {
       ),
     ]);
   }
+
+
+  @override
+  void onStart() {
+    super.onStart();
+    LogUtil.e("个人中心 onResumed");
+  }
+  @override
+  void onStop() {
+    super.onStop();
+    LogUtil.e("个人中心 onPause");
+  }
+
+
+
+
 }
