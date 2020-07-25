@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/app/base/base_life_state.dart';
-import 'package:flutterbookcode/app/config/theme_model.dart';
+import 'package:flutterbookcode/app/config/theme_notifier.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
 import 'package:provider/provider.dart';
 
-import '../../config/local_model.dart';
+import '../../config/local_notifier.dart';
 import '../common/common_bottom_dialog.dart';
 
 /// 创建人： Created by zhaolong
@@ -100,11 +100,12 @@ class _TestPageState extends BaseLifeState<SettingPage>{
             showCommonBottomWidget(context, mapDataList["language"], (value) {
               LogUtil.e("pop select $value");
               if (value == 0) {
-                Provider.of<LocaleState>(context, listen: false)
-                    .changeLocaleState(LocaleState.zh());
+                ///修改语言环境为中文
+                Provider.of<LocaleNotifier>(context, listen: false)
+                    .changeLocaleState(LocaleNotifier.zh());
               } else {
-                Provider.of<LocaleState>(context, listen: false)
-                    .changeLocaleState(LocaleState.en());
+                Provider.of<LocaleNotifier>(context, listen: false)
+                    .changeLocaleState(LocaleNotifier.en());
               }
               setState(() {});
             });
@@ -112,11 +113,11 @@ class _TestPageState extends BaseLifeState<SettingPage>{
             showCommonBottomWidget(context, mapDataList["theme"], (value) {
               LogUtil.e("pop select $value");
               if (value == 0) {
-                Provider.of<ThemeModel>(context, listen: false).setThem(0);
+                Provider.of<ThemeNotifier>(context, listen: false).setThem(0);
               } else if (value == 1)  {
-                Provider.of<ThemeModel>(context, listen: false).setThem(1);
+                Provider.of<ThemeNotifier>(context, listen: false).setThem(1);
               }else {
-              Provider.of<ThemeModel>(context, listen: false).setThem(2);
+              Provider.of<ThemeNotifier>(context, listen: false).setThem(2);
               }
               setState(() {});
             });

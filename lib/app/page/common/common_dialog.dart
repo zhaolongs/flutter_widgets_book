@@ -4,7 +4,7 @@ import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
-import '../../config/theme_model.dart';
+import '../../config/theme_notifier.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/7/21.
@@ -26,6 +26,7 @@ void showCommonAlertDialog({
   String cancleText,
   Widget contentWidget,
 }) {
+  ///通过透明的方式来打开弹框
   NavigatorUtils.openPageByFade(
       context,
       CommonDialogPage(

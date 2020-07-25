@@ -8,7 +8,7 @@ import 'package:flutterbookcode/utils/code1/sp_utils.dart';
 import 'package:flutterbookcode/utils/date_utils.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
 
-import 'config/theme_model.dart';
+import 'config/theme_notifier.dart';
 import 'page/home/home_main_page.dart';
 
 /// 创建人： Created by zhaolong

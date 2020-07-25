@@ -12,20 +12,32 @@ import 'package:flutterbookcode/utils/log_util.dart';
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
 
-class LocaleState extends ChangeNotifier {
-  Locale _locale; //主题
-  LocaleState(this._locale);
+///lib/app/config/local_notifier.dart
+class LocaleNotifier extends ChangeNotifier {
+  ///语言环境
+  Locale _locale;
 
-  factory LocaleState.zh() => LocaleState(Locale('zh', 'CH'));
+  LocaleNotifier(this._locale);
 
-  factory LocaleState.en() => LocaleState(Locale('en', 'US'));
+  factory LocaleNotifier.zh() => LocaleNotifier(Locale('zh', 'CH'));
 
-  void changeLocaleState(LocaleState state) {
+  factory LocaleNotifier.en() => LocaleNotifier(Locale('en', 'US'));
+
+  ///修改语言环境
+  void changeLocaleState(LocaleNotifier state) {
     LogUtil.e("修改语言环境 $state");
+    if (state == null) {
+      return;
+    }
     _locale = state.locale;
+
+    ///通知
     notifyListeners();
+
+    ///保存
     SPUtil.save(spUserLocalLanguageKey, state.toString());
   }
 
-  Locale get locale => _locale; //获取语言
+//获取语言环境
+  Locale get locale => _locale;
 }

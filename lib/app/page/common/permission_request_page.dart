@@ -20,45 +20,63 @@ import 'common_dialog.dart';
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
 
+///lib/app/page/common/permission_request_page.dart
+///快速显示动态权限申请功能
+///[context] 上下文对象，用来push新的Widget页面使用
+///[permission] 对应申请的权限[Permission]也就说这是一个
+///   通用的权限申请功能Widget
+///[permissionMessageList] 对应弹框显示的文案，最少有三个
+///[isColseApp] 权限申请不通过时，为true时退出APP
+///[dismissCallback]就是权限申请完毕后的回调
+///     当[isColseApp] 为true时此方法无效
+///     当[isColseApp] 为false时，申请权限通过回调参数为true
+///     申请权限未通过时 回调参数为false
 showPermissionRequestPage(
-    { @required BuildContext context,
+    {@required BuildContext context,
     @required Permission permission,
     @required List<String> permissionMessageList,
-      bool isColseApp =true,
-      Function(dynamic value)  dismissCallback}) {
-  ///权限请求
+    bool isColseApp = true,
+    Function(dynamic value) dismissCallback}) {
+  ///透明的方式打开权限请求 Widget
   NavigatorUtils.openPageByFade(
       context,
       PermissionRequestPage(
         permissionMessageList: permissionMessageList,
         permission: permission,
-          isColseApp:isColseApp,
+        isColseApp: isColseApp,
       ),
       opaque: false, dismissCallBack: (value) {
     ///权限请求结束获取权限后进行初始化操作
     ///如果未获取权限是对权限进行关闭的
-    if(dismissCallback!=null){
+    if (dismissCallback != null) {
       dismissCallback(value);
     }
   });
 }
 
-class PermissionRequestPage extends StatefulWidget {
 
+///lib/app/page/common/permission_request_page.dart
+///通用动态权限申请功能封装
+class PermissionRequestPage extends StatefulWidget {
+  ///当前要申请的权限
   final Permission permission;
+  ///申请权限的提示语
   final List<String> permissionMessageList;
+  ///不同意权限时 为true触发关闭APP
   final bool isColseApp;
   PermissionRequestPage(
-      {@required this.permission, @required this.permissionMessageList,this.isColseApp=true});
+      {@required this.permission,
+      @required this.permissionMessageList,
+      this.isColseApp = true});
   @override
-  _TestPageState createState() => _TestPageState();
+  _PermissionRequestState createState() => _PermissionRequestState();
 }
 
-//lib/code/main_data.dart
-class _TestPageState extends PopBaseState<PermissionRequestPage>
+class _PermissionRequestState extends State<PermissionRequestPage>
     with WidgetsBindingObserver {
-  bool isOpenSetting = false;
 
+
+  ///lib/app/page/common/permission_request_page.dart
   @override
   void initState() {
     super.initState();
@@ -70,15 +88,19 @@ class _TestPageState extends PopBaseState<PermissionRequestPage>
 
   @override
   void dispose() {
+    //销毁观察者
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
-    WidgetsBinding.instance.removeObserver(this); //销毁观察者
   }
 
+  ///是否打开发设置中心
+  bool isOpenSetting = false;
+
   ///生命周期变化时回调
-//  resumed:应用可见并可响应用户操作
-//  inactive:用户可见，但不可响应用户操作
-//  paused:已经暂停了，用户不可见、不可操作
-//  suspending：应用被挂起，此状态IOS永远不会回调
+  //  resumed:应用可见并可响应用户操作
+  //  inactive:用户可见，但不可响应用户操作
+  //  paused:已经暂停了，用户不可见、不可操作
+ //  suspending：应用被挂起，此状态IOS永远不会回调
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     super.didChangeAppLifecycleState(state);
@@ -108,14 +130,14 @@ class _TestPageState extends PopBaseState<PermissionRequestPage>
           )),
     );
   }
-
+  ///lib/app/page/common/permission_request_page.dart
+  ///检查权限 [status] 当前权限的状态
   void checkPermissonFunction({PermissionStatus status}) async {
 
-    LogUtil.init(isDebug: true);
     if (Platform.isAndroid) {
-      ///获取文件存储的权限状态
+      ///获取权限状态
       if (status == null) {
-        status = await Permission.storage.status;
+        status = await widget.permission.status;
       }
       LogUtil.e("文件存储权限的状态 $status");
       if (status.isUndetermined) {
@@ -165,9 +187,9 @@ class _TestPageState extends PopBaseState<PermissionRequestPage>
             }, context: context);
       } else if (status.isGranted) {
         ///权限通过
-        Navigator.of(context).pop();
-      } else if (status.isRestricted) {
-        ///用户拒绝 在 iOS 中有效
+        Navigator.of(context).pop(true);
+      } else{
+        Navigator.of(context).pop(false);
       }
     }
   }
@@ -180,10 +202,12 @@ class _TestPageState extends PopBaseState<PermissionRequestPage>
           closeApp();
         }, context: context);
   }
-
+  ///lib/app/page/common/permission_request_page.dart
+  ///请求权限
   void requestStoragePermisson() async {
-    PermissionStatus status = await Permission.storage.request();
-    ///校验权限
+    ///请求权限
+    PermissionStatus status = await widget.permission.request();
+    ///校验权限申请结果
     checkPermissonFunction(status: status);
   }
 

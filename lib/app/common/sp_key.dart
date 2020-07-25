@@ -7,7 +7,9 @@
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 
-
+///lib/app/common/sp_key.dart
+///SPUtil中使用的Key
+///
 ///国际化保存KEY
 String spUserLocalLanguageKey="sp_user_local_language";
 

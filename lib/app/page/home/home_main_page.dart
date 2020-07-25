@@ -103,12 +103,12 @@ class FirstThemState extends State<HomeMainPage> {
       iconSize: 24.0,
       //点击事件
       onTap: (index) {
-        if(index==2){
-          if(UserHelper.getInstance.userBean==null){
-            openLoginPage(context);
-            return;
-          }
-        }
+//        if(index==2){
+//          if(UserHelper.getInstance.userBean==null){
+//            openLoginPage(context);
+//            return;
+//          }
+//        }
         _pageController.jumpToPage(index);
         _tabIndex = index;
       },

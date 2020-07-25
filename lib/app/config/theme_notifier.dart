@@ -12,21 +12,23 @@ import 'package:provider/provider.dart';
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
 
-golbalCurrentTheme(BuildContext context) {
-  return Provider.of<ThemeModel>(context, listen: false)
-      .getCurrentThemeData();
+///lib/app/config/theme_notifier.dart
+///快速获取当前主题配置的全局方法
+ThemeData golbalCurrentTheme(BuildContext context) {
+  return Provider.of<ThemeNotifier>(context, listen: false).currentThemeData;
 }
 //ChangeNotifier 消息监听者与notifyListeners()结合实现消息通信 
 //类似iOS中的notify与Android中的广播 
-class ThemeModel extends ChangeNotifier {
+class ThemeNotifier extends ChangeNotifier {
   ///亮色主题
   ///应用程序默认的主题
   final ThemeData lightTheme = ThemeData(brightness: Brightness.light,
+      ///主背景色
       primaryColor: Colors.blue,
+      ///Scaffold脚手架的背景色
       scaffoldBackgroundColor: Color(0xffeeeeee),
+      ///AppBar的样式
       appBarTheme: AppBarTheme(elevation: 1.0,brightness: Brightness.dark, color: Color(0xff212f38),),
-
-
       ///底部弹框的样式
       bottomSheetTheme: BottomSheetThemeData(
           backgroundColor: Color(0x99999999), elevation: 1.0
@@ -36,41 +38,36 @@ class ThemeModel extends ChangeNotifier {
   final ThemeData dartTheme = ThemeData(brightness: Brightness.dark,
       scaffoldBackgroundColor: Color(0xff212f38),
       appBarTheme: AppBarTheme(elevation: 1.0),
-
       ///底部弹框的样式
       bottomSheetTheme: BottomSheetThemeData(
           backgroundColor: Color(0x50999999)
       ));
+  ///灰色主题
   final ThemeData grayTheme = ThemeData(primaryColor: Colors.grey,
       ///底部弹框的样式
       bottomSheetTheme: BottomSheetThemeData(
           backgroundColor: Color(0x50999999)
       ));
 
-  ThemeData currentThemeData;
-
+  ///当前的主题色配制
+  ThemeData _currentThemeData;
   ///获取当前的主题色
-  ThemeData getCurrentThemeData() {
-    if (currentThemeData == null) {
-      currentThemeData = lightTheme;
-    }
-    return currentThemeData;
-  }
+  ThemeData get currentThemeData=> _currentThemeData==null?lightTheme:_currentThemeData;
 
   ///主题切换
   void setThem(num index) {
     switch (index) {
       case 0:
-        currentThemeData = dartTheme;
+        _currentThemeData = dartTheme;
         break;
       case 1:
-        currentThemeData = lightTheme;
+        _currentThemeData = lightTheme;
         break;
       case 2:
-        currentThemeData = grayTheme;
+        _currentThemeData = grayTheme;
         break;
       default :
-        currentThemeData = lightTheme;
+        _currentThemeData = lightTheme;
         break;
     }
 

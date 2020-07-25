@@ -7,18 +7,21 @@
          FlutterApplication and put your custom class here. -->
     <!--        Android 9.0是默认禁止所有http请求的，-->
     <!--     android:usesCleartextTraffic="true"-->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--    网络请求权限-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--外部文件存储权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:icon="@mipmap/ic_launcher"
-        android:label="flutterbookcode"
+        android:icon="@mipmap/app_icon"
+        android:label="Flutter精讲"
         android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
-            android:networkSecurityConfig="@xml/network_security_config"
             android:launchMode="singleTop"
+            android:networkSecurityConfig="@xml/network_security_config"
             android:theme="@style/LaunchTheme"
             android:windowSoftInputMode="adjustResize">
             <!-- Specifies an Android theme to apply to this Activity as soon as

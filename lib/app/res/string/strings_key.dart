@@ -6,6 +6,8 @@
 /// 可关注公众号：我的大前端生涯   获取最新技术分享
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
+/// lib/app/res/string/strings_key.dart
+/// 多语言环境引用的Key
 class StringKey{
 
   static final String storePermisson1 = "storePermisson1";

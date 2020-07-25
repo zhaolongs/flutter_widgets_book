@@ -1,49 +1,54 @@
 
+
+import 'package:flutter/material.dart';
+
+///lib/utils/log_util.dart 
+///日志输出工具类
 class LogUtil {
-  static const String _defTag = "flutter_log";
-  static bool _debugMode = false; //是否是debug模式,true: log v 不输出.
-  static int _maxLen = 128;
-  static String _tagValue = _defTag;
+  ///打印log的标签
+  static const String _defaultLogTag = "flutter_log";
+  //是否是debug模式,true: log  不输出.
+  static bool _debugMode=false;
+  ///log日志的撒谎
+  static int _maxLogLength=130;
+  ///当前的logTag的值
+  static String _tagValue=_defaultLogTag;
 
   static void init({
-    String tag = _defTag,
+    String tag = _defaultLogTag,
     bool isDebug = false,
-    int maxLen = 128,
+    int maxLen = 130,
   }) {
     _tagValue = tag;
     _debugMode = isDebug;
-    _maxLen = maxLen;
+    _maxLogLength = maxLen;
   }
 
   static void e(Object object, {String tag}) {
-    _printLog(tag, ' e ', object);
-  }
-
-  static void v(Object object, {String tag}) {
-    if (_debugMode) {
-      _printLog(tag, ' v ', object);
+    if(_debugMode){
+      _printLog(tag, ' e ', object);
     }
   }
 
   static void _printLog(String tag, String stag, Object object) {
     String da = object.toString();
     tag = tag ?? _tagValue;
-    if (da.length <= _maxLen) {
-      print("$tag$stag $da");
+    if (da.length <= _maxLogLength) {
+      debugPrint("$tag$stag $da");
       return;
     }
-    print(
+    debugPrint(
         '$tag$stag — — — — — — — — — — — — — — — — st — — — — — — — — — — — — — — — —');
     while (da.isNotEmpty) {
-      if (da.length > _maxLen) {
-        print("$tag$stag| ${da.substring(0, _maxLen)}");
-        da = da.substring(_maxLen, da.length);
+      if (da.length > _maxLogLength) {
+        debugPrint("$tag$stag| ${da.substring(0, _maxLogLength)}");
+        da = da.substring(_maxLogLength, da.length);
       } else {
-        print("$tag$stag| $da");
+        debugPrint("$tag$stag| $da");
         da = "";
       }
     }
-    print(
+    debugPrint(
         '$tag$stag — — — — — — — — — — — — — — — — ed — — — — — — — — — — — — — — — —');
   }
 }

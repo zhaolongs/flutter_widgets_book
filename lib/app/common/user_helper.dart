@@ -9,17 +9,15 @@ import 'package:flutterbookcode/utils/code1/sp_utils.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 
+///lib/app/common/user_helper.dart
+///用户信息辅助操作类
 class  UserHelper{
-
-
   // 私有构造函数
   UserHelper._() {
     // 具体初始化代码
   }
   ///获取单例对象
   static UserHelper getInstance = UserHelper._();
-
-
   ///用户基本信息模型
   UserBean _userBean;
   ///获取 UserBean

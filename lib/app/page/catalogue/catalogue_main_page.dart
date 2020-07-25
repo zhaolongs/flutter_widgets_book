@@ -50,7 +50,7 @@ class _CatalogueMainPageState extends State<CatalogueMainPage> {
   DragController dragController = new DragController();
   List<CatalogBean> list = [
     new CatalogBean("第1章综述", MaterialAppMainPage(), ""),
-    new CatalogBean("第2章MaterialApp组件", MaterialAppMainPage(), ""),
+    new CatalogBean("第2章MaterialApp组件", MaterialAppMainPage(), "浅谈Provider进行状态管理 引用数据并实现数据的修改,MultiProvider 、ChangeNotifierProvider 的使用"),
     new CatalogBean("第3章Scaffold组件", ScaffoldWidgetMainPage(),
         "常用作包裹其他Widget，类似html中的div，内容涉及BottomAppBar与悬浮按钮结合使用，与PageView、TabbarView结合使用实现标签页面"),
     new CatalogBean(

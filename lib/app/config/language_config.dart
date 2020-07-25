@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 
+///lib/app/config/language_config.dart
+///配置自定义语言配置代理 MyLocationsLanguageDelegates的实现
 class MyLocationsLanguageDelegates extends LocalizationsDelegate<StringLanguages>{
 
   ///创建默认构造
