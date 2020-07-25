@@ -3,9 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-//多语言环境配置使用
 import 'package:flutter_localizations/flutter_localizations.dart';
-//本地存储插件
 import 'package:shared_preferences/shared_preferences.dart';
 //应用入口
 

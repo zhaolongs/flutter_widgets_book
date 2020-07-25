@@ -1,7 +1,5 @@
-import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 
 //lib/code7/main_data7006.dart
 ///FloatingActionButton

@@ -3,15 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/app/base/base_life_state.dart';
 import 'package:flutterbookcode/app/config/theme_model.dart';
-import 'package:flutterbookcode/app/page/common/common_dialog.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
 import 'package:provider/provider.dart';
 
-import '../../app.dart';
-import '../common/common_bottom_dialog.dart';
 import '../../config/local_model.dart';
+import '../common/common_bottom_dialog.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/7/22.

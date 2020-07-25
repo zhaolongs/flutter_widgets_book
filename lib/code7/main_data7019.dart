@@ -1,8 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/demo/animated_button.dart';
 import 'package:flutterbookcode/demo/animated_button_statue.dart';
 
 //lib/code7/main_data7019.dart

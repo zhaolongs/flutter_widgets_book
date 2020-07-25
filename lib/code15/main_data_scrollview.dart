@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/code/common_founction.dart';
 import 'package:flutterbookcode/code15/main_data1520.dart';
@@ -18,7 +17,6 @@ import 'main_data1509.dart';
 import 'main_data1510.dart';
 import 'main_data1512.dart';
 import 'main_data1513.dart';
-import 'main_data1514.dart';
 import 'main_data1515.dart';
 import 'main_data1516.dart';
 import 'main_data1518.dart';

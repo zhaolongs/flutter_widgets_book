@@ -5,11 +5,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-///4.1
-///AppBar的基本使用
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
 //4.1.3 /lib/code3/main_data43-2.dart
 //Row标签结合PageView实现滑动切换
 ///应用入口 

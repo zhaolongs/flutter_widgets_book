@@ -1,13 +1,8 @@
-import 'dart:math';
 import 'dart:ui';
 
-import 'package:animations/animations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/page/catalogue/read_book_page.dart';
-import 'package:flutterbookcode/demo/flash/child/list_placeholder.dart';
-import 'package:flutterbookcode/demo/flash/flash_animation_controller.dart';
-import 'package:flutterbookcode/demo/flash/flash_animation_widget.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
 
 /// 创建人： Created by zhaolong

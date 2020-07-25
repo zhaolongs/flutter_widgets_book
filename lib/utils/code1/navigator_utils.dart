@@ -4,7 +4,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/utils/route/circle/circle_page_route.dart';
 import 'package:flutterbookcode/utils/route/circle/circle_path.dart';
 
 class NavigatorUtils {

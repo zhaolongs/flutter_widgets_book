@@ -1,5 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/7/20.
@@ -18,3 +17,6 @@ String spUserIsFirstKey ="sp_user_isfirst";
 String spUserProtocolKey ="sp_user_protocol";
 ///主题保存KEY
 String spUserThemeKey="sp_user_theme";
+
+///用户信息保存KEY
+String spUserBeanKey ="sp_user_bean";

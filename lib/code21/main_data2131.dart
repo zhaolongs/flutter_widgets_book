@@ -1,8 +1,6 @@
-import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'main_data2126.dart';
 
 ///lib/code21/main_data2131.dart
 ///评分显示组件

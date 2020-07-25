@@ -1,15 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
-import 'package:flutterbookcode/code13/main_data1311.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
-import 'package:flutterbookcode/utils/log_util.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:provider/provider.dart';
 
 import '../../config/theme_model.dart';
 
@@ -167,7 +160,7 @@ class _TestPageState extends State<CommonDialogPage> {
           ///显示标题
           Text(
             selectAlertTitle(),
-            style: golbalCurrentTheme(context).textTheme.headline2,
+            style: TextStyle(fontSize: 18,color: Colors.blue),
           ),
           SizedBox(
             height: 12,
@@ -233,7 +226,7 @@ class _TestPageState extends State<CommonDialogPage> {
       children: [
         Divider(
           height: 0,
-          color: golbalCurrentTheme(context).dividerColor,
+          color: Colors.grey,
           thickness: 1,
         ),
         Row(
@@ -271,7 +264,7 @@ class _TestPageState extends State<CommonDialogPage> {
           child: Text(
             widget.cancleText,
             textAlign: TextAlign.center,
-            style: golbalCurrentTheme(context).textTheme.headline3,
+            style: TextStyle(fontSize: 16, color: Colors.grey),
           ),
         ),
       ),
@@ -289,7 +282,7 @@ class _TestPageState extends State<CommonDialogPage> {
       return Container(
         height: 40,
         width: 1.0,
-        color: golbalCurrentTheme(context).dividerColor,
+        color:  Colors.grey,
       );
     }
   }
@@ -318,7 +311,7 @@ class _TestPageState extends State<CommonDialogPage> {
           child: Text(
             widget.selectText,
             textAlign: TextAlign.center,
-            style: golbalCurrentTheme(context).textTheme.headline3,
+            style: TextStyle(fontSize: 16, color: Colors.black),
           ),
         ),
       ),

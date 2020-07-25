@@ -1,7 +1,5 @@
-import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 
 //lib/code22/main_data2203.dart
 ///

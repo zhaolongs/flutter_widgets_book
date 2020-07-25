@@ -1,13 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/code/common_founction.dart';
-import 'package:flutterbookcode/code/main_login1.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 import 'main_data100.dart';

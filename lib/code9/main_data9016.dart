@@ -3,14 +3,9 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/utils/image_utils.dart';
-import 'main_data9014.dart';
-import 'dart:ui' as ui;
-
-// 手动导入一下iamge包
-import 'package:image/image.dart' as image;
 import 'package:flutter/rendering.dart';
 import 'package:flutterbookcode/utils/image_loader_utils.dart';
+import 'package:flutterbookcode/utils/image_utils.dart';
 
 /**
  * 创建人： Created by zhaolong

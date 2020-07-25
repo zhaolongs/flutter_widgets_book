@@ -1,13 +1,8 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:flutter/services.dart';
-
-import 'dart:math' as math;
 
 ///6 /lib/code6/main_data112.dart
 ///  Container BoxDecoration gradient Sweep 扫描渐变颜色过渡

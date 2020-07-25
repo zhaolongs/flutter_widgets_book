@@ -3,11 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-
-
 ///5.1 /lib/code3/main_data66.dart
 /// 文本显示组件Text
 ///应用入口 

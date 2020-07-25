@@ -2,7 +2,6 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'main_data2126.dart';
 
 ///   三阶贝塞尔曲线演示
 class RatingPage extends StatefulWidget {

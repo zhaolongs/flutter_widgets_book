@@ -1,21 +1,15 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/bean/bean_catalog.dart';
-import 'package:flutterbookcode/app/bean/bean_video.dart';
 import 'package:flutterbookcode/app/page/catalogue/read_book_page.dart';
-import 'package:flutterbookcode/code15/drag/drag_container.dart';
-import 'package:flutterbookcode/code15/drag/drag_controller.dart';
-
 import 'package:flutterbookcode/code1/main_materiapp.dart';
-import 'package:flutterbookcode/code3/main_data_scffold.dart';
-import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 import 'package:flutterbookcode/code10/main_data_ui_layout.dart';
 import 'package:flutterbookcode/code11/main_data_check_box.dart';
 import 'package:flutterbookcode/code12/main_data_radio.dart';
 import 'package:flutterbookcode/code13/main_data_gesture.dart';
 import 'package:flutterbookcode/code14/main_data_switch.dart';
+import 'package:flutterbookcode/code15/drag/drag_container.dart';
+import 'package:flutterbookcode/code15/drag/drag_controller.dart';
 import 'package:flutterbookcode/code15/main_data_scrollview.dart';
 import 'package:flutterbookcode/code16/main_data_listview.dart';
 import 'package:flutterbookcode/code17/main_data_girdview.dart';
@@ -25,13 +19,16 @@ import 'package:flutterbookcode/code21/main_data_canvas.dart';
 import 'package:flutterbookcode/code22/main_data_other.dart';
 import 'package:flutterbookcode/code23/main_data_animation.dart';
 import 'package:flutterbookcode/code3/main_data_appbar.dart';
+import 'package:flutterbookcode/code3/main_data_scffold.dart';
 import 'package:flutterbookcode/code4/main_data_text.dart';
 import 'package:flutterbookcode/code5/main_data75.dart';
 import 'package:flutterbookcode/code6/main_data_conainer.dart';
 import 'package:flutterbookcode/code7/main_data_button.dart';
 import 'package:flutterbookcode/code9/image_main_page.dart';
+import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 import 'package:flutterbookcode/utils/color_utils.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
+
 import 'catalogue_drag_page.dart';
 
 /// 创建人： Created by zhaolong

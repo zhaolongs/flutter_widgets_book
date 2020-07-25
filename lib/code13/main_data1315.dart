@@ -1,10 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/common/common_view.dart';
 import 'package:flutterdragscalewidget/flutterdragscalewidget.dart';
-
-import 'gesture_zoom_box.dart';
 
 /**
  * 创建人： Created by zhaolong

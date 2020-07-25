@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/demo/flash/child/list_placeholder.dart';
-import 'package:flutterbookcode/demo/flash/flash_animation_controller.dart';
-import 'package:flutterbookcode/demo/flash/flash_animation_widget.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/7/14.

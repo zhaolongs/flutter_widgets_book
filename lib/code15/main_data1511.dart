@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'item/item_page1.dart';
-import 'item/item_page2.dart';
 import 'item/item_page3.dart';
 
 /**

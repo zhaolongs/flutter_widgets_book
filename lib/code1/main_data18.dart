@@ -2,9 +2,7 @@
 //保存用户对应用程序语言环境的偏好设置 应用入口
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//多语言环境配置使用
 import 'package:flutter_localizations/flutter_localizations.dart';
-//本地存储插件
 import 'package:shared_preferences/shared_preferences.dart';
 //应用入口
 

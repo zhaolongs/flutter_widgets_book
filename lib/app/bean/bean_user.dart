@@ -1,5 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/7/23.
@@ -14,5 +13,10 @@ class UserBean{
   String userFlag;
 
   UserBean(this.userName, this.userFlag,);
+
+   UserBean.fromJson(Map<String, dynamic> map) {
+   this.userName = map["userName"];
+   this.userFlag = map["userFlag"];
+  }
 
 }

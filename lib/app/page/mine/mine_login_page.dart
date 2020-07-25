@@ -1,12 +1,12 @@
-import 'dart:math';
 import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutterbookcode/app/base/bg_welcome_widget.dart';
 import 'package:flutterbookcode/app/common/user_helper.dart';
 import 'package:flutterbookcode/app/page/common/user_protocol_page.dart';
-import 'package:flutterbookcode/base/xy_page.dart';
 import 'package:flutterbookcode/demo/shake/shake_animation_controller.dart';
 import 'package:flutterbookcode/demo/shake/shake_animation_type.dart';
 import 'package:flutterbookcode/demo/shake/shake_animation_widget.dart';
@@ -232,9 +232,7 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
         child: Stack(
           children: [
             ///构建背景
-            buildBgWidget(),
-             ///构建高斯模糊层
-            buildBlurBg(),
+            WelcomBackgroundWidget(),
             ///构建用户信息输入框
             buildLoginInputWidget(),
           ],
@@ -249,10 +247,7 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
       ///层叠布局
       body: Stack(
           children: [
-            ///构建背景
-            buildBgWidget(),
-            ///构建高斯模糊层
-            buildBlurBg(),
+            WelcomBackgroundWidget(),
             ///构建用户信息输入框
             buildLoginInputWidget(),
           ],
@@ -262,32 +257,6 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
 
 
 
- //lib/code10/main_data1104.dart
-  ///构建填充页面的背景图片
-  buildBgWidget() {
-    return Positioned(
-      left: 0,
-      right: 0,
-      top: 0,
-      bottom: 0,
-      child: Image.asset(
-        "assets/images/2.0x/bg_kyzg_login2.png",
-        fit: BoxFit.fill,
-      ),
-    );
-  }
-
-  ///构建透明遮罩图层
-  buildBlurBg() {
-    return Container(
-      color: Color.fromARGB(
-        155,
-        100,
-        100,
-        100,
-      ),
-    );
-  }
 
   //lib/code10/main_data1104.dart
   ///构建用户信息输入框

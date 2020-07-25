@@ -1,10 +1,7 @@
-import 'dart:math';
 import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/base/xy_page.dart';
-import 'package:matrix4_transform/matrix4_transform.dart';
-import 'package:vector_math/vector_math_64.dart' as v;
 //lib/code10/main_data1019.dart
 ///   流式布局 Flow 向上弹出菜单
 class FlowMain1Page5 extends StatefulWidget {

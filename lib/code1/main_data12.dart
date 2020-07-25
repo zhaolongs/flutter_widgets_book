@@ -1,8 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-//2.8.2 /lib/code1/main_data12.dart
-//浅谈Provider进行状态管理 创建数据模型
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 

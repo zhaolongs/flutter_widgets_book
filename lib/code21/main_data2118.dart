@@ -1,11 +1,8 @@
-import 'dart:math';
 import 'dart:ui';
+import 'dart:ui' as ui;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/base/xy_page.dart';
-
-//这里用as取个别名，有库名冲突
-import 'dart:ui' as ui;
 //lib/code20/main_data2118.dart
 ///   绘制文字
 class CanvasTextPage extends StatefulWidget {

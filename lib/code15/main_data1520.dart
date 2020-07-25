@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'custom_persistent_header_delegate.dart';
-
 /**
  * 创建人： Created by zhaolong
  * 创建时间：Created by  on 2020/6/27.

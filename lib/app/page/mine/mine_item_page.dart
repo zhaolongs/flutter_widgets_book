@@ -2,9 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/bean/bean_video.dart';
-import 'package:flutterbookcode/app/page/home/find_video_page.dart';
 import 'package:flutterbookcode/app/page/play/play_list_page.dart';
-import 'package:flutterbookcode/code23/main_data2336.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/6/28.

@@ -1,11 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/base/base_life_state.dart';
+import 'package:flutterbookcode/app/page/mine/setting_page.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
-import 'package:flutterbookcode/app/page/mine/setting_page.dart';
-import 'package:flutterbookcode/code15/item/item_page1.dart';
-import 'package:flutterbookcode/code15/item/item_page2.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
 

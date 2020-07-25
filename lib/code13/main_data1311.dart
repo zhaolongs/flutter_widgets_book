@@ -3,10 +3,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/common/common_view.dart';
 import 'package:flutterbookcode/utils/common_utils.dart';
-
-import 'gesture_zoom_box.dart';
 
 /**
  * 创建人： Created by zhaolong

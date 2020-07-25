@@ -359,6 +359,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.24.1"
+  shake_animation_widget:
+    dependency: "direct main"
+    description:
+      name: shake_animation_widget
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.0"
   shared_preferences:
     dependency: "direct main"
     description:

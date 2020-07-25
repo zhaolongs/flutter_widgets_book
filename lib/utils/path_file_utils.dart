@@ -3,11 +3,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-
-import 'image_utils.dart';
 
 /**
  * 创建人： Created by zhaolong

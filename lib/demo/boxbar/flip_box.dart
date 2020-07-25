@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
 
 /// FlipBox constructs a Box consisting of two planes which can be controlled using a given Animation Controller.
 class FlipBox extends StatefulWidget {

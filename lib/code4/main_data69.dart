@@ -1,12 +1,8 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
+import 'dart:ui' as ui; //这里用as取个别名，有库名冲突
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-
-import 'dart:ui' as ui; //这里用as取个别名，有库名冲突
 
 ///5.2 /lib/code3/main_data69.dart
 /// 文本显示组件Text

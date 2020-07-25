@@ -5,7 +5,7 @@ description: MaterialApp组件的精通使用分析
 #  * 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 #  * 可关注博客：https://blog.csdn.net/zl18603543572
 #
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
@@ -30,9 +30,12 @@ dependencies:
   animations: ^1.1.1
   # 友盟统计
   flutter_fai_umeng: ^0.0.2
+  # 过渡按钮
   flutter_progress_button: ^0.6.4
   #闪光动画
   flash_animation: ^0.0.1
+  #Flutter抖动动画、颤抖动画、Flutter文字抖动效果
+  shake_animation_widget: ^1.0.0
   #获取手机存储目录
   path_provider: ^1.6.9
   #用来加载网络数据
@@ -40,9 +43,10 @@ dependencies:
   #MD5  base64之类 转码
   crypto: ^2.0.6
   image: ^2.1.13
+  # 权限请求框架
   permission_handler: ^5.0.1+1
   flutter_spinkit: ^4.1.2+1
-# 数据存储
+  # 数据存储
   shared_preferences: ^0.5.6+3
   #列表的加载动画
   flutter_staggered_animations: ^0.1.2

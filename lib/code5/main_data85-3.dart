@@ -1,12 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
-
 import 'package:flutter/services.dart' show SystemChannels;
 
 ///6 /lib/code3/main_data85-3.dart

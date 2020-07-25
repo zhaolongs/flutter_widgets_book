@@ -1,11 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-///4.1
-///AppBar的基本使用
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
 //4.5.2 /lib/code3/main_data52-3.dart
 // iconTheme 的配置使用
 ///应用入口 

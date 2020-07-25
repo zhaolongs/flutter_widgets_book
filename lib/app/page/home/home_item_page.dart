@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/bean/bean_video.dart';
 import 'package:flutterbookcode/app/page/play/play_list_page.dart';
 
-import 'find_video_page.dart';
-
 class HomeItemMainPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {

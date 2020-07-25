@@ -1,9 +1,8 @@
-import 'dart:math';
 import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tag_layout/flutter_tag_layout.dart';
-import 'package:flutterbookcode/base/xy_page.dart';
 
 //lib/code10/main_data1002.dart
 ///   流式布局

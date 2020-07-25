@@ -1,12 +1,8 @@
 
 //2.2MaterialApp的基本使用
 //lib/code1/main_data1.dart
-import 'package:flutter/material.dart';
-
-
-//2.6.1 lib/code1/main_data5.dart
-//自定义路由观察者
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 
 void main() => runApp(RoutesApp());

@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:vector_math/vector_math_64.dart' as v;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';

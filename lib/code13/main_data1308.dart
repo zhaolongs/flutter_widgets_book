@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/common/common_view.dart';
 
 import 'gesture_zoom_box.dart';
 

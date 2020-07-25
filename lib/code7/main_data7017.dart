@@ -2,8 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 //lib/code7/main_data7017.dart
 ///BackButton

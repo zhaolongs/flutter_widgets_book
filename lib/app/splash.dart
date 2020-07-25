@@ -7,7 +7,6 @@ import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 import 'package:flutterbookcode/utils/code1/sp_utils.dart';
 import 'package:flutterbookcode/utils/date_utils.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
-import 'package:provider/provider.dart';
 
 import 'config/theme_model.dart';
 import 'page/home/home_main_page.dart';

@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'list_item_page.dart';
 import 'list_item_page2.dart';
 
 /**

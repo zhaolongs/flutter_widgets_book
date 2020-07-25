@@ -2,11 +2,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-///4.1
-///AppBar的基本使用
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
 //4.2.1  /lib/code3/main_data44-1.dart
 // TabBar的样式分析说明
 ///应用入口 

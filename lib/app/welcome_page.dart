@@ -1,20 +1,12 @@
 import 'dart:async';
-import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutterbookcode/app/base/pop_base_state.dart';
-import 'package:flutterbookcode/app/res/string/strings.dart';
-import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
-import 'package:flutterbookcode/utils/code1/sp_utils.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 import 'base/pop_base_state.dart';
-import 'common/sp_key.dart';
-import 'page/common/common_dialog.dart';
 import 'page/home/home_main_page.dart';
 
 /// 创建人： Created by zhaolong

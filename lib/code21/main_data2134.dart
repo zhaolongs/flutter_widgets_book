@@ -1,9 +1,8 @@
-import 'dart:math';
 import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:flutterbookcode/utils/canvas_path_utils.dart';
 
 ///7 /lib/code20/main_data2103.dart
 ///  XOY二维 坐标轴

@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_progress_button/flutter_progress_button.dart';
 
-import 'button_rote.dart';
-
 //lib/code7/main_data7014.dart
 ///带有加载进度的按钮
 class ProgressButtonPage extends StatefulWidget {

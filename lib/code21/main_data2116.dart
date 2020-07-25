@@ -1,8 +1,7 @@
-import 'dart:math';
 import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/base/xy_page.dart';
 
 //lib/code20/main_data2116.dart
 ///   点击波浪效果

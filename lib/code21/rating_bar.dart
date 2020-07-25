@@ -1,9 +1,9 @@
+import 'dart:math' as Math;
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'dart:math' as Math;
 /**
  * 创建人： Created by zhaolong
  * 创建时间：Created by  on 2020/7/12.

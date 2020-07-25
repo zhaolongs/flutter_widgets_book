@@ -9,7 +9,6 @@ import 'main_data1002.dart';
 import 'main_data1003.dart';
 import 'main_data1004.dart';
 import 'main_data1005.dart';
-import 'main_data1006.dart';
 import 'main_data1007.dart';
 import 'main_data1008.dart';
 import 'main_data1009.dart';

@@ -1,9 +1,7 @@
-import 'dart:math';
-
-import 'package:vector_math/vector_math_64.dart' as v;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:vector_math/vector_math_64.dart' as v;
 
 ///7 /lib/code20/main_data2014.dart
 ///  Matrix4 矩阵方法汇总说明

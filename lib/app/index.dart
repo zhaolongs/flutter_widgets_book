@@ -1,16 +1,13 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_fai_umeng/flutter_fai_umeng.dart';
 import 'package:flutterbookcode/app/base/pop_base_state.dart';
 import 'package:flutterbookcode/app/common/user_helper.dart';
 import 'package:flutterbookcode/app/page/common/permission_request_page.dart';
+import 'package:flutterbookcode/app/page/common/user_protocol_page.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/app/splash.dart';
-import 'package:flutterbookcode/app/page/common/user_protocol_page.dart';
 import 'package:flutterbookcode/app/welcome_page.dart';
 import 'package:flutterbookcode/demo/shake/shake_animation_text.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
@@ -53,9 +50,6 @@ class _IndexPageState extends PopBaseState<IndexPage> {
       openNewPageFunction();
     });
 
-    ///异步初始化
-//    initData();
-
   }
 
 
@@ -72,7 +66,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
 
     ///初始化友盟统计
     await initUmeng(isLog: isLog);
-
+    ///初始化本地存储工具
     await SPUtil.init();
     ///初始化日志工具
     LogUtil.init(tag: "flutter_log", isDebug: isLog);
@@ -100,6 +94,9 @@ class _IndexPageState extends PopBaseState<IndexPage> {
     bool _userProtocol = await SPUtil.getBool(spUserProtocolKey);
     ///记录
     UserHelper.getInstance.userProtocol=_userProtocol;
+    ///初始化用户的登录信息
+    UserHelper.getInstance.init();
+    ///下一步
     openUserProtocol();
   }
 
@@ -126,18 +123,42 @@ class _IndexPageState extends PopBaseState<IndexPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff444444),
-      body: Center(
-        child: ShakeTextAnimationWidget(
-          animationString: "HELLO WORLD",
-          textStyle: TextStyle(
-              color: Colors.white,
+      body: Stack(
+        children: [
 
-              ///文字的大小
-              fontSize: 25,
+          ///构建背景
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+            child: Image.asset(
+              "assets/images/3.0x/welcome.png",
+              fit: BoxFit.fill,
+            ),
+          ),
+          Container(
+            color: Color.fromARGB(
+              155,
+              100,
+              100,
+              100,
+            ),
+          ),
+          Center(
+            child: ShakeTextAnimationWidget(
+              animationString: "HELLO WORLD",
+              textStyle: TextStyle(
+                  color: Colors.white,
 
-              ///引用圆滑的自定义字体
-              fontFamily: "UniTortred"),
-        ),
+                  ///文字的大小
+                  fontSize: 25,
+
+                  ///引用圆滑的自定义字体
+                  fontFamily: "UniTortred"),
+            ),
+          )
+        ],
       ),
     );
   }

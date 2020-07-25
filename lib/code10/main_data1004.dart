@@ -1,8 +1,7 @@
-import 'dart:math';
 import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/base/xy_page.dart';
 
 //lib/code10/main_data1004.dart
 ///   流式布局 Flow 初探

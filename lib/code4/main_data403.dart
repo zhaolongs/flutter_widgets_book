@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/demo/rich_text_tag.dart';
-import 'package:flutterbookcode/demo/text_tag_widget.dart';
 //import 'package:flutter_tag_layout/flutter_tag_layout.dart';
 
 /// lib/code4/main_data401.dart

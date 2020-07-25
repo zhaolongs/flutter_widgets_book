@@ -1,12 +1,7 @@
 //lib/code20/main_data9023.dart
-import 'dart:async';
-import 'dart:io';
 import 'dart:math';
-import 'dart:typed_data';
-import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/utils/image_loader_utils.dart';
 
 
 ///   绘制粒子动画

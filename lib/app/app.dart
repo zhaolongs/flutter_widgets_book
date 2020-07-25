@@ -1,22 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_fai_umeng/flutter_fai_umeng.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutterbookcode/demo/shake/shake_animation_text.dart';
-import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
-import 'package:flutterbookcode/utils/code1/sp_utils.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
 import 'package:provider/provider.dart';
 
-import 'common/sp_key.dart';
 import 'config/cupertino_delegate.dart';
 import 'config/language_config.dart';
 import 'config/local_model.dart';
 import 'config/observer_route.dart';
 import 'config/theme_model.dart';
 import 'index.dart';
-import 'splash.dart';
 
 /// 创建人： Created by zhaolong
 /// 创建时间：Created by  on 2020/7/20.

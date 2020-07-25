@@ -1,13 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/code/common_founction.dart';
-import 'package:flutterbookcode/code/main_login1.dart';
 import 'package:flutterbookcode/code20/main_data2018.dart';
 import 'package:flutterbookcode/demo/ani/demo_flip_page.dart';
 import 'package:flutterbookcode/demo/vn3/main_data3d.dart';
@@ -23,7 +17,6 @@ import 'main_data2007.dart';
 import 'main_data2008.dart';
 import 'main_data2009.dart';
 import 'main_data2010.dart';
-import 'main_data2011.dart';
 import 'main_data2012.dart';
 import 'main_data2013.dart';
 import 'main_data2014.dart';

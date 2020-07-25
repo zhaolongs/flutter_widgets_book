@@ -1,8 +1,5 @@
-import 'dart:math';
-import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterbookcode/base/xy_page.dart';
 
 //lib/code10/main_data1012.dart
 ///  Column 线性布局 子Widget的高度等比例分配

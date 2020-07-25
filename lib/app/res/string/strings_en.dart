@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
 
 /// 创建人： Created by zhaolong
