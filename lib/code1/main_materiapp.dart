@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutterbookcode/code/common_founction.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
+import 'main_data12.dart';
+import 'main_data13.dart';
+import 'main_data13_1.dart';
 import 'main_data17.dart';
 import 'main_data18.dart';
 import 'main_data19.dart';
@@ -54,6 +57,11 @@ class _FirstPageState extends State<MaterialAppMainPage> {
       buildContainerAndClick("圆形效果逐渐打开页面",(){NavigatorUtils.pushPage(context, CustoumRoutesApp());}),
 
       buildContainerAndClick("多主题配角",(){NavigatorUtils.pushPage(context, CustoumRoutesApp());}),
+
+      buildContainerAndClick("浅谈Provider进行状态管理 引用数据并实现数据的修改",(){NavigatorUtils.pushPage(context, TestProviderPage());}),
+      buildContainerAndClick("浅谈Provider进行状态管理 MultiProvider",(){NavigatorUtils.pushPage(context, TestMultiProviderPage());}),
+
+      buildContainerAndClick("浅谈Provider进行状态管理 MultiProvider Consumer",(){NavigatorUtils.pushPage(context, TestMultiProviderConsumerPage());}),
 
 
     ];

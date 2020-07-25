@@ -70,3 +70,26 @@ class MyAppState extends State<MyProvideApp> {
     ],),),));
   }
 }
+
+
+class TestProviderPage extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+   return _TestProviderPageState();
+  }
+
+}
+
+class _TestProviderPageState extends State{
+  @override
+  Widget build(BuildContext context) {
+    //将Provider配制在程序的最顶层
+    return ChangeNotifierProvider<TestModel>.value(
+      //value就是监听的数据模型对象
+      value: TestModel(),
+      //这里最好是根widget
+      child: MyProvideApp(),
+    );
+  }
+
+}

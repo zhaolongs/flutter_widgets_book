@@ -70,9 +70,11 @@ class MyAppState extends State<MyProvideApp> {
 
       //这里通过调用 Provider.of<TestModel>(context).getTestTitle 来获取数据
       //这里通过<>中配置的泛型类别来区分所识别的数据模型
-      Text("测试模型1的数据：${Provider
-          .of<TestModel>(context)
-          .getTestTitle}"),
+      Consumer<TestModel>(
+        builder: (BuildContext context, TestModel value, Widget child) {
+          return Text("测试模型1的数据 Consumer:${value.getTestTitle}");
+        },
+      ),
       Text("测试模型2的数据：${Provider
           .of<TestModel2>(context)
           .getTestTitle}"),
@@ -95,7 +97,7 @@ class MyAppState extends State<MyProvideApp> {
 }
 
 
-class TestMultiProviderPage extends StatefulWidget {
+class TestMultiProviderConsumerPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _TestProviderPageState();
