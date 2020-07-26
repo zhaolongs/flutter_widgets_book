@@ -20,16 +20,23 @@ class MineMainPage extends StatefulWidget {
   ScrollHomePageState createState() => ScrollHomePageState();
 }
 
-class ScrollHomePageState extends BaseLifeState<MineMainPage> with TickerProviderStateMixin {
+class ScrollHomePageState extends BaseLifeState<MineMainPage>
+    with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
+  ///页面保持状态
+  @override
+  bool get wantKeepAlive => true;
+
   ///NestedScrollView的滚动控制器
   ///用来监听滚动距离
   ScrollController scrollController = new ScrollController();
 
   ///在这里标签页面使用的是TabView所以需要创建一个控制器
   TabController tabController;
+
   ///透明组件的透明度比率
   ///0.0 到一 1.0
   double slidRate = 0.0;
+
   ///当下拉放大时使用到的动画控制器
   AnimationController _animationController;
 
@@ -145,7 +152,6 @@ class ScrollHomePageState extends BaseLifeState<MineMainPage> with TickerProvide
   ///flexibleSpace可折叠的内容区域
   buildSliverAppBar2() {
     return SliverAppBar(
-
       title: buildHeader(),
 
       ///标题居中
@@ -268,7 +274,8 @@ class ScrollHomePageState extends BaseLifeState<MineMainPage> with TickerProvide
           Opacity(
             ///透明度
             opacity: slidRate,
-            child: Text(StringLanguages.of(context).get(StringKey.settingCenter)),
+            child:
+                Text(StringLanguages.of(context).get(StringKey.settingCenter)),
           ),
           Positioned(
             right: 1,
@@ -400,19 +407,15 @@ class ScrollHomePageState extends BaseLifeState<MineMainPage> with TickerProvide
     ]);
   }
 
-
   @override
   void onStart() {
     super.onStart();
     LogUtil.e("个人中心 onResumed");
   }
+
   @override
   void onStop() {
     super.onStop();
     LogUtil.e("个人中心 onPause");
   }
-
-
-
-
 }

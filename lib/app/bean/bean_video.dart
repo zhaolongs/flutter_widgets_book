@@ -1,4 +1,6 @@
 
+///lib/app/bean/bean_video.dart
+///视频数据模型
 class VideoModel {
   ///视频名称
   String videoName ='';
@@ -16,4 +18,20 @@ class VideoModel {
   num pariseCount = 0;
   ///分享的次数
   num shareCount=0;
+
+  ///空构造函数
+  VideoModel();
+
+  ///常用用于解析JSON数据
+  VideoModel.fromMap(Map<String,dynamic> map){
+    this.videoName = map["videoName"];
+    this.videoUrl = map["videoUrl"];
+    this.videoImag = map["videoImag"];
+    this.isAttention = map["isAttention"];
+
+    this.attentCount = map["attentCount"];
+    this.isLike = map["isLike"];
+    this.pariseCount = map["pariseCount"];
+    this.shareCount = map["shareCount"];
+  }
 }

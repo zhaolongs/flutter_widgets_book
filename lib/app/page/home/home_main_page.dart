@@ -12,6 +12,8 @@ import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import '../mine/mine_main_page.dart';
 import 'home_item_page.dart';
 
+///lib/app/page/home/home_main_page.dart
+///主页面的根布局
 class HomeMainPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -19,18 +21,37 @@ class HomeMainPage extends StatefulWidget {
   }
 }
 
-class FirstThemState extends State<HomeMainPage> {
+class FirstThemState extends State<HomeMainPage>  {
+
+  //当前显示页面的标签
+  int _tabIndex = 0;
+  ///[PageView]使用的控制器
+  PageController _pageController = PageController();
+
+  //底部导航栏使用到的图标
+  List<Icon> normalIcon = [
+    Icon(Icons.home),
+    Icon(Icons.message),
+    Icon(Icons.people)
+  ];
+
+  //底部导航栏使用到的标题文字
+  List<String> normalTitle = [
+    StringKey.homeBottonTitle1,
+    StringKey.homeBottonTitle2,
+    StringKey.homeBottonTitle3,
+  ];
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      SystemChrome.setSystemUIOverlayStyle(
-          Theme.of(context).brightness == Brightness.dark
-              ? SystemUiOverlayStyle.light
-              : SystemUiOverlayStyle.dark);
-      SystemChrome.setEnabledSystemUIOverlays(
-          [SystemUiOverlay.top, SystemUiOverlay.bottom]);
-    });
+//    WidgetsBinding.instance.addPostFrameCallback((_) {
+//      SystemChrome.setSystemUIOverlayStyle(
+//          Theme.of(context).brightness == Brightness.dark
+//              ? SystemUiOverlayStyle.light
+//              : SystemUiOverlayStyle.dark);
+//      SystemChrome.setEnabledSystemUIOverlays(
+//          [SystemUiOverlay.top, SystemUiOverlay.bottom]);
+//    });
 
   }
 
@@ -46,54 +67,42 @@ class FirstThemState extends State<HomeMainPage> {
     );
   }
 
-  //选中的标签
-  int _tabIndex = 0;
 
-  //底部导航栏使用到的图标
-  List<Icon> normalIcon = [
-    Icon(Icons.home),
-    Icon(Icons.message),
-    Icon(Icons.people)
-  ];
 
-  //底部导航栏使用到的标题文字
-  List<String> normalTitle = [
-    StringKey.homeBottonTitle1,
-    StringKey.homeBottonTitle2,
-    StringKey.homeBottonTitle3,
-  ];
-
-  PageController _pageController = PageController();
-
+  ///lib/app/page/home/home_main_page.dart
+  ///内容主体区域
   Widget buildBodyFunction() {
-    //帧布局结合透明布局
     return PageView(
+      ///设置PageView不可滑动切换
       physics: NeverScrollableScrollPhysics(),
-      onPageChanged: (value) {
-        setState(() {
-          _tabIndex = value;
-        });
-      },
+      ///PageView的控制器
       controller: _pageController,
+      ///PageView中的三个子页面
       children: <Widget>[
+        ///视频播放的列表
         HomeItemMainPage(),
+        ///目录页面
         CatalogueMainPage(),
+        ///我的
         MineMainPage(),
       ],
     );
   }
-
+  ///lib/app/page/home/home_main_page.dart
   //构建底部导航栏
   BottomNavigationBar buildBottomNavigation() {
     //创建一个 BottomNavigationBar
     return new BottomNavigationBar(
       items: <BottomNavigationBarItem>[
         new BottomNavigationBarItem(
-            icon: normalIcon[0], title: Text(StringLanguages.of(context).get(normalTitle[0]))),
+            icon: normalIcon[0],
+            title: Text(StringLanguages.of(context).get(normalTitle[0]))),
         new BottomNavigationBarItem(
-            icon: normalIcon[1], title: Text(StringLanguages.of(context).get(normalTitle[1]))),
+            icon: normalIcon[1],
+            title: Text(StringLanguages.of(context).get(normalTitle[1]))),
         new BottomNavigationBarItem(
-            icon: normalIcon[2], title: Text(StringLanguages.of(context).get(normalTitle[2]))),
+            icon: normalIcon[2],
+            title: Text(StringLanguages.of(context).get(normalTitle[2]))),
       ],
       //显示效果
       type: BottomNavigationBarType.fixed,
@@ -103,52 +112,19 @@ class FirstThemState extends State<HomeMainPage> {
       iconSize: 24.0,
       //点击事件
       onTap: (index) {
-//        if(index==2){
-//          if(UserHelper.getInstance.userBean==null){
-//            openLoginPage(context);
-//            return;
-//          }
-//        }
+        if (index == 2) {
+          ///未登录时跳转登录页面
+          if (UserHelper.getInstance.userBean == null) {
+            openLoginPage(context);
+            return;
+          }
+        }
+
+        ///切换PageView中的页面显示
         _pageController.jumpToPage(index);
         _tabIndex = index;
+        setState(() {});
       },
     );
-  }
-}
-
-//bottomNavigationBar结合独立的StatefulWidget使用 首页面
-class ScffoldHomeItemPage extends StatefulWidget {
-  //页面标识
-  int pageIndex;
-
-  //构造函数
-  ScffoldHomeItemPage(this.pageIndex, {Key key}) : super(key: key);
-
-  @override
-  State<StatefulWidget> createState() {
-    return ScffoldHomeItemState();
-  }
-}
-
-class ScffoldHomeItemState extends State<ScffoldHomeItemPage> {
-  //页面创建时初始化函数
-  @override
-  void initState() {
-    super.initState();
-    print("页面创建${widget.pageIndex}");
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text("当前页面标识为${widget.pageIndex}"),
-    );
-  }
-
-  //页面销毁时回调函数
-  @override
-  void dispose() {
-    super.dispose();
-    print("页面消失${widget.pageIndex}");
   }
 }

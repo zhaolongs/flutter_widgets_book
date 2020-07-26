@@ -45,7 +45,10 @@ class CatalogueMainPage extends StatefulWidget {
   }
 }
 
-class _CatalogueMainPageState extends State<CatalogueMainPage> {
+class _CatalogueMainPageState extends State<CatalogueMainPage>  with AutomaticKeepAliveClientMixin{
+  ///页面保持状态
+  @override
+  bool get wantKeepAlive => true;
   ///抽屉控制器
   DragController dragController = new DragController();
   List<CatalogBean> list = [

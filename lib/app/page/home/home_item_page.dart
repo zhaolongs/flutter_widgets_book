@@ -1,38 +1,37 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/bean/bean_video.dart';
 import 'package:flutterbookcode/app/page/play/play_list_page.dart';
 
+///lib/app/page/home/home_item_page.dart
+///首页面显示的视频列表播放页面
 class HomeItemMainPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return MainFindPage3State();
   }
 }
+///使用到[TabBar] 所以要绑定一个Ticker
+///当前页面被装载在[PageView]中，使用KeepAlive使用页面保持状态
+class MainFindPage3State extends State
+    with AutomaticKeepAliveClientMixin, SingleTickerProviderStateMixin {
+  ///页面保持状态
+  @override
+  bool get wantKeepAlive => true;
 
-class MainFindPage3State extends State with SingleTickerProviderStateMixin {
-
+  ///[TabBar]使用的文本
   List<String> tabTextList = ["关注", "推荐"];
+  ///[TabBar]使用的[Tab]集合
   List<Tab> tabWidgetList = [];
+  ///[TabBar]的控制器
   TabController tabController;
 
   ///推荐模拟数据
-  List <VideoModel> videoList =[];
+  List<VideoModel> videoList = [];
   ///关注模拟数据
-  List <VideoModel> videoList2 =[];
+  List<VideoModel> videoList2 = [];
 
-  @override
-  void initState() {
-    super.initState();
-
-    for (var value in tabTextList) {
-      tabWidgetList.add(Tab(
-        text: "$value",
-      ));
-    }
-    tabController = new TabController(length: tabTextList.length, vsync: this);
-
+  void buildTestData(){
 
     ///创建模拟数据
 
@@ -49,8 +48,7 @@ class MainFindPage3State extends State with SingleTickerProviderStateMixin {
       }
       videoModel.videoImag =
       "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1582996017736&di=101751f6d5b16e03d501001ca62633d4&imgtype=0&src=http%3A%2F%2Fupload.idcquan.com%2F2018%2F0125%2F1516851762394.jpg";
-      videoModel.videoUrl =
-      "http://pic.studyyoun.com/1583058399368141.mp4";
+      videoModel.videoUrl = "http://pic.studyyoun.com/1583058399368141.mp4";
 
       videoList.add(videoModel);
     }
@@ -75,50 +73,60 @@ class MainFindPage3State extends State with SingleTickerProviderStateMixin {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return buildRootBody();
+  void initState() {
+    super.initState();
+
+    ///构建TabBar中使用的Tab数据
+    for (var value in tabTextList) {
+      tabWidgetList.add(Tab(
+        text: "$value",
+      ));
+    }
+    ///创建TabBar使用的控制器
+    tabController = new TabController(length: tabTextList.length, vsync: this);
+
   }
 
-  Widget buildRootBody() {
-    return Scaffold(
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+    return  Scaffold(
+      ///层叠布局
       body: Stack(
         children: <Widget>[
+          ///视频列表
           Positioned(
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
-            child: Container(
-              color: Colors.black,
-            ),
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            top: 0,
-            bottom: 0,
+            left: 0, right: 0, top: 0, bottom: 0,
             child: buildTableViewWidget(),
           ),
+          ///顶部选项卡
           Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            top: 54,
+            left: 0, right: 0, bottom: 0, top: 54,
             child: buildTabBarWidget(),
           ),
         ],
       ),
     );
   }
+
+   ///视频列表
   ///构建 TabBarView
   buildTableViewWidget() {
     return TabBarView(
       controller: tabController,
-      children: tabTextList
-          .map((value) => buildTableViewItemWidget(value))
-          .toList(),
+      children:[
+        PlayListPage(
+          list:videoList,
+          initIndex: 0,
+        ),
+        PlayListPage(
+          list: videoList2,
+          initIndex: 0,
+        )
+      ]
     );
   }
+
   ///构建顶部标签部分
   buildTabBarWidget() {
     return Container(
@@ -132,24 +140,10 @@ class MainFindPage3State extends State with SingleTickerProviderStateMixin {
         ///指示器的高度
         indicatorWeight: 2.0,
         isScrollable: true,
-
         ///指示器的宽度与文字对齐
         indicatorSize: TabBarIndicatorSize.label,
       ),
     );
   }
-
-  /// 用来创建上下滑动的页面
-  Widget buildTableViewItemWidget(String value) {
-
-    List<VideoModel> list =[];
-    if(value == "推荐"){
-      list= videoList;
-    }else{
-      list = videoList2;
-    }
-    return PlayListPage(list:list,initIndex: 0,);
-  }
-
 
 }

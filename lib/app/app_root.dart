@@ -119,9 +119,11 @@ class _AppRootPageState extends State<AppRootPage> {
     if (!locals.contains(sysLocale.languageCode)) {
       sysLocale = Locale('en', 'US');
     }
+
     if (_userLocale == null) {
       _userLocale = sysLocale;
     }
+//    _userLocale = Locale('en', 'US');
     return _userLocale;
   }
 }

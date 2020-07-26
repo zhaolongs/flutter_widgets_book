@@ -15,7 +15,7 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-
+  flutter_fai_webview: ^1.1.0
   cached_network_image: ^2.2.0+1
   #视频播放
   video_player: ^0.10.11+2

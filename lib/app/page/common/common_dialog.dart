@@ -12,19 +12,22 @@ import '../../config/theme_notifier.dart';
 /// 可关注公众号：我的大前端生涯   获取最新技术分享
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
-///
+/// lib/app/page/common/common_dialog.dart
+///便捷显示通用弹框的方法
 void showCommonAlertDialog({
   @required BuildContext context,
-  String contentMessag = "",
-  Function cancleCallBack,
-  Function selectCallBack,
-  bool isCancleColose = true,
-  bool isSelectColose = true,
-  Function(dynamic value) dismisCallBack,
-  String headerTitle,
-  String selectText,
-  String cancleText,
-  Widget contentWidget,
+  String contentMessag = "",///中间显示的文本内容
+  Widget contentWidget,///中间显示内容的widget
+  Function cancleCallBack,///左侧取消按钮的回调
+  Function selectCallBack,///右侧选择确认按钮的回调
+  bool isCancleColose = true,///点击左侧按钮后弹框是否消失
+  bool isSelectColose = true,///点击右侧按钮后弹框是否消失
+  Function(dynamic value) dismisCallBack,///弹框消失的回调
+  String headerTitle,///标题
+  String selectText,///右侧选择按钮的文本
+  String cancleText,///左侧取消按钮的文本
+  bool isBackgroundDimiss = false,
+
 }) {
   ///通过透明的方式来打开弹框
   NavigatorUtils.openPageByFade(
@@ -39,39 +42,34 @@ void showCommonAlertDialog({
         title: headerTitle,
         isCancleColose: isCancleColose,
         isSelectColose: isSelectColose,
+        isBackgroundDimiss: isBackgroundDimiss,
       ),
       dismissCallBack: dismisCallBack,
       opaque: false);
 }
 
+/// lib/app/page/common/common_dialog.dart
 ///通用苹果风格显示弹框
 class CommonDialogPage extends StatefulWidget {
   ///显示的标题
   final String title;
-
   ///显示的内容
   final String contentMessag;
-
   ///取消按钮显示的文字
   final String cancleText;
-
   ///确定按钮显示的文字
   final String selectText;
-
   ///取消按钮的回调
   final Function cancleCallBack;
-
   ///选择按钮的点击事件回调
   final Function selectCallBack;
-
   ///点击背景是否消失
   ///是否拦截Android设备的后退物理按钮的事件
-  /// true 是消失  同是不拦截后退按钮
+  /// true 是消失  是不拦截后退按钮
   final bool isBackgroundDimiss;
-
   final bool isCancleColose;
   final bool isSelectColose;
-
+  ///弹框中间显示内容
   final Widget contentWidget;
 
   CommonDialogPage(
@@ -87,11 +85,11 @@ class CommonDialogPage extends StatefulWidget {
       this.cancleText});
 
   @override
-  _TestPageState createState() => _TestPageState();
+  _CommonDialogPageState createState() => _CommonDialogPageState();
 }
 
-//lib/code/main_data.dart
-class _TestPageState extends State<CommonDialogPage> {
+/// lib/app/page/common/common_dialog.dart
+class _CommonDialogPageState extends State<CommonDialogPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,15 +97,13 @@ class _TestPageState extends State<CommonDialogPage> {
       backgroundColor: Colors.transparent,
       body: new Material(
           type: MaterialType.transparency,
-
           ///监听Android设备上的返回键盘物理按钮
           child: WillPopScope(
             onWillPop: () async {
               ///这里返回true表示不拦截
               ///返回false拦截事件的向上传递
-              return Future.value(!widget.isBackgroundDimiss);
+              return Future.value(widget.isBackgroundDimiss);
             },
-
             ///填充布局的容器
             child: GestureDetector(
               ///点击背景消失
@@ -116,32 +112,34 @@ class _TestPageState extends State<CommonDialogPage> {
                   Navigator.of(context).pop();
                 }
               },
-              child: Container(
-                width: double.infinity,
-                height: double.infinity,
-
-                ///线性布局的隔离
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ///限制弹框的大小
-                    ConstrainedBox(
-                      constraints: BoxConstraints(
-                          maxHeight: 320,
-                          minHeight: 150,
-                          maxWidth: 280,
-                          minWidth: 280),
-                      child: buildContainer(context),
-                    )
-                  ],
-                ),
-              ),
+              ///内容区域
+              child: buildBodyContainer(context),
             ),
           )),
     );
   }
-
+  /// lib/app/page/common/common_dialog.dart
+  Container buildBodyContainer(BuildContext context) {
+    ///充满屏幕的透明容器
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      ///线性布局的隔离
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ///限制弹框的大小
+          ConstrainedBox(
+            constraints: BoxConstraints(
+                maxHeight: 320, minHeight: 150, maxWidth: 280, minWidth: 280),
+            child: buildContainer(context),
+          )
+        ],
+      ),
+    );
+  }
+  /// lib/app/page/common/common_dialog.dart
   ///构建白色区域的弹框
   Container buildContainer(BuildContext context) {
     return Container(
@@ -149,35 +147,23 @@ class _TestPageState extends State<CommonDialogPage> {
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(12))),
-
       ///弹框标题、内容、按钮 线性排列
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(
-            height: 12,
-          ),
-
+          SizedBox(height: 12,),
           ///显示标题
           Text(
             selectAlertTitle(),
             style: TextStyle(fontSize: 18,color: Colors.blue),
           ),
-          SizedBox(
-            height: 12,
-          ),
-
+          SizedBox(height: 12,),
           ///显示内容
           buildCenterContentArae(),
-          SizedBox(
-            height: 12,
-          ),
-
+          SizedBox(height: 12,),
           ///底部按钮
           buildBottomButtonArea(),
-          SizedBox(
-            height: 2,
-          ),
+          SizedBox(height: 2,),
         ],
       ),
     );
@@ -194,7 +180,7 @@ class _TestPageState extends State<CommonDialogPage> {
       return widget.title;
     }
   }
-
+  /// lib/app/page/common/common_dialog.dart
   ///构建中间显示部分
   buildCenterContentArae() {
     if (widget.contentWidget != null) {
@@ -211,7 +197,7 @@ class _TestPageState extends State<CommonDialogPage> {
       );
     }
   }
-
+  /// lib/app/page/common/common_dialog.dart
   ///底部按钮
   buildBottomButtonArea() {
     ///线性布局用来组合分割线与按钮
@@ -232,15 +218,18 @@ class _TestPageState extends State<CommonDialogPage> {
         ),
         Row(
           children: [
+            ///左边按钮
             buildLeftExpanded(),
+            ///中间分割线
             buildCenterDivi(),
+            ///右侧按钮
             buildRightExpanded()
           ],
         ),
       ],
     );
   }
-
+  /// lib/app/page/common/common_dialog.dart
   ///构建左侧的按钮
   Widget buildLeftExpanded() {
     if (widget.cancleText == null) {

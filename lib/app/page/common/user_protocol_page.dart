@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterbookcode/app/base/pop_base_state.dart';
 import 'package:flutterbookcode/app/common/user_helper.dart';
+import 'package:flutterbookcode/app/page/common/webview_page.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
@@ -19,11 +20,12 @@ import 'common_dialog.dart';
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
 
+///lib/app/page/common/user_protocol_page.dart
 showUserProtocolPage(
     {@required BuildContext context,
-    bool isColseApp = true,
+    bool isColseApp = true,///点击关闭是否退出应用
     Function(dynamic value) dismissCallback}) {
-  ///权限请求
+  ///打开用户隐私协议页面
   NavigatorUtils.openPageByFade(
       context,
       UserProtocolRequestPage(
@@ -32,17 +34,51 @@ showUserProtocolPage(
       opaque: false,
       dismissCallBack: dismissCallback);
 }
-
+///lib/app/page/common/user_protocol_page.dart
+///用户隐私协议页面
 class UserProtocolRequestPage extends StatefulWidget {
   final bool isColseApp;
-
   UserProtocolRequestPage({this.isColseApp = true});
-
   @override
-  _TestPageState createState() => _TestPageState();
+  _UserProtocolState createState() => _UserProtocolState();
 }
 
-class _TestPageState extends PopBaseState<UserProtocolRequestPage> {
+class _UserProtocolState extends PopBaseState<UserProtocolRequestPage> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      ///白色圆角边框的背景
+      body: CommonDialogPage(
+        ///中间显示的隐私协议富文本
+        contentWidget: buildSingleChildScrollView(),
+        ///右侧的 "同意协议" 按钮文案
+        selectText:
+            StringLanguages.of(context).get(StringKey.buttonConsentProtocol),
+        ///点击右侧按钮的回调
+        selectCallBack: (){
+          UserHelper.getInstance.userProtocol=true;
+          Navigator.of(context).pop();
+        },
+        ///左侧的 "退出" 按钮文案
+        cancleText: StringLanguages.of(context).get(StringKey.buttonExit),
+        isSelectColose: false,
+        isCancleColose: false,
+        ///点击左侧按钮的回调
+        cancleCallBack: (){
+          closeApp();
+        },
+      ),
+    );
+  }
+  ///关闭应用的功能
+  Future<void> closeApp() async {
+    if(widget.isColseApp){
+      await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
+    }
+  }
+
   TapGestureRecognizer _registProtocolRecognizer;
   TapGestureRecognizer _privacyProtocolRecognizer;
 
@@ -60,81 +96,80 @@ class _TestPageState extends PopBaseState<UserProtocolRequestPage> {
   @override
   void dispose() {
     super.dispose();
-
     ///销毁
     _registProtocolRecognizer.dispose();
     _privacyProtocolRecognizer.dispose();
   }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-
-      ///填充布局
-      body: CommonDialogPage(
-        contentWidget: buildRichText(),
-        selectText:
-            StringLanguages.of(context).get(StringKey.buttonConsentProtocol),
-        selectCallBack: (){
-          UserHelper.getInstance.userProtocol=true;
-          Navigator.of(context).pop();
-        },
-        cancleText: StringLanguages.of(context).get(StringKey.buttonExit),
-        isSelectColose: false,
-        cancleCallBack: (){
-          closeApp();
-        },
-      ),
-    );
-  }
-  Future<void> closeApp() async {
-    if(widget.isColseApp){
-      await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
-    }
-  }
-  Widget buildRichText() {
+  ///lib/app/page/common/user_protocol_page.dart
+  ///构建隐私协议的富文本
+  Widget buildSingleChildScrollView() {
     return Expanded(
+      ///可滑动的适配
       child: SingleChildScrollView(
         child: Padding(
+          ///左右边距
           padding: EdgeInsets.only(left: 18, right: 18),
-          child: RichText(
-            textAlign: TextAlign.center,
-            ///文字区域
-            text: TextSpan(
-                text:
-                    StringLanguages.of(context).get(StringKey.userReadProtocol),
-                style: TextStyle(color: Colors.grey),
-                children: [
-                  TextSpan(
-                      text: StringLanguages.of(context)
-                          .get(StringKey.userProtocol),
-                      style: TextStyle(color: Colors.blue),
-                      //点击事件
-                      recognizer: _registProtocolRecognizer
-                        ..onTap = () {
-                          print("点击用户协议");
-                        }),
-                  TextSpan(
-                    text: "与",
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  TextSpan(
-                      text: StringLanguages.of(context)
-                          .get(StringKey.userPrivateProtocol),
-                      style: TextStyle(color: Colors.blue),
-                      //点击事件
-                      recognizer: _privacyProtocolRecognizer
-                        ..onTap = () {
-                          print("点击隐私协议");
-                        }),
-                  TextSpan(
-                      text: StringLanguages.of(context)
-                          .get(StringKey.userConsentProtocol))
-                ]),
-          ),
+          child: buildRichText(),
         ),
       ),
     );
+  }
+
+  ///lib/app/page/common/user_protocol_page.dart
+  ///构建富文本
+  RichText buildRichText() {
+    return RichText(
+      ///文字居中
+      textAlign: TextAlign.center,
+      ///文字区域
+      text: TextSpan(
+          text: StringLanguages.of(context).get(StringKey.userReadProtocol),
+          style: TextStyle(color: Colors.grey),
+          children: [
+            TextSpan(
+                text: StringLanguages.of(context).get(StringKey.userProtocol),
+                style: TextStyle(color: Colors.blue),
+                //点击事件
+                recognizer: _registProtocolRecognizer
+                  ..onTap = () {
+                    ///打开用户协议
+                    openUserProtocol();
+                  }),
+            TextSpan(
+              text: "与",
+              style: TextStyle(color: Colors.grey),
+            ),
+            TextSpan(
+                text: StringLanguages.of(context)
+                    .get(StringKey.userPrivateProtocol),
+                style: TextStyle(color: Colors.blue),
+                //点击事件
+                recognizer: _privacyProtocolRecognizer
+                  ..onTap = () {
+                    ///打开隐私协议
+                    openPrivateProtocol();
+                  }),
+            TextSpan(
+                text: StringLanguages.of(context)
+                    .get(StringKey.userConsentProtocol))
+          ]),
+    );
+  }
+
+  ///lib/app/page/common/user_protocol_page.dart
+  ///打开用户协议
+  void openPrivateProtocol() {
+    showWebViewPage(
+        context: context,
+        pageTitle: "用户协议",
+        pageUrl: "https://blog.csdn.net/zl18603543572");
+  }
+
+  ///打开隐私协议
+  void openUserProtocol() {
+    showWebViewPage(
+        context: context,
+        pageTitle: "隐私协议",
+        pageUrl: "https://blog.csdn.net/zl18603543572");
   }
 }

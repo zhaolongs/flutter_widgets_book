@@ -166,6 +166,7 @@ class _IndexPageState extends PopBaseState<IndexPage> {
           initData();
         });
   }
+  ///lib/app/index.dart
   ///判断用户隐私协议
   void openUserProtocol() {
     ///已同意用户隐私协议 下一步

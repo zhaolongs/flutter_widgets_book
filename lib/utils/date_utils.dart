@@ -6,24 +6,35 @@
 /// 可关注公众号：我的大前端生涯   获取最新技术分享
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
+/// lib/utils/date_utils.dart
+/// 日期时间操作工具类
 class DateUtils {
-  static String defaultDateFormatDate = "yyyy-MM-dd";
+  ///默认的时间格式化格式
+  static const String defaultDateFormatDate = "yyyy-MM-dd";
 
   /// 获取当前时间的毫秒
   static int getNowDateMs() {
     return DateTime.now().millisecondsSinceEpoch;
   }
-
+   ///获取当前日期 默认 格式为 年-月-日 时-分-秒
   ///   "yyyy-MM-dd HH:mm:ss";
+  ///   可通过 [format]指定格式
   static String getNowDateStr({String format}) {
     return formatDate(DateTime.now(), format: format);
   }
 
-  /// format date by milliseconds.
+  /// 将毫秒转化为指定格式的日期
   /// milliseconds 日期毫秒
   static String formatDateMs(int ms, {bool isUtc = false, String format}) {
     return formatDate(getDateTimeByMs(ms, isUtc: isUtc), format: format);
   }
+  ///将指定的日期毫秒转为 DateTime 格式数据
+  static DateTime getDateTimeByMs(int ms, {bool isUtc = false}) {
+    return ms == null
+        ? null
+        : DateTime.fromMillisecondsSinceEpoch(ms, isUtc: isUtc);
+  }
+
 
   /// format date by date str.
   /// dateStr 日期字符串
@@ -43,14 +54,15 @@ class DateUtils {
     return dateTime;
   }
 
-  /// format date by DateTime.
-  /// format 转换格式(已提供常用格式 DateFormats，可以自定义格式："yyyy/MM/dd HH:mm:ss")
+  /// 将[DateTime]格式的时间 转为字符串类型
   /// 格式要求
-  /// year -> yyyy/yy   month -> MM/M    day -> dd/d
-  /// hour -> HH/H      minute -> mm/m   second -> ss/s
-  static String formatDate(DateTime dateTime, {String format}) {
+  /// 年（year）-> yyyy/yy   月（month） -> MM/M   日（day） -> dd/d
+  /// 时（hour） -> HH/H      分钟（minute） -> mm/m   秒（second ）-> ss/s
+  static String formatDate(
+      DateTime dateTime,
+      {String format= defaultDateFormatDate}) {
     if (dateTime == null) return "";
-    format = format ?? defaultDateFormatDate;
+
     if (format.contains("yy")) {
       String year = dateTime.year.toString();
       if (format.contains("yyyy")) {
@@ -71,19 +83,6 @@ class DateUtils {
     return format;
   }
 
-  static DateTime getDateTimeByMs(int ms, {bool isUtc = false}) {
-    return ms == null
-        ? null
-        : DateTime.fromMillisecondsSinceEpoch(ms, isUtc: isUtc);
-  }
-
-  /// get DateMilliseconds By DateStr.
-  static int getDateMsByTimeStr(String dateStr) {
-    DateTime dateTime = DateTime.tryParse(dateStr);
-    return dateTime?.millisecondsSinceEpoch;
-  }
-
-  /// com format.
   static String _comFormat(
       int value, String format, String single, String full) {
     if (format.contains(single)) {
@@ -96,6 +95,14 @@ class DateUtils {
     }
     return format;
   }
+  /// get DateMilliseconds By DateStr.
+  static int getDateMsByTimeStr(String dateStr) {
+    DateTime dateTime = DateTime.tryParse(dateStr);
+    return dateTime?.millisecondsSinceEpoch;
+  }
+
+  /// com format.
+
 
   ///获取今天是星期几
   static String getNowWeekDay(){
