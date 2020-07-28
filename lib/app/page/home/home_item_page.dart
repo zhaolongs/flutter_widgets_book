@@ -85,6 +85,7 @@ class MainFindPage3State extends State
     ///创建TabBar使用的控制器
     tabController = new TabController(length: tabTextList.length, vsync: this);
 
+    buildTestData();
   }
 
   @override

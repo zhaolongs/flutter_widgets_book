@@ -11,6 +11,7 @@ import 'abs_life.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 
+///lib/app/base/base_life_state.dart
 /// Flutter 中的 Widget  生命周期，并且通过 State 来体现。
 ///视图显示的各个阶段（即视图的BaseLifeState 生命周期）
 ///应用从启动到退出所经历的各个状态（App 的BaseLifeState 生命周期）
@@ -18,7 +19,9 @@ import 'abs_life.dart';
 /// App 的BaseLifeState 生命周期，则定义了 App 从启动到退出的全过程。
 ///createState 是 StatefulWidget 里创建 State 的方法，当要创建新的 StatefulWidget 的时候，
 ///会立即执行 createState，而且只执行一次，createState 必须要实现：
-///WidgetsBinding 提供了单次 Frame 绘制回调，以及实时 Frame 绘制回调两种机制，来分别满足不同的需求：
+///[WidgetsBinding] 提供了单次 Frame 绘制回调，以及实时 Frame 绘制回调两种机制，来分别满足不同的需求：
+///[RouteAware]定义了路由观察者的回调
+///[StateLiveState] 定义了生命周期函数
 abstract class BaseLifeState<T extends StatefulWidget> extends State<T>
     with WidgetsBindingObserver, RouteAware,StateLiveState {
 
@@ -40,7 +43,6 @@ abstract class BaseLifeState<T extends StatefulWidget> extends State<T>
   @override
   void initState() {
     super.initState();
-
     ///生命周期方法回调
     onWillCreat();
     ///绑定监听
@@ -49,6 +51,7 @@ abstract class BaseLifeState<T extends StatefulWidget> extends State<T>
     ///它会在当前 Frame 绘制完成后进行回调，并只会回调一次，如果要再次监听则需要再设置一次。
     WidgetsBinding.instance.addPostFrameCallback(postFrameCallback);
   }
+  ///lib/app/base/base_life_state.dart
   ///WidgetsBinding的绘制完成的一次性回调
   void postFrameCallback(Duration timeStamp) {
     ///生命周期方法回调
@@ -64,6 +67,7 @@ abstract class BaseLifeState<T extends StatefulWidget> extends State<T>
     addPersistentFrameCallbackFunction();
 
   }
+  ///lib/app/base/base_life_state.dart
   ///当前 Widget 获取焦点的监听
   ///当前的 Widget 的焦点有变化时都会回调些方法
   void focusScopeListener() {
@@ -94,7 +98,7 @@ abstract class BaseLifeState<T extends StatefulWidget> extends State<T>
   }
 
 
-
+  ///lib/app/base/base_life_state.dart
   ///在页面的每帧绘制完成后添加的实时
   void addPersistentFrameCallbackFunction() {
     ///实时 Frame 绘制回调，则通过 addPersistentFrameCallback 实现。
@@ -104,9 +108,11 @@ abstract class BaseLifeState<T extends StatefulWidget> extends State<T>
           " BaseLifeState 生命周期 实时 Frame 绘制回调 "); //  每帧都回调
       if (currentMounted != mounted) {
         if (mounted) {
+          ///当前Widget可见
           onStart();
           onResumed();
         } else {
+          ///当前Widget不可见
           if(!isDidPop){
             onPause();
             onStop();
@@ -123,6 +129,9 @@ abstract class BaseLifeState<T extends StatefulWidget> extends State<T>
     debugPrint(' BaseLifeState 生命周期 reassemble');
   }
 
+
+  ///lib/app/base/base_life_state.dart
+  ModalRoute _modalRoute;
   /// 当 StatefulWidget 第一次创建的时候，
   /// didChangeDependencies方法会在 initState方法之后立即调用，
   /// State 对象的依赖关系发生变化后
@@ -145,7 +154,8 @@ abstract class BaseLifeState<T extends StatefulWidget> extends State<T>
       onWillDestory();
     }
   }
-  ModalRoute _modalRoute;
+
+  ///lib/app/base/base_life_state.dart
   ///App切后台，再切回来
   ///I/flutter (15758): AppLifecycleState.inactive
   ///I/flutter (15758): AppLifecycleState.paused
@@ -162,10 +172,8 @@ abstract class BaseLifeState<T extends StatefulWidget> extends State<T>
         onResumed();
         break;
       case AppLifecycleState.inactive:
-
         /// App切从显示切后台，回调的第一个方法
         /// 处在不活动状态，无法处理用户响应
-
         break;
       case AppLifecycleState.paused:
 
@@ -175,7 +183,6 @@ abstract class BaseLifeState<T extends StatefulWidget> extends State<T>
         onStop();
         break;
       case AppLifecycleState.detached:
-        // TODO: Handle this case.
         break;
     }
   }
@@ -238,7 +245,6 @@ abstract class BaseLifeState<T extends StatefulWidget> extends State<T>
   void didPopNext() {
     // 当前路由的下个路由出栈，且当前页面显示
     debugPrint("BaseLifeState 生命周期 didPopNext");
-
     onStart();
   }
 
@@ -248,7 +254,6 @@ abstract class BaseLifeState<T extends StatefulWidget> extends State<T>
     debugPrint("BaseLifeState 生命周期 didPop");
     isDidPop=true;
   }
-
 
   ///当前页面调用 Navigator的push方法打开新的路由页面的回调
   @override

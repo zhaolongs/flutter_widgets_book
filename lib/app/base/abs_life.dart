@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 ///
-
+///lib/app/base/abs_life.dart
 /// Widget 的完整生存期会在 [onCreate]调用和[onDestroy]调用之间发生
 ///
 ///[onCreate]方法 在 [State]的initState方法中调用，一般在这个方法中初始化一些数据
@@ -44,7 +44,7 @@ import 'package:flutter/material.dart';
 class StateLiveState{
   ///页面即将创建时回调
   void onWillCreat(){}
-  ///页面创建时的回调
+  ///页面创建时的回调 已创建好
   void onCreat(){}
   ///页面可见时回调
   void onStart() {}

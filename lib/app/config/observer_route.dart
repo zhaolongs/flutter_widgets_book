@@ -8,5 +8,6 @@ import 'package:flutter/material.dart';
 /// 可关注网易云课堂：https://study.163.com/instructor/1021406098.htm
 /// 可关注博客：https://blog.csdn.net/zl18603543572
 
+///lib/app/config/observer_route.dart
 // 注册 RouteObserver  作为 navigation observer.
 final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
