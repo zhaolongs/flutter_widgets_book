@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
+import 'package:flutterbookcode/code6/main_data100.dart';
+import 'package:flutterbookcode/code6/main_data99.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 import '../../config/theme_notifier.dart';
@@ -189,9 +191,19 @@ class _CommonDialogPageState extends State<CommonDialogPage> {
       return Padding(
         padding: EdgeInsets.only(left: 18, right: 18),
         child: Center(
-          child: Text(
-            widget.contentMessag,
-            style: golbalCurrentTheme(context).textTheme.bodyText1,
+          ///限定内容的最小高度
+          child:  ConstrainedBox(
+            constraints: BoxConstraints(
+                //最小高度为50像素
+                minHeight: 50.0),
+            child: Container(
+              alignment: Alignment.center,
+              child: Text(
+                widget.contentMessag,
+                textAlign: TextAlign.center,
+                style: golbalCurrentTheme(context).textTheme.bodyText1,
+              ),
+            ),
           ),
         ),
       );

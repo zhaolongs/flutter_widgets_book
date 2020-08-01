@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbookcode/app/bean/bean_catalog.dart';
+import 'package:flutterbookcode/code6/shape/oval_hole_shape_boder.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 /// 创建人： Created by zhaolong
@@ -39,47 +40,50 @@ class _CatalogueMainPageState extends State<CatalogueDragPage> {
 
   Widget buildItemWidget(BuildContext context, int index) {
     CatalogBean catalogModel = widget.list[index];
-    return Container(
-      padding: EdgeInsets.all(12.0),
+    return  Container(
       margin: EdgeInsets.only(top: 12.0),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(8))),
-      child: InkWell(
-        onTap: () {
-          NavigatorUtils.pushPage(context, catalogModel.page);
-        },
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
+        child: InkWell(
+          onTap: () {
+            NavigatorUtils.pushPage(context, catalogModel.page);
+          },
+          child: Material(
+            shape: OvalHoleShapeBoder(),
+            child: Container(
+              padding: EdgeInsets.all(22.0),
+              margin: EdgeInsets.only(top: 12.0),
+              child: Row(
                 children: [
-                  Container(
-                    child: Text(
-                      catalogModel.pageTitle,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16.0),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          child: Text(
+                            catalogModel.pageTitle,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16.0),
+                          ),
+                        ),
+                        Container(
+                          child: Text(
+                            catalogModel.pageMessage,
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.0),
+                          ),
+                        )
+                      ],
                     ),
                   ),
-                  Container(
-                    child: Text(
-                      catalogModel.pageMessage,
-                      style: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14.0),
-                    ),
-                  )
+                  Icon(Icons.arrow_forward_ios)
                 ],
               ),
             ),
-            Icon(Icons.arrow_forward_ios)
-          ],
-        ),
+          ),
       ),
     );
   }

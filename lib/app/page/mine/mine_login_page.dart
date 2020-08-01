@@ -5,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterbookcode/app/base/bg_welcome_widget.dart';
+import 'package:flutterbookcode/app/bean/bean_user.dart';
 import 'package:flutterbookcode/app/common/user_helper.dart';
 import 'package:flutterbookcode/app/page/common/user_protocol_page.dart';
 import 'package:flutterbookcode/demo/shake/shake_animation_controller.dart';
@@ -12,12 +13,17 @@ import 'package:flutterbookcode/demo/shake/shake_animation_type.dart';
 import 'package:flutterbookcode/demo/shake/shake_animation_widget.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
-void openLoginPage(BuildContext context){
-  NavigatorUtils.openPageFromBottom(context, LoginPage(),dismissCallBack: (value){
-    if(!UserHelper.getInstance.isUserProtocol){
+void openLoginPage(BuildContext context,
+    {Function(bool isSuccess) dismissCallback, bool isReplace = false}) {
+  NavigatorUtils.openPageFromBottom(context, LoginPage(),
+      dismissCallBack: (value) {
+    if (!UserHelper.getInstance.isUserProtocol) {
       showUserProtocolPage(context: context);
     }
-  });
+    if (dismissCallback != null) {
+      dismissCallback(value);
+    }
+  }, isReplace: isReplace);
 }
 
 /// 登录页面
@@ -686,8 +692,9 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
       Future.delayed(Duration(milliseconds: 4000),(){
 
         ///模拟请求成功
-        testFaileFunction();
+//        testFaileFunction();
 
+       testSuccessFunction();
       });
     }
 
@@ -698,6 +705,10 @@ class _PageState extends State with WidgetsBindingObserver ,TickerProviderStateM
     ///更新状态 页面显示小对钩
     setState(() {
       currentRestureStatus = RestureStatus.success;
+    });
+    UserHelper.getInstance.userBean = new UserBean("早起的年轻人", "想看日出一定要早起");
+    Future.delayed(Duration(milliseconds: 800),(){
+      Navigator.pop(context,true);
     });
 
     ///请求成功的后续操作如跳转主页面

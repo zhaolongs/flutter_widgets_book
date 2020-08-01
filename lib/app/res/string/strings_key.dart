@@ -17,8 +17,10 @@ class StringKey{
 
   static final String buttonExit = "buttonExit";
   static final String buttonConsent = "buttonConsent";
+  static final String buttonCancle = "buttonCancle";
   static final String buttonTautology = "buttonTautology";
   static final String buttonGoSetting = "buttonGoSetting";
+  static final String buttonSelect="buttonSelect";
 
   static final String alertDefaultTitle = "alertTitle";
 
@@ -39,6 +41,8 @@ class StringKey{
   static final String themeDark= "themeDark";
   static final String themeGray= "themeGray";
 
+  static final String loginExit= "login_exit";
+  static final String settingExit= "setting_exit";
 
   static final String homeBottonTitle1= "homeBottonTitle1";
   static final String homeBottonTitle2= "homeBottonTitle2";

@@ -20,6 +20,7 @@ class EnStrings {
         "The setup center cannot be opened for the time being. Please open the phone Settings -> application management - permission",
     StringKey.buttonExit: "EXIT",
     StringKey.buttonConsent: "CONSENT",
+    StringKey.buttonCancle: "CANCLE",
     StringKey.buttonTautology: "Tautology",
     StringKey.buttonGoSetting: "goSetting",
     StringKey.alertDefaultTitle: "Warm Prompt",
@@ -47,5 +48,9 @@ class EnStrings {
     StringKey.settingCenter: "Mine Center",
     StringKey.alertInformation: "Alert Information",
     StringKey.friend: "Friend",
+
+    StringKey.loginExit :"Exit",
+    StringKey.settingExit :"Do you want to confirm your exit?",
+    StringKey.buttonSelect: "YES",
   };
 }

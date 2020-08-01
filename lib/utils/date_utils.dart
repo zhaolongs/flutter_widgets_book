@@ -19,7 +19,7 @@ class DateUtils {
    ///获取当前日期 默认 格式为 年-月-日 时-分-秒
   ///   "yyyy-MM-dd HH:mm:ss";
   ///   可通过 [format]指定格式
-  static String getNowDateStr({String format}) {
+  static String getNowDateStr({String format=defaultDateFormatDate}) {
     return formatDate(DateTime.now(), format: format);
   }
 

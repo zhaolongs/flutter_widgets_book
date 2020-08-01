@@ -16,6 +16,8 @@ class ZhStrings {
     StringKey.storePermisson4: "暂时无法打开设置中心，请您打开手机设置->应用管理-同意权限",
     StringKey.buttonExit: "退出",
     StringKey.buttonConsent: "同意",
+    StringKey.buttonCancle: "取消",
+    StringKey.buttonSelect: "确认",
     StringKey.buttonTautology: "重试",
     StringKey.buttonGoSetting: "去设置中心",
     StringKey.alertDefaultTitle: "温馨提示",
@@ -44,6 +46,7 @@ class ZhStrings {
     StringKey.settingCenter: "个人中心",
     StringKey.alertInformation: "编辑资料",
     StringKey.friend: "好友",
-
+    StringKey.loginExit:"切换账号",
+    StringKey.settingExit:"确认退出吗？",
   };
 }

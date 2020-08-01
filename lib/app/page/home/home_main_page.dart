@@ -3,11 +3,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutterbookcode/app/bean/bean_event.dart';
+import 'package:flutterbookcode/app/common/event_message.dart';
 import 'package:flutterbookcode/app/common/user_helper.dart';
+import 'package:flutterbookcode/app/config/home_notifier.dart';
 import 'package:flutterbookcode/app/page/catalogue/catalogue_main_page.dart';
 import 'package:flutterbookcode/app/page/mine/mine_login_page.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
+import 'package:flutterbookcode/utils/log_util.dart';
+import 'package:provider/provider.dart';
 
 import '../mine/mine_main_page.dart';
 import 'home_item_page.dart';
@@ -52,7 +57,20 @@ class FirstThemState extends State<HomeMainPage>  {
 //      SystemChrome.setEnabledSystemUIOverlays(
 //          [SystemUiOverlay.top, SystemUiOverlay.bottom]);
 //    });
+    //注册消息体
+    EventMessage.getDefault().register((EventMessageBean bean) {
+      if (bean.code == 100) {
+        //刷新消息
+        LogUtil.e("消息传递 刷新消息 ${bean.data.toString()}");
+        if(_tabIndex!=bean.data){
+          setState(() {
+            _tabIndex = bean.data;
+            _pageController.jumpToPage(_tabIndex);
+          });
+        }
 
+      }
+    });
   }
 
   @override
@@ -61,7 +79,11 @@ class FirstThemState extends State<HomeMainPage>  {
     return Scaffold(
       //页面的主内容区
       //可以是单独的StatefulWidget 也可以是当前页面构建的如Text文本组件
-      body: buildBodyFunction(),
+      body: Consumer<HomeNotifier>(builder: (BuildContext context, HomeNotifier value, Widget child) {
+        LogUtil.e("首页面接收到通知 ${value.homeIndex}");
+        _tabIndex = value.homeIndex;
+        return buildBodyFunction();
+      },),
       //底部导航栏
       bottomNavigationBar: buildBottomNavigation(),
     );
@@ -115,7 +137,17 @@ class FirstThemState extends State<HomeMainPage>  {
         if (index == 2) {
           ///未登录时跳转登录页面
           if (UserHelper.getInstance.userBean == null) {
-            openLoginPage(context);
+            ///打开登录页面
+            openLoginPage(context,dismissCallback: (isSuccess){
+              ///如果登录成功了就打开我的页面
+              if(isSuccess){
+                setState(() {
+                  _tabIndex = 2;
+                  _pageController.jumpToPage(2);
+                });
+              }
+              ///如果没有成功就还停留在当前页面
+            });
             return;
           }
         }

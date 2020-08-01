@@ -16,19 +16,24 @@ class TestPage extends StatefulWidget {
   @override
   _TestPageState createState() => _TestPageState();
 }
-
+///lib/app/page/test/test.dart
 class _TestPageState extends BaseLifeState<TestPage> {
 
+  ///lib/app/page/test/test.dart
+  ///输入框焦点
+  FocusNode _focusNode = FocusNode();
   @override
   void onResumed() {
-    // TODO: implement onResumed
     super.onResumed();
+    ///获取输入焦点
+    FocusScope.of(context).requestFocus(_focusNode);
   }
 
   @override
   void onPause() {
-    // TODO: implement onPause
     super.onPause();
+    // 失去焦点
+    _focusNode.unfocus();
   }
 
   @override
@@ -44,6 +49,7 @@ class _TestPageState extends BaseLifeState<TestPage> {
           constraints: BoxConstraints.expand(),
           child: Column(
             children: [
+              TextField(focusNode: _focusNode,)
             ],
           )),
     );

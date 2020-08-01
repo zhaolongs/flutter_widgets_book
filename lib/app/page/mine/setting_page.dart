@@ -2,7 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutterbookcode/app/base/base_life_state.dart';
+import 'package:flutterbookcode/app/bean/bean_event.dart';
+import 'package:flutterbookcode/app/common/event_message.dart';
+import 'package:flutterbookcode/app/common/user_helper.dart';
+import 'package:flutterbookcode/app/config/home_notifier.dart';
 import 'package:flutterbookcode/app/config/theme_notifier.dart';
+import 'package:flutterbookcode/app/page/common/common_dialog.dart';
+import 'package:flutterbookcode/app/page/mine/mine_login_page.dart';
 import 'package:flutterbookcode/app/res/string/strings.dart';
 import 'package:flutterbookcode/app/res/string/strings_key.dart';
 import 'package:flutterbookcode/utils/log_util.dart';
@@ -27,10 +33,12 @@ class _TestPageState extends BaseLifeState<SettingPage>{
   List<String> menuList = [
     StringKey.languageSelect,
     StringKey.themeSelect,
+    StringKey.loginExit
   ];
   List<IconData> iconList = [
     Icons.language,
     Icons.table_chart,
+    Icons.exit_to_app
   ];
 
   Map<String, List<String>> mapDataList;
@@ -49,6 +57,9 @@ class _TestPageState extends BaseLifeState<SettingPage>{
         StringKey.themeLight,
         StringKey.themeGray,
       ],
+      "exit": [
+        StringKey.settingExit,
+      ],
     };
 
     Future.delayed(Duration(milliseconds: 3000),(){
@@ -62,7 +73,7 @@ class _TestPageState extends BaseLifeState<SettingPage>{
 ////          cancleCallBack: () {
 ////
 ////          }, context: context);
-    showSimpleDialog();
+//    showSimpleDialog();
     });
 
   }
@@ -109,7 +120,7 @@ class _TestPageState extends BaseLifeState<SettingPage>{
               }
               setState(() {});
             });
-          } else {
+          } else if(index==1){
             showCommonBottomWidget(context, mapDataList["theme"], (value) {
               LogUtil.e("pop select $value");
               if (value == 0) {
@@ -121,6 +132,28 @@ class _TestPageState extends BaseLifeState<SettingPage>{
               }
               setState(() {});
             });
+          } else if(index==2) {
+            showCommonAlertDialog(
+                contentMessag:
+                    StringLanguages.of(context).get(StringKey.settingExit),
+                cancleText:
+                    StringLanguages.of(context).get(StringKey.buttonSelect),
+                selectText:
+                    StringLanguages.of(context).get(StringKey.buttonCancle),
+                selectCallBack: () {
+                  LogUtil.e("取消退出");
+                },
+                cancleCallBack: () {
+                  LogUtil.e("选择退出");
+                  UserHelper.getInstance.userBean=null;
+                  ///发送首页更新页面
+                  EventMessageBean bean = new EventMessageBean();
+                  bean.code = 100;
+                  bean.data=1;
+                  EventMessage.getDefault().post(bean);
+                  openLoginPage(context,isReplace: true);
+                },
+                context: context);
           }
         },
         child: Row(

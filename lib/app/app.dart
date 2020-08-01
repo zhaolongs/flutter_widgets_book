@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'app_root.dart';
+import 'config/home_notifier.dart';
 import 'config/local_notifier.dart';
 import 'config/theme_notifier.dart';
 
@@ -51,6 +52,11 @@ class _RottAppState extends State<RootApp> {
           //value就是监听的数据模型对象
           value: LocaleNotifier(null),
         ),
+        ChangeNotifierProvider<HomeNotifier>.value(
+          //value就是监听的数据模型对象
+          value: HomeNotifier(),
+        ),
+
       ],
     );
   }

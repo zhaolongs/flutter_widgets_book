@@ -20,37 +20,37 @@ class DragContainer extends StatefulWidget {
   ///抽屉主体内容
   final Widget dragWidget;
   ///默认显示的高度 具体的像素
-  double initialChildSize;
+  final double initialChildSize;
   ///默认显示的高度与屏幕的比率
-  double initChildRate;
+  final double initChildRate;
   ///可显示的最大高度 具体的像素
-  double maxChildSize;
+  final double maxChildSize;
   ///可显示的最大高度 与屏幕的比率
-  double maxChildRate;
+  final double maxChildRate;
   ///抽屉控制器
-  DragController controller;
+  final DragController controller;
   ///抽屉中滑动视图的控制器
   /// 0.0.2 版本已弃用 改为[NotificationListener]
-  ScrollController scrollController;
+  final  ScrollController scrollController;
   ///抽屉滑动状态回调
-  Function(bool isOpen) dragCallBack;
+  final Function(bool isOpen) dragCallBack;
   ///是否显示标题
-  bool isShowHeader;
+  final  bool isShowHeader;
   ///背景颜色
-  Color backGroundColor;
+  final Color backGroundColor;
   ///背景圆角
-  double cornerRadius;
+  final double cornerRadius;
   ///滑动结束时 自动滑动到底部或者顶部的时间
-  Duration duration;
+  final Duration duration;
   ///滑动位置超过这个位置，会滚到顶部；
   ///小于，会滚动底部。
   ///向上或者向下滑动的临界值
-  double maxOffsetDistance;
+  final double maxOffsetDistance;
 
   ///配置为true时
   ///当抽屉为打开时，列表滑动到了顶部，再向下滑动时，抽屉会关闭
   ///当抽屉为关闭时，列表向上滑动，抽屉会自动打开
-  bool useAtEdge ;
+  final bool useAtEdge ;
 
   DragContainer(
       {Key key,
@@ -65,7 +65,7 @@ class DragContainer extends StatefulWidget {
       this.maxOffsetDistance,
       this.scrollController,
       this.controller,
-      this.dragCallBack});
+      this.dragCallBack, this.initialChildSize, this.maxChildSize});
 
   @override
   _DragContainerState createState() => _DragContainerState();
@@ -76,7 +76,7 @@ class _DragContainerState extends State<DragContainer>
   ///动画控制器
   AnimationController animalController;
   ///抽屉的偏移量
-  double offsetDistance;
+  double offsetDistance=0.0;
   ///动画
   Animation<double> animation;
   ///快速轻扫标识
@@ -91,6 +91,10 @@ class _DragContainerState extends State<DragContainer>
   ///开始滑动时会更新此标识
   ///是否在顶部或底部
   bool atEdge = false;
+  
+  double maxSize =0.0;
+  double initialChildSize=0.0;
+  double maxOffsetDistance =0.0;
 
   @override
   void initState() {
@@ -115,6 +119,44 @@ class _DragContainerState extends State<DragContainer>
         }
       });
     }
+    ///单次 Frame 绘制回调，通过 addPostFrameCallback 实现。
+    ///它会在当前 Frame 绘制完成后进行回调，并只会回调一次，如果要再次监听则需要再设置一次。
+    WidgetsBinding.instance.addPostFrameCallback((value){
+      initData();
+    });
+  }
+
+  void initData(){
+    ///State 有一个属性是mounted 用来标识State当前是否正确绑定在View树中。
+    ///当创建 State 对象，并在调用 State.initState 之前，
+    ///framework 会根据 BuildContext 来标记 mounted，
+    ///然后在 State的生命周期里面，这个 mounted 属性不会改变，
+    ///直至 framework 调用 State.dispose
+     
+        ///计算抽屉可展开的最大值
+        maxSize =
+            MediaQuery.of(context).size.height * widget.maxChildRate;
+        ///计算抽屉关闭时的高度
+        initialChildSize =
+            MediaQuery.of(context).size.height * widget.initChildRate;
+    
+        initialChildSize =
+            MediaQuery.of(context).size.height * widget.initChildRate;
+      
+
+      ///计算临界值
+      if (widget.maxOffsetDistance == null) {
+        ///计算滑动结束向上或者向下滑动的临界值
+       maxOffsetDistance=
+            (maxSize - initialChildSize) / 3 * 2;
+      } else {
+       maxOffsetDistance=
+            (maxSize - initialChildSize) /
+                widget.maxOffsetDistance;
+      }
+
+      ///初始化偏移量 为抽屉的关闭状态
+      offsetDistance =maxSize  - initialChildSize;
   }
 
   ///lib/code15/drag/drag_container.dart
@@ -123,38 +165,7 @@ class _DragContainerState extends State<DragContainer>
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    ///State 有一个属性是mounted 用来标识State当前是否正确绑定在View树中。
-    ///当创建 State 对象，并在调用 State.initState 之前，
-    ///framework 会根据 BuildContext 来标记 mounted，
-    ///然后在 State的生命周期里面，这个 mounted 属性不会改变，
-    ///直至 framework 调用 State.dispose
-    if (mounted) {
-      if (widget.maxChildSize == null) {
-        ///计算抽屉可展开的最大值
-        widget.maxChildSize =
-            MediaQuery.of(context).size.height * widget.maxChildRate;
-        ///计算抽屉关闭时的高度
-        widget.initialChildSize =
-            MediaQuery.of(context).size.height * widget.initChildRate;
-      }else if(widget.initialChildSize==null){
-        widget.initialChildSize =
-            MediaQuery.of(context).size.height * widget.initChildRate;
-      }
 
-      ///计算临界值
-      if (widget.maxOffsetDistance == null) {
-        ///计算滑动结束向上或者向下滑动的临界值
-        widget.maxOffsetDistance =
-            (widget.maxChildSize - widget.initialChildSize) / 3 * 2;
-      } else {
-        widget.maxOffsetDistance =
-            (widget.maxChildSize - widget.initialChildSize) /
-                widget.maxOffsetDistance;
-      }
-
-      ///初始化偏移量 为抽屉的关闭状态
-      offsetDistance =widget.maxChildSize  - widget.initialChildSize;
-    }
   }
 
 
@@ -167,8 +178,8 @@ class _DragContainerState extends State<DragContainer>
   @override
   Widget build(BuildContext context) {
     ///抽屉视图可偏移的距离限制在
-    ///widget.initialChildSize/4 与 widget.maxChildSize 之间
-//    offsetDistance = offsetDistance.clamp(widget.initialChildSize/4, widget.maxChildSize);
+    ///initialChildSize/4 与 maxSize 之间
+//    offsetDistance = offsetDistance.clamp(initialChildSize/4, maxSize);
     ///平移变换
     return Transform.translate(
       ///在y轴方向移动
@@ -183,7 +194,7 @@ class _DragContainerState extends State<DragContainer>
             Container(
               ///构建抽屉的内容视图
               child: buildChild(),
-              height: widget.maxChildSize,
+              height: maxSize,
             ),
           ],
         ),
@@ -301,7 +312,7 @@ class _DragContainerState extends State<DragContainer>
     ///性能优化 当抽屉为打开状态时再关闭
     if (isOpen) {
       ///将抽屉移动到底部
-      double end = widget.maxChildSize - widget.initialChildSize;
+      double end = maxSize - initialChildSize;
       ///从当前的位置开始
       double start = offsetDistance;
       ///执行动画过渡操作
@@ -459,7 +470,7 @@ class _DragContainerState extends State<DragContainer>
           ///向下
           offsetDistanceClose();
         }
-        print("${MediaQuery.of(context).size.height} widget.maxOffsetDistance ${widget.maxOffsetDistance} widget.maxChildSize ${widget.maxChildSize}  widget.initialChildSize ${widget.initialChildSize}");
+        print("${MediaQuery.of(context).size.height}maxOffsetDistance${widget.maxOffsetDistance} maxSize ${maxSize}  initialChildSize ${initialChildSize}");
       }
     }
   }
