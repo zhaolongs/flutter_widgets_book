@@ -16,6 +16,7 @@ import 'main_data1609.dart';
 import 'main_data1610.dart';
 import 'main_data1611.dart';
 import 'main_data1612.dart';
+import 'main_data1613.dart';
 
 
 
@@ -77,6 +78,8 @@ class _FirstPageState extends State<ListViewMainPage> {
       buildContainerAndClick("ListView SmartRefresher",(){NavigatorUtils.pushPage(context, ListViewUsePage11());}),
 
       buildContainerAndClick("ListView 的加载动画",(){NavigatorUtils.pushPage(context, ListViewUsePage12());}),
+      buildContainerAndClick("ListView 加载图片性能优化",(){NavigatorUtils.pushPage(context, ListViewUsePage13());}),
+
     ];
   }
 

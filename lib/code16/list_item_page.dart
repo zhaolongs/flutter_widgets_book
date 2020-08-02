@@ -14,7 +14,7 @@ import 'package:flutter/material.dart';
 ///用于ListView中显示的子Item
 class ListViewItemPage extends StatefulWidget {
   ///ListView中显示的位置 从0开始
-  int pageIndex ;
+  final int pageIndex ;
   ///构建函数
   ListViewItemPage(this.pageIndex);
 

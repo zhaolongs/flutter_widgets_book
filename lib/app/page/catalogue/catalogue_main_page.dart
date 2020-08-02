@@ -86,7 +86,7 @@ class _CatalogueMainPageState extends State<CatalogueMainPage>  with AutomaticKe
         "第19章矩阵变换t", OtherTransformWidgetMainPage(), "Transform变换组件、"),
     new CatalogBean("第20章绘图", CanvasWidgetMainPage(), "绘图基础、绘制坐标轴"),
     new CatalogBean("第21章动画", AnimationWidgetMainPage(), "动画 、"),
-    new CatalogBean("第22章其他Widget", OtherWidgetMainPage(), "Transform变换组件、"),
+    new CatalogBean("第22章其他Widget", OtherWidgetMainPage(), "Transform变换组件、水平分割线的基本使用、"),
   ];
 
   @override

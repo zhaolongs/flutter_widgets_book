@@ -2,13 +2,15 @@ import 'dart:async';
 
 
 /// 创建人： zhaollong
-/// 页面说明： 异步消息通知类 类似eventbus：
+/// 页面说明： 异步消息通知类 类似 eventbus：
 /// lib/app/common/event_message.dart
+/// 异步消息通知类 类似 eventbus
 class EventMessage{
   ///创建实例
   static EventMessage _instance;
   //定义一个Controller
   StreamController _streamController;
+  ///构建函数
   factory  EventMessage.getDefault(){
     return _instance ??= EventMessage._init();
   }

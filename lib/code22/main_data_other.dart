@@ -11,6 +11,7 @@ import 'main_data2203.dart';
 import 'main_data2204.dart';
 import 'main_data2205.dart';
 import 'main_data2206.dart';
+import 'main_data2207.dart';
 
 
 
@@ -60,6 +61,8 @@ class _FirstPageState extends State<OtherWidgetMainPage> {
       buildContainerAndClick("LinearProgressIndicator 组件",(){NavigatorUtils.pushPage(context, LinearProgressIndicatorPage());}),
       buildContainerAndClick("CircularProgressIndicator 组件",(){NavigatorUtils.pushPage(context, CircularProgressIndicatorPage());}),
       buildContainerAndClick("RefreshProgressIndicator 组件",(){NavigatorUtils.pushPage(context, RefreshProgressIndicatorPage());}),
+
+      buildContainerAndClick("Divider 组件",(){NavigatorUtils.pushPage(context, DividerPage());}),
 
 
 

@@ -147,9 +147,11 @@ class _TestPageState extends BaseLifeState<SettingPage>{
                   LogUtil.e("选择退出");
                   UserHelper.getInstance.userBean=null;
                   ///发送首页更新页面
+                  ///构建消息体
                   EventMessageBean bean = new EventMessageBean();
                   bean.code = 100;
                   bean.data=1;
+                  ///发送消息
                   EventMessage.getDefault().post(bean);
                   openLoginPage(context,isReplace: true);
                 },

@@ -191,6 +191,9 @@ class _PermissionRequestState extends State<PermissionRequestPage>
       } else{
         Navigator.of(context).pop(false);
       }
+    }else{
+      ///权限通过
+      Navigator.of(context).pop(true);
     }
   }
 

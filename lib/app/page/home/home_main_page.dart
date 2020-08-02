@@ -72,7 +72,12 @@ class FirstThemState extends State<HomeMainPage>  {
       }
     });
   }
-
+ @override
+  void dispose() {
+    super.dispose();
+    ///注销消息兼听
+    EventMessage.getDefault().unregister();
+  }
   @override
   Widget build(BuildContext context) {
     //Scaffold 用来搭建页面的主体结构

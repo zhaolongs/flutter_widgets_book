@@ -41,7 +41,7 @@ class ScrollHomePageState extends State {
       scrollDirection: Axis.vertical,
       ///设置为 true 时 列表数据是滑动到底部的
       ///    默认为false，列表数据在开始位置
-      reverse: false,
+      reverse: true,
       ///滑动到列表边界时的回弹效果
       physics:BouncingScrollPhysics(),
       /// 为true时ListVie的大小包裹子Widget
