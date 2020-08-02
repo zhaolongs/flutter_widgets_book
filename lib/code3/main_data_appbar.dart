@@ -2,8 +2,13 @@
 //bottomNavigationBar配制底部导航栏菜单
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbookcode/code/common_founction.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
+import 'main_data43-1.dart';
+import 'main_data43-2.dart';
+import 'main_data43-3.dart';
+import 'main_data43.dart';
 import 'main_data65-1.dart';
 
 
@@ -39,6 +44,12 @@ class FirstPagetate extends State<MainAppBarPage> {
 
   bluldLeftWidget(BuildContext context){
     return [
+
+      buildContainerAndClick(" Row 在 AppBar中实现的标签栏切换效果",(){NavigatorUtils.pushPage(context, TabFromRowTestPage());}),
+      buildContainerAndClick(" Row 在 AppBar中实现的标签栏切换效果",(){NavigatorUtils.pushPage(context, TabFromRowPage());}),
+      buildContainerAndClick(" Row标签结合PageView实现滑动切换",(){NavigatorUtils.pushPage(context, TabFromRowPage2());}),
+      buildContainerAndClick(" Row标签结合TabBarView实现滑动切换",(){NavigatorUtils.pushPage(context, TabFromRowPage3());}),
+
       RaisedButton(child: Text("MediaQuery分析"),onPressed: () { NavigatorUtils.pushPage(context, MediaQueryFirstPage()); },),
 
     ];

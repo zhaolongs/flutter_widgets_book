@@ -6,6 +6,7 @@ import 'package:flutterbookcode/code2/main_data38.dart';
 import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 import 'main_data301.dart';
+import 'main_data43-1.dart';
 import 'main_data43-2.dart';
 import 'main_data43-3.dart';
 
@@ -49,12 +50,15 @@ class _FirstPageState extends State<ScaffoldWidgetMainPage> {
   bluldLeftWidget(BuildContext context){
     return [
 
+
+
+
       buildContainerAndClick("BottomAppBar与悬浮按钮结合使用",(){NavigatorUtils.pushPage(context, BottomAppBarAndFloatButtonPage());}),
 
 
       buildContainerAndClick("3D底部菜单",(){NavigatorUtils.pushPage(context, Bottom3DBarPage());}),
-      buildContainerAndClick("PageView实现滑动标签页面切换",(){NavigatorUtils.pushPage(context, PageViewFirstPage());}),
-      buildContainerAndClick("TabBarView实现滑动标签页面切换",(){NavigatorUtils.pushPage(context, TabBarViewFirstPage());}),
+      buildContainerAndClick("PageView实现滑动标签页面切换",(){NavigatorUtils.pushPage(context, TabFromRowPage2());}),
+      buildContainerAndClick("TabBarView实现滑动标签页面切换",(){NavigatorUtils.pushPage(context, TabFromRowPage3());}),
 
 
 

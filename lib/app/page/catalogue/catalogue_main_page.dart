@@ -60,7 +60,7 @@ class _CatalogueMainPageState extends State<CatalogueMainPage>  with AutomaticKe
     new CatalogBean("第3章Scaffold组件", ScaffoldWidgetMainPage(),
         "常用作包裹其他Widget，类似html中的div，内容涉及BottomAppBar与悬浮按钮结合使用，与PageView、TabbarView结合使用实现标签页面，底部标签栏bottomSheet"),
     new CatalogBean(
-        "第4章AppBar组件", MainAppBarPage(), "常用作包裹其他Widget，类似html中的div"),
+        "第4章AppBar组件", MainAppBarPage(), "Row 在 AppBar中实现的标签栏切换效果"),
     new CatalogBean("第5章文本Text组件", TextMainPage(), "文本显示组件的基本使用，样式组件TextStyle的使用分析， Text中文字对齐方式，富文本RichText组件的使用分析，富文本RichText使用案例，文本标签"),
     new CatalogBean("第6章输入框Textfield", TextFieldMainPage(),
         "Textfield的基本使用，输入的文字不可见，弹出键盘类型配制，键盘输入框样式，焦点控制，输入字数与行数控制，Textfield在Flutter中用来进行文本输入框的功能"),

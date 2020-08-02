@@ -11,16 +11,16 @@ import 'package:flutter/material.dart';
 main() =>
     runApp(
         MaterialApp(
-          home: TabBarViewFirstPage(),));
+          home: TabFromRowPage3(),));
 
-class TabBarViewFirstPage extends StatefulWidget {
+class TabFromRowPage3 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return FirstPagetate();
   }
 }
 ///4.1.4 /lib/code3/main_data43-3.dart
-class FirstPagetate extends State<TabBarViewFirstPage>  with SingleTickerProviderStateMixin{
+class FirstPagetate extends State<TabFromRowPage3>  with SingleTickerProviderStateMixin{
 
   ///当前显示标签页面的标识 0为推荐标签页面  1为专栏标签页面
   int currentSelectIndex = 0;

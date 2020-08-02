@@ -11,16 +11,16 @@ import 'package:flutter/material.dart';
 main() =>
     runApp(
         MaterialApp(
-          home: PageViewFirstPage(),));
+          home: TabFromRowPage2(),));
 
-class PageViewFirstPage extends StatefulWidget {
+class TabFromRowPage2 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return FirstPagetate();
   }
 }
 
-class FirstPagetate extends State<PageViewFirstPage> {
+class FirstPagetate extends State<TabFromRowPage2> {
 
   ///当前显示标签页面的标识 0为推荐标签页面  1为专栏标签页面
   int currentSelectIndex = 0;
