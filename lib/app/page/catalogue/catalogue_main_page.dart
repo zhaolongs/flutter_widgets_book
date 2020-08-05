@@ -61,32 +61,32 @@ class _CatalogueMainPageState extends State<CatalogueMainPage>  with AutomaticKe
         "常用作包裹其他Widget，类似html中的div，内容涉及BottomAppBar与悬浮按钮结合使用，与PageView、TabbarView结合使用实现标签页面，底部标签栏bottomSheet"),
     new CatalogBean(
         "第4章AppBar组件", MainAppBarPage(), "Row 在 AppBar中实现的标签栏切换效果"),
-    new CatalogBean("第5章文本Text组件", TextMainPage(), "5.1 文本显示组件的基本使用 5.2 样式组件TEXTSTYLE的使用分析  25.2.2 样式组件TEXTSTYLE的INHERIT 35.2.3 样式组件TEXTSTYLE的颜色配置  45.2.4 文字大小FONTSIZE  45.2.5 文字粗细设置FONTWEIGHT  65.2.6 文字斜体设置  75.2.7 文字间距设置  75.2.8 文字基线TEXTBASELINE分析  85.2.9 装饰DECORATION分析  95.2.10 自定义字体FONTFAMILY配置  135.2.11 字体列表FONTFAMILYFALLBACK配置 155.2.11 字体阴影SHADOWS配置  165.2.13 文本高度HEIGHT配置 175.3 TEXT中文字对齐方式 195.3.1 文字超出宽度显示省略号 245.3.2 文字自动换行设置  265.3.3 弹性布局综述  295.4 富文本RICHTEXT组件的使用分析  315.6 富文本RICHTEXT使用案例 345.7 文本标签  365.7.1 文本标签构建  365.7.2 文本标签结合流式布局使用  395.8 ANIMATEDDEFAULTTEXTSTYLE的使用分析 "),
+    new CatalogBean("第5章文本Text组件", TextMainPage(), "详细分析文本显示组件 Text，详细讲解 Text 的使用、宽高度适配、文本样式的配置、自定义字体、富文本 TextRich 以及 流式布局的文本标签等"),
     new CatalogBean("第6章输入框Textfield", TextFieldMainPage(),
-        "6.1.1 输入的文字不可见  6.1.2 配置输入的英文首字母大写  6.1.3 配置弹出的键盘类型 6.1.4键盘回车键的样式与功能  6.1.5键盘回车键切换输入框 6.1.6 FOCUSNODE输入框焦点事件的捕捉与监听  6.1.7 TEXTFIELD 输入文本对齐配置 6.2 TEXTFIELD组件的设置允许输入的文本格式 6.2.1输入字数限制  6.2.2输入行数限制 6.2.3只允许输入数字  6.2.4只允许输入26个A-Z大小写字母  6.2.5自定义TEXTINPUTFORMATTER   6.3 TEXTFIELD组件INPUTDECORATION   6.3.1 TEXTFIELD组件去掉默认的下划线 6.3.2 TEXTFIELD边框装饰OUTLINEINPUTBORDER 6.3.3 TEXTFIELD边框装饰线的颜色配置 6.3.4 TEXTFIELD不可编辑 6.4 TEXTFIELD组件配置提示文本 6.4.1 TEXTFIELD的LABELTEXT使用 6.4.2 TEXTFIELD的PREICON使用 6.4.3 TEXTFIELD的COUNTTEXT使用 6.4.4 TEXTFIELD的HELPERTEXT与ERRORTEXT   6.5 TEXTFIELD组件控制器TEXTEDITINGCONTROLLER 6.6 TEXTFIELD组件光标样式配置  6.7 一个搜索框  6.7.1 搜索框SEARCHSTATICBAR组件构建  6.7.2 搜索输入框SEARCHTEXTFIELDBAR组件构建  6.7.3 搜索输入框使用案例 54"),
+        "细讲解文本输入框 TextField 组件，内容小腹TextField 的输入格式限制、边框样式InputDecoration、提示文本、文本控制器 TextEditingController 、焦点控制、光标样式配置、键盘配置以及一个搜索框的实现等"),
 
     new CatalogBean(
-        "第7章容器Container", ContainerMainPage(), "7.1 CONTAINER组件的基本使用 7.1.1 CONTRAINER的大小限定分析 7.1.2 CONTRAINER自适应包裹子WIDGET  7.2 CONTAINER组件的内外边距 7.2.1 EDGEINSETS分析  7.2.2 PADDING分析 7.2.3 CONTAINER在LISTVIEW中ITEM中的自适应包裹 7.3 CONTAINER组件DECORATION应用 7.3.1 BOXDECORATION在CONTAINER中的应用分析 7.3.2 BOXDECORATION在CONTAINER中的配置阴影7.3.3 BOXDECORATION在CONTAINER中的配置渐变过渡样式 7.3.4 BOXDECORATION配置背景图像 7.3.5 BOXDECORATION的SHAPE属性配置使用 7.3.6 SHAPEDECORATION在CONTAINER中的使用分析 7.4 自定义SHAPEBORDER  7.4.1 打洞效果  7.4.2手撕优惠券的效果  ANIMATEDCONTAINER的基本使用   CONSTRAINEDBOX组件的使用分析 "),
+        "第7章容器Container", ContainerMainPage(), "综述容器Container组件的使用场景、宽高设定、内外边距设定、背景图片、背景阴影、圆角边框、演变样式、AnimatedContainer动画组件、自定义打洞效果与手撕优惠券的效果、ConstrainedBox等 "),
 
-    new CatalogBean("第8章按钮Button", ButtonMainPage(), "8.1 MATERIALBUTTON的使用分析 8.1.1 BUTTONTHEMEDATA的使用分析 8.1.2 各种COLOR的使用分析  8.1.3 MATERIALBUTTON的回调函数说明 8.1.4 MATERIALBUTTON的SHAPE使用分析 8.1.5 MATERIALBUTTON的宽高分析8.1.6 MATERIALBUTTON的子WIDGET分析 8.1.6 MATERIALBUTTON的内边距分析 8.1.7 RAISEDBUTTON的使用分析 8.1.8 FLATBUTTON的使用分析 8.1.9 OUTLINEBUTTON的使用分析  8.2 FLOATINGACTIONBUTTON  8.2.1 属性MINI分析  8.2.2 属性SHAPE分析 8.2.3标签样式 8.2.4 与SCALFOLD的底部BOTTOMNAVIGATIONBAR综合使用 8.2.5 两个页面的过渡动画 8.2.6 悬浮按钮的旋转变换 8.2.7 悬浮按钮实现向上弹出的菜单效果 8.2.8 带有加载进度的PROGRESSBUTTON按钮使用 8.3 ICONBUTTON系列  8.3.1 POPUPMENUBUTTON按钮的使用  8.3.2 实现类似微信首页右上角的小弹框 8.4 自定义动画效果按钮ANIMATEDBUTTON 8.5 自定义进度交互的动画按钮  8.5.2 实现背景填充效果的按钮 8.5.3 ANIMATEDSTATUSBUTTON的自定义分析 "),
-    new CatalogBean("第9章UI布局", UilayoutWidgetMainPage(), "9.1 线性布局COLUMN  9.1.1 COLUMN中子WIDGET的对齐方式分析 9.1.2 COLUMN中子WIDGET按比例分布 9.1.3 COLUMN的宽与高自适应 9.2线性布局ROW  9.2.1 ROW中子WIDGET的对齐方式分析 9.2.2 ROW中子WIDGET按比例分布  19.3弹性布局FLEX 9.3.1 FLEXIBLE和 EXPANDED的区别 9.4流式布局WRAP 9.5 基于WRAP实现的TAG标签使用  9.5 流式布局FLOW  9.5.1 初探FLOWDELEGATE  9.5.2 圆形动态弹出菜单  9.5.3 类似开源中国的圆形动态菜单 9.5.4 向上弹出的动态菜单 、9.6层叠布局STACK  9.6.1 POSITIONED分析 9.6.2 STACK中使用ALIGN"),
+    new CatalogBean("第8章按钮Button", ButtonMainPage(), "MaterialButton的使用分析，FloatingActionButton，IconButton系列，8.4 自定义动画效果按钮AnimatedButton，8.5 自定义进度交互的动画按钮"),
+    new CatalogBean("第9章UI布局", UilayoutWidgetMainPage(), "线性布局Column、Row、弹性布局Flex，流式布局Wrap，基于Wrap实现的tag标签使用， 流式布局Flow，层叠布局Stack"),
     new CatalogBean(
-        "第10章图片Image组件", ImageMainPage(), "10.2加载不同分辨率资源图片10.3 ANDROID与IOS中屏幕分辨率简析 10.3.1分辨率（PX） 10.3.2 屏幕尺寸大小(IN) 10.3.3 屏幕密度（PPI） 10.3.4 ANDROID中的屏幕密度(DIP与DP)  10.3.6 DIP与PPI的区别 10.3.7 RPX  10.3.8 VW、VH  10.3.9 ANDROID中的图片加载  10.3.10 IOS中的图片加载 10.3.11 FLUTTER程序最终加载图片 10.3.12 FLUTTER中获取屏幕相关信息 10.3.13 ASSET静态方法参数分析使用10.4 通过IMAGE组件加图片 10.4.1 通过FILEIMAGE加载手机存储目录下的图片 10.4.2 ANDROID与IOS平台下的存储目录分析 10.4.3 获取手机的存储目录空间路径 10.4.4 清除数据和清除缓存的区别 10.5 通过FADEINIMAGE组件加图片 10.6 通过DECORATIONIMAGE组件加图片10.7 IMAGE.NETWORK的使用 10.8 加载圆形图片 10.9 RAWIMAGE的使用分析 10.10高斯模糊 10.11将WIDGET保存为图片 10.12图片添加水印 10.13. 缩放图片、拖动图片  10.13. 为图片添加水波纹点击事件 "),
+        "第10章图片Image组件", ImageMainPage(), "图片组件Image，内容涉及到 Image组件的基本使用、Image组件多种创建方式、加载网络图片、加载本地图片、图像混合模式BlendMode分析、圆角图片的加载、 CachedNetworkImage组件的使用分析、加载圆角图片、高斯模糊效果、将Widget保存为图片、图片添加水印、缩放图片、拖动图片等"),
     new CatalogBean(
-        "第11章复选框CheckBox组件", CheckBoxMainPage(), "复选框组件、自定义复选框组件、仿开源中国的注册页面"),
-    new CatalogBean("第12章单选框Radio组件", RadioMainPage(), "单选框组件、自定义单选选框组件"),
+        "第11章复选框CheckBox组件", CheckBoxMainPage(), " 复选框CheckBox组件 ，内容涉及 CheckBox基本创建使用以及常用属性配置、CheckboxListTile 组件使用分析、自定义美化复选框效果等"),
+    new CatalogBean("第12章单选框Radio组件", RadioMainPage(), " 单选框 Radio 组件，内容涉及 Radio 组件的基本使用、自定义Radio单选框效果、RadioListTitle基本使用、优惠券选择弹框"),
     new CatalogBean(
-        "第13章手势处理", GestureDetectorMainPage(), "GestureDetector、Ink、InkWell"),
-    new CatalogBean("第14章开关", SwitchWidgetMainPage(), ""),
-    new CatalogBean("第15章 滑动视图ScrollView", ScrollViewMainPage(), ""),
-    new CatalogBean("第16章 列表ListView", ListViewMainPage(), ""),
-    new CatalogBean("第17章 GridView九宫格组件", GridViewMainPage(), ""),
-    new CatalogBean("第18章 Clip裁剪组件系列", ClipViewMainPage(), ""),
+        "第14章手势处理", GestureDetectorMainPage(), "手势处理系列的组件，内容涉及GestureDetector组件、Ink与InkWell组件的使用分析、InkResponse 组件使用分析等"),
+    new CatalogBean("第13 章开关", SwitchWidgetMainPage(), "开关 Switch 组件， Switch的基本使用以及SwitchListTile组件的使用"),
+    new CatalogBean("第15章 滑动视图ScrollView", ScrollViewMainPage(), "滑动视图 ScrollView系列组件，涉及 SingleChildScrollView 、NestedScrollView组件与SliverAppBar组件使用分析、CustomScrollView组件 、滑动折叠效果的AppBar案例、NotificationListener、轮子滚动ListWheelScrollView、自定义抽屉效果DragContainer组件等。"),
+    new CatalogBean("第16章 列表ListView", ListViewMainPage(), "列表ListView组件，内容涉及 ListView组件的基本使用、控制器ScrollController的分析、ListView结合RefreshIndicator实现下拉刷新、SmartRefresher组件实现下拉刷新与上拉加载更多效果等"),
+    new CatalogBean("第17章 GridView九宫格组件", GridViewMainPage(), "宫格组件 GridView，内容 GridView 组件的使用场景以及常用的构建方式等"),
+    new CatalogBean("第18章 Clip裁剪组件系列", ClipViewMainPage(), "Clip裁剪组件系列组件，涉及到矩形裁剪ClipRect、圆角矩形裁剪ClipRRect、椭圆形裁剪ClipOval、路径裁剪ClipPath、以及自定义五角形评分组件等。"),
     new CatalogBean(
-        "第19章矩阵变换t", OtherTransformWidgetMainPage(), "Transform变换组件、"),
-    new CatalogBean("第20章绘图", CanvasWidgetMainPage(), "绘图基础、绘制坐标轴"),
-    new CatalogBean("第21章动画", AnimationWidgetMainPage(), "动画 、"),
-    new CatalogBean("第22章其他Widget", OtherWidgetMainPage(), "Transform变换组件、水平分割线的基本使用、"),
+        "第19章矩阵变换t", OtherTransformWidgetMainPage(), "Matrix4矩阵，涉及Matrix4矩阵简述、Transform组件的综合使用、通过Matrix4实现的平移、旋转、缩放等"),
+    new CatalogBean("第20章绘图", CanvasWidgetMainPage(), "绘图专题，涉及基本图形的绘制、Path构建各种自定义图形、贝塞尔曲线绘制绘制、绘制文本、绘制图片以及绘制动画的实现等。"),
+    new CatalogBean("第21章动画", AnimationWidgetMainPage(), "动画专题，内容涉及Animated系列的动画组件、Tween系列的动画、自定义抖动动画组件ShakeAnimationWidget、自定义闪光过渡动画、 Hero切换过渡动画、Material motion 规范的预构建动画等"),
+    new CatalogBean("第22章其他Widget", OtherWidgetMainPage(), "其他常用Widget，本章为其他常用组件的补充描述章节，内容涉及WidgetsBindingObserver、FittedBox、FutureBuilder、刷新圆圈组件等"),
   ];
 
   @override

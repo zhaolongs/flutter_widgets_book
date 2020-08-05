@@ -6,6 +6,7 @@ import 'package:flutterbookcode/utils/code1/navigator_utils.dart';
 
 import 'main_data1401.dart';
 import 'main_data1402.dart';
+import 'main_data1403.dart';
 
 
 
@@ -49,6 +50,7 @@ class _FirstPageState extends State<SwitchWidgetMainPage> {
 
       buildContainerAndClick("开关Switch的基本使用",(){NavigatorUtils.pushPage(context, SwitchBaseUsePage());}),
       buildContainerAndClick("开关Switch的属性分析",(){NavigatorUtils.pushPage(context, SwitchBaseUsePage2());}),
+    buildContainerAndClick("开关Switch ListTitle 的基本使用",(){NavigatorUtils.pushPage(context, SwitchListTitleBaseUsePage());}),
 
 
 
