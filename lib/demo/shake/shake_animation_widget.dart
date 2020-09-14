@@ -16,25 +16,33 @@ import 'package:flutterbookcode/demo/shake/shake_animation_type.dart';
 class ShakeAnimationWidget extends StatefulWidget {
   ///[child] 执行动画的组件
   final Widget child;
+
   ///抖动的范围配置
   final double shakeRange;
+
   ///抖动的类型
   final ShakeAnimationType shakeAnimationType;
+
   ///抖动次数 0 为无限抖动
   final shakeCount;
+
   ///随机动画时抖动的波动范围
   final double randomValue;
+
   ///抖动动画控制器
   final ShakeAnimationController shakeAnimationController;
+
   ///是否自动执行抖动
   final bool isForward;
+
   ///是否输出日志
   final bool isLog;
+
   ShakeAnimationWidget(
       {@required this.child,
       this.shakeRange = 0.1,
       this.shakeCount = 0,
-        this.isLog=false,
+      this.isLog = false,
       this.shakeAnimationType = ShakeAnimationType.RoateShake,
       this.shakeAnimationController,
       this.isForward = true,
@@ -50,31 +58,41 @@ class _ShakeAnimationState extends State<ShakeAnimationWidget>
     with SingleTickerProviderStateMixin {
   ///动画控制器
   AnimationController _animationController;
+
   ///旋转弧度动画
   Animation<double> _angleAnimation;
+
   ///抖动执行次数
   int _shakeTotalCount = 0;
+
   ///当前抖动执行次数
   int _shakeCurrentCount = 0;
+
   ///抖动的范围配置
   double _shakeRange;
+
   /// lib/demo/shake/shake_animation_widget.dart
+  bool _isLog = false;
+
   @override
   void initState() {
     super.initState();
+
     ///抖动的执行次数
     _shakeTotalCount = widget.shakeCount;
 
     ///抖动的范围
     _shakeRange = widget.shakeRange;
-    if(_shakeRange<=0){
+    if (_shakeRange <= 0) {
       _shakeRange = 0;
-    }else if(_shakeRange>1.0){
+    } else if (_shakeRange > 1.0) {
       _shakeRange = 1.0;
     }
+
     ///1、创建动画控制器
     _animationController = AnimationController(
         duration: const Duration(milliseconds: 200), vsync: this);
+
     ///2、创建串行动画
     _angleAnimation = TweenSequence<double>([
       ///TweenSequenceItem来组合其他的Tween
@@ -91,6 +109,7 @@ class _ShakeAnimationState extends State<ShakeAnimationWidget>
     ///----------------------------------------------------------------
     ///添加动画状态监听
     _angleAnimation.addStatusListener(statusListener);
+
     ///----------------------------------------------------------------
     ///添加动画控制器
     if (widget.shakeAnimationController != null) {
@@ -101,14 +120,19 @@ class _ShakeAnimationState extends State<ShakeAnimationWidget>
     if (widget.isForward) {
       ///正向执行
       _animationController.forward();
-      if(widget.shakeAnimationController!=null){
-        widget.shakeAnimationController.animationRunging=true;
+      if (widget.shakeAnimationController != null) {
+        widget.shakeAnimationController.animationRunging = true;
       }
     }
   }
+
   /// lib/demo/shake/shake_animation_widget.dart
   ///抖动动画控制器监听
   void shakeListener(isOpen, shakeCount) {
+    if (_isLog) {
+      print("抖动次数" + shakeCount.toString() + " open " + isOpen.toString());
+    }
+    _shakeCurrentCount = 0;
     if (isOpen) {
       ///赋值抖动次数
       _shakeTotalCount = shakeCount;
@@ -117,17 +141,27 @@ class _ShakeAnimationState extends State<ShakeAnimationWidget>
     } else {
       ///重置抖动次数
       _shakeTotalCount = widget.shakeCount;
+
       ///停止抖动动画
       _animationController.stop();
     }
   }
+
   /// lib/demo/shake/shake_animation_widget.dart
   ///动画执行状态监听
   void statusListener(status) {
+//    print("动画状态 "+status.toString());
     if (status == AnimationStatus.completed) {
       ///正向执行完毕后立刻反向执行（倒回去）
       _animationController.reverse();
     } else if (status == AnimationStatus.dismissed) {
+      if (_isLog) {
+        print("动画执行完成 _shakeTotalCount " +
+            _shakeTotalCount.toString() +
+            " _shakeCurrentCount " +
+            _shakeCurrentCount.toString());
+      }
+
       ///无次数限定执行
       if (_shakeTotalCount == 0) {
         ///反向执行完毕后立刻正向执行
@@ -142,17 +176,19 @@ class _ShakeAnimationState extends State<ShakeAnimationWidget>
             widget.shakeAnimationController.animationRunging = false;
           }
         }
+
         ///动画执行次数自增
         _shakeCurrentCount++;
       }
     }
   }
+
   /// lib/demo/shake/shake_animation_widget.dart
   @override
   void dispose() {
     ///销毁
     _animationController.dispose();
-    if(widget.shakeAnimationController!=null) {
+    if (widget.shakeAnimationController != null) {
       ///移动监听
       widget.shakeAnimationController.removeListener();
     }
@@ -163,13 +199,17 @@ class _ShakeAnimationState extends State<ShakeAnimationWidget>
   @override
   Widget build(BuildContext context) {
     return ShakeAnimationBuilder(
-      isLog:widget.isLog,
+      isLog: widget.isLog,
+
       ///执行动画的Widget
       child: widget.child,
+
       ///动画曲线
       animation: _angleAnimation,
+
       ///动画类型
       shakeAnimationType: widget.shakeAnimationType,
+
       ///随机动画时抖动的波动范围
       randomValue: widget.randomValue,
     );

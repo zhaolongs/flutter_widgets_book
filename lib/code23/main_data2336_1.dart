@@ -27,8 +27,7 @@ class _FlashAnimationPageState extends State<OpenContainerPage> {
       appBar: AppBar(
         title: Text("OpenContainer过渡"),
       ),
-      backgroundColor: Colors.grey[200],
-      ///列表
+
       body: ListView.builder(
         ///构建每个列表的显示的Widget
         itemBuilder: (BuildContext context, int index) {
@@ -79,7 +78,7 @@ class _FlashAnimationPageState extends State<OpenContainerPage> {
       ///过渡的动画类型
       transitionType: ContainerTransitionType.fade,
       ///过渡时间
-      transitionDuration: Duration(milliseconds: 3000),
+      transitionDuration: Duration(milliseconds: 1000),
       ///closedBuilder配置的Widget的背景色
       closedColor: Colors.white,
       ///阴影高度
@@ -116,11 +115,11 @@ class _FlashAnimationPageState extends State<OpenContainerPage> {
 
   Container buildShowItemContainer() {
     return Container(
-      color: Colors.blueGrey,
       ///边距设置
-      margin: EdgeInsets.only(top: 8),
+      margin: EdgeInsets.only(left: 16, right: 16, bottom: 8, top: 8),
       child: Image.asset(
         "assets/images/2.0x/banner4.webp",
+        height: 100,
         fit: BoxFit.fill,
       ),
     );

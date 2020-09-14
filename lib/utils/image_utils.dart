@@ -23,9 +23,9 @@ class ImageUtils {
   //单例模式创建
   static final ImageUtils imageUtils = ImageUtils._();
 
-  ///用来将普通图片路径下的
+  /// Dio 实例对象，在构造函数中初始化，
+  /// 用来将网络图片保存在本地路径下
   Dio _dio;
-
   //私有化构造
   ImageUtils._() {
     ///创建DIO

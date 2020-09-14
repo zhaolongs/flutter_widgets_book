@@ -27,6 +27,7 @@ class _TestPageState extends State {
   Future<String> loadingDataFunction() async {
     ///模拟
     await Future.delayed(Duration(milliseconds: 4000));
+
     return Future.value("加载成功");
   }
   @override
