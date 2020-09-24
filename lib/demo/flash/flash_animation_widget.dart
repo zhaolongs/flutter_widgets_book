@@ -343,7 +343,7 @@ class _FlashRenderBox extends RenderProxyBox {
         rect = Rect.fromLTWH(dx - width, dy, 3 * width, height);
       }
 
-      ///如果当前的图层为null就创建一个lttn
+      ///如果当前的图层为null就创建一个新的图层
       layer ??= ShaderMaskLayer();
 
       ///设置图层的渐变样式[_gradient]以及区域[rect]
