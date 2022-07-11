@@ -163,7 +163,7 @@ class ScrollHomePageState extends State {
         ///squeeze属性表示车轮上的子控件数量与在同等大小的平面列表上的子控件数量之比，
         squeeze: squeeze,
         ///值为true时裁剪超出显示视图的子Item部分
-        clipToSize:false,
+        // clipToSize:false,
         ///配置为true时绘制窗口外的视图
         renderChildrenOutsideViewport: true,
         ///每个条目的宽度
